@@ -13,5 +13,7 @@ namespace WEBAPP.Models
         public string strekning { get; set; }
         public string dato { get; set; }
         public virtual List<Biletter> biletterIBestilling { get; set; }
+
+       
     }
 }

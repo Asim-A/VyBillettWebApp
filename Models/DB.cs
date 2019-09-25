@@ -7,7 +7,7 @@ using System.Web;
 
 namespace WEBAPP.Models
 {
-    public class DB : DbContext
+     public class DB : DbContext
     {
         public DB() : base("name=DB")
         {
@@ -22,6 +22,25 @@ namespace WEBAPP.Models
         public virtual DbSet<Bestilling> Bestilling { get; set; }
         public virtual DbSet<Biletter> Biletter { get; set; }
         public virtual DbSet<BilettType> BilettType { get; set; }
+
+        public void LeggInnBestilling(BestillingViewModel bestilling) {
+            Biletter NyBilett = new Biletter();
+            NyBilett.strekning = bestilling.Strekning;
+            NyBilett.dato = bestilling.Dato;
+            NyBilett.bilettType = bestilling.Biletttype;
+            if (bestilling.Biletttype.ToString() == "BARN")
+            {
+                NyBilett.antall = bestilling.AntallBarn;
+            }
+            else if (bestilling.Biletttype.ToString() == "STUDENT")
+            {
+                NyBilett.antall = bestilling.AntallStudent;
+            }
+            else {
+                NyBilett.antall = bestilling.AntallVoksen;
+            }
+        
+        }
 
     }
 }

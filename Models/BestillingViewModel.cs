@@ -9,7 +9,7 @@ namespace WEBAPP.Models
     {
         public string Strekning { get; set; }
         public string Dato { get; set; }
-        public string Biletttype { get; set; }
+        public BilettType Biletttype { get; set; }
         public int TotalPris{ get; set; }
         public int AntallBarn { get; set; }
         public int AntallStudent { get; set; }
