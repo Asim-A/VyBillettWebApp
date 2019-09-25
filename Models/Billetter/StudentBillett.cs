@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WEBAPP.Models
 {
-    public class StudentBillett
+    public class StudentBillett : Billett
     {
     }
 }
