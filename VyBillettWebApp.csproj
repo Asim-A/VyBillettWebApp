@@ -132,7 +132,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Billetter\BarneBillett.cs" />
-    <Compile Include="Models\Bestilling.cs" />
+    <Compile Include="Models\Bestillinger.cs" />
     <Compile Include="Models\BestillingViewModel.cs" />
     <Compile Include="Models\Biletter.cs" />
     <Compile Include="Models\BilettType.cs" />
@@ -141,6 +141,7 @@
     <Compile Include="Models\DB.cs" />
     <Compile Include="Models\DBInit.cs" />
     <Compile Include="Models\Billetter\StudentBillett.cs" />
+    <Compile Include="Models\Utillity\MappingUtillity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

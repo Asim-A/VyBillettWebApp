@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WEBAPP.Models.Billetter
+namespace VyBillettWebApp.Models.Billetter
 {
     public class VoksenBillett : Billett
     {

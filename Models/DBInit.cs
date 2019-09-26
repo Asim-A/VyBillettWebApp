@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace WEBAPP.Models
+namespace VyBillettWebApp.Models
 {
     public class DBInit : DropCreateDatabaseAlways<DB>
     {

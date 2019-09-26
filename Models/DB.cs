@@ -5,7 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
-namespace WEBAPP.Models
+namespace VyBillettWebApp.Models
 {
      public class DB : DbContext
     {
@@ -19,7 +19,7 @@ namespace WEBAPP.Models
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-        public virtual DbSet<Bestilling> Bestilling { get; set; }
+        public virtual DbSet<Bestillinger> Bestilling { get; set; }
         public virtual DbSet<Biletter> Biletter { get; set; }
         public virtual DbSet<BilettType> BilettType { get; set; }
 

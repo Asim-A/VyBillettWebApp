@@ -4,15 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace WEBAPP.Models
+namespace VyBillettWebApp.Models
 {
-    public class Bestilling
+    public class Bestillinger
     {
         [Key]
-        public int BId { get; set; }
+        public int bestilling_id { get; set; }
         public string strekning { get; set; }
         public string dato { get; set; }
-        public virtual List<Biletter> biletterIBestilling { get; set; }
+        public virtual List<Biletter> billett_liste { get; set; }
 
        
     }

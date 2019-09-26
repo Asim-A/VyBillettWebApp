@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace WEBAPP.Models
+namespace VyBillettWebApp.Models
 {
     public abstract class Billett
     {
         [Key]
-        public int BilettId { get; set; }
+        public int BillettId { get; set; }
         public string strekning { get; set; }
         public string dato { get; set; }
     }
