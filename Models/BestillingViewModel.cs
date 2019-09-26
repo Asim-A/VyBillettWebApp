@@ -9,11 +9,7 @@ namespace VyBillettWebApp.Models
     {
         public string Strekning { get; set; }
         public string Dato { get; set; }
-        public BilettType Biletttype { get; set; }
-        public int TotalPris{ get; set; }
-        public int AntallBarn { get; set; }
-        public int AntallStudent { get; set; }
-        public int AntallVoksen { get; set; }
+        public List<Billett> liste_billetter { get; set; }
         
     }
 }

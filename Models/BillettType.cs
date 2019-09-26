@@ -6,11 +6,13 @@ using System.Web;
 
 namespace VyBillettWebApp.Models
 {
-    public class BilettType
+    public class BillettType
     {
         [Key]
-        public string Navn { get; set; }
-        public int pris { get; set; }
-        public virtual List<Biletter> BiletterIBilettType { get; set; }
+        public int billett_id { get; set; }
+        public int billett_type { get; set; }
+        public virtual List<Billetter> billetter { get; set; }
+
+        
     }
 }

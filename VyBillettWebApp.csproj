@@ -134,8 +134,8 @@
     <Compile Include="Models\Billetter\BarneBillett.cs" />
     <Compile Include="Models\Bestillinger.cs" />
     <Compile Include="Models\BestillingViewModel.cs" />
-    <Compile Include="Models\Biletter.cs" />
-    <Compile Include="Models\BilettType.cs" />
+    <Compile Include="Models\Billetter.cs" />
+    <Compile Include="Models\BillettType.cs" />
     <Compile Include="Models\Billetter\Billett.cs" />
     <Compile Include="Models\Billetter\VoksenBillett.cs" />
     <Compile Include="Models\DB.cs" />

@@ -6,13 +6,13 @@ using System.Web;
 
 namespace VyBillettWebApp.Models
 {
-    public class Biletter
+    public class Billetter
     {
         [Key]
-        public int BilettId { get; set; }
+        public int BillettId { get; set; }
         public string strekning { get; set; }
         public string dato { get; set; }
-        public BilettType bilettType { get; set; }
+        public BillettType billett_type { get; set; }
         public int antall { get; set; }
     }
 }
