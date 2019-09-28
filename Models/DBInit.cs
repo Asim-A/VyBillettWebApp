@@ -7,10 +7,9 @@ using System.Web;
 namespace VyBillettWebApp.Models
 {
     public class DBInit : DropCreateDatabaseAlways<DB>
-    {
+    {                                           
         protected override void Seed(DB context)
         {
-            
             base.Seed(context);
         }
     }

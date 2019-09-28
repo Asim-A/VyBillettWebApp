@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace VyBillettWebApp.Models
 {
@@ -13,6 +9,5 @@ namespace VyBillettWebApp.Models
         public string strekning { get; set; }
         public string dato { get; set; }
         public BillettType billett_type { get; set; }
-        public int antall { get; set; }
     }
 }
