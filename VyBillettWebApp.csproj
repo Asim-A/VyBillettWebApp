@@ -142,7 +142,6 @@
     <Compile Include="Models\DBInit.cs" />
     <Compile Include="Models\Billetter\StudentBillett.cs" />
     <Compile Include="Models\Databasemodeller\BillettDato.cs" />
-    <Compile Include="Models\Strekning.cs" />
     <Compile Include="Models\Utillity\MappingUtillity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
