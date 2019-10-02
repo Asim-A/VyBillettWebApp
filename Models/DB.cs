@@ -21,8 +21,8 @@ namespace VyBillettWebApp.Models
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
         public virtual DbSet<Bestillinger> Bestilling { get; set; }
-        public virtual DbSet<Billetter> Biletter { get; set; }
-        public virtual DbSet<BillettType> BilettType { get; set; }
+        public virtual DbSet<Billetter> Billetter { get; set; }
+        public virtual DbSet<BillettType> BillettType { get; set; }
 
         public void LeggInnBestilling(BestillingViewModel bestilling) {
                                               
