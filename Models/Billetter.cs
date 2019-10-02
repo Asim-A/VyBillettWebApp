@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace VyBillettWebApp.Models
 {
@@ -6,8 +7,13 @@ namespace VyBillettWebApp.Models
     {
         [Key]
         public int BillettId { get; set; }
-        public string strekning { get; set; }
-        public string dato { get; set; }
+        public string fra { get; set; }
+        public string til { get; set; }
+        public DateTime reise_dato { get; set; }
+        public Bestillinger bestilling_id { get; set; }   
         public BillettType billett_type { get; set; }
+
+        public virtual Bestillinger Bestilling { get; set; }
+
     }
 }
