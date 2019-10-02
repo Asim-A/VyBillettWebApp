@@ -11,7 +11,7 @@ namespace VyBillettWebApp.Models
         public string til { get; set; }
         public DateTime reise_dato { get; set; }
         public Bestillinger bestilling_id { get; set; }   
-        public BillettType billett_type { get; set; }
+        public BillettType billett_type_id { get; set; }
 
         public virtual Bestillinger Bestilling { get; set; }
 

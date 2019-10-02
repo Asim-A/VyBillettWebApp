@@ -9,7 +9,8 @@ namespace VyBillettWebApp.Models
     public class BillettType
     {
         [Key]
-        public int billett_type { get; set; }
+        public int billett_type_id { get; set; }
+        public double  billett_pris { get; set; }
         public virtual List<Billetter> billetter { get; set; }
                
     }
