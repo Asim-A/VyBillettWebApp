@@ -8,12 +8,6 @@ namespace VyBillettWebApp.Models
 {
     public class BestillingViewModel
     {
-        public string Dato { get; set; }
-        public List<Billett> liste_billetter { get; set; }
-
-        // dette er både en domenemodell og en view-modell
-        public int id { get; set; }
-
         [Display(Name = "Fra")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]
         public string fra { get; set; }
@@ -29,10 +23,12 @@ namespace VyBillettWebApp.Models
         public int antall_studenter { get; set; }
 
         [Display(Name = "Antall Vokse")]
-        public string antall_vokse { get; set; }
+        public int antall_vokse { get; set; }
 
         [Display(Name = "Reise dato")]
-        [Required(ErrorMessage = "Poststed må oppgis")]
-        public string reise_dato_tid { get; set; }
+        public DateTime reise_dato_tid { get; set; }        //TODO 
+        //skal vi bruke mapping utility her?
+
+
     }
 }
