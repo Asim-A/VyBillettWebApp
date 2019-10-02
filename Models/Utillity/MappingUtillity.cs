@@ -30,5 +30,16 @@ namespace VyBillettWebApp.Models.Utillity
             return DateTime.Now.ToString();
         }
             
+        public DateTime DefaultStringToDateTime(String date) 
+        {
+                    return StringToDateTime(date, DATETIME_FORMAT);
+        }
+
+        public DateTime StringToDateTime(String date, String dateFormatString) 
+        {
+            return DateTime.ParseExact(date, dateFormatString, null);
+        }
+
+        
     }
 }
