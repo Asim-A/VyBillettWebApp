@@ -7,11 +7,10 @@ namespace VyBillettWebApp.Models
     public class Billetter
     {
         [Key]
-        public int BillettId { get; set; }
-        public string fra { get; set; }
-        public string til { get; set; }
-        public DateTime reise_dato { get; set; }
-        public Bestillinger bestilling_id { get; set; }       
+        public int billett_id { get; set; }
+        [Required]
+        public Bestillinger bestilling_id { get; set; }
+        [Required]
         public BillettType billett_type_id { get; set; }
 
     }
