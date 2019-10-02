@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VyBillettWebApp.Models
 {
@@ -10,9 +11,10 @@ namespace VyBillettWebApp.Models
         public string fra { get; set; }
         public string til { get; set; }
         public DateTime reise_dato { get; set; }
-        public Bestillinger bestilling_id { get; set; }   
+        public Bestillinger bestilling_id { get; set; }       
         public BillettType billett_type_id { get; set; }
 
+        [ForeignKey("bestilling_id")]
         public virtual Bestillinger Bestilling { get; set; }
 
     }
