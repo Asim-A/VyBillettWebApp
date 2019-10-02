@@ -27,15 +27,20 @@ namespace VyBillettWebApp.Models.Utillity
 
         public static string DateTimeNowToString()
         {
-            return DateTime.Now.ToString();
+            return DateTimeToString(DateTime.Now);
+        }
+
+        public static string DateTimeToString(DateTime dateTime)
+        {
+            return dateTime.ToString();
         }
             
-        public DateTime DefaultStringToDateTime(String date) 
+        public static DateTime DefaultStringToDateTime(String date) 
         {
                     return StringToDateTime(date, DATETIME_FORMAT);
         }
 
-        public DateTime StringToDateTime(String date, String dateFormatString) 
+        public static DateTime StringToDateTime(String date, String dateFormatString) 
         {
             return DateTime.ParseExact(date, dateFormatString, null);
         }
