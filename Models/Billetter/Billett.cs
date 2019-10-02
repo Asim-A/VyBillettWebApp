@@ -8,7 +8,6 @@ namespace VyBillettWebApp.Models
 {
     public abstract class Billett
     {
-        [Key]
         public int BillettId { get; set; }
         public string strekning { get; set; }
         public string dato { get; set; }
