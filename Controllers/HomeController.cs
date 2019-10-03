@@ -24,13 +24,15 @@ namespace VyBillettWebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult LeggInnBestilling(BestillingViewModel bestilling) {
-           
+        public ActionResult Index(BestillingViewModel bestilling) {
 
 
+            return RedirectToAction("LeggInnBestilling", bestilling);
+        }
 
-
-            return null;
+        public ActionResult LeggInnBestilling(BestillingViewModel bestilling)
+        {
+            return View(bestilling);
         }
 
     }

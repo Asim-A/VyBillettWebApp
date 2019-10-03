@@ -1,0 +1,66 @@
+﻿@model VyBillettWebApp.Models.BestillingViewModel
+
+@{
+    ViewBag.Title = "LeggInnBestilling";
+}
+
+<h2>LeggInnBestilling</h2>
+
+<div>
+    <h4>BestillingViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.til)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.til)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.antall_barn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.antall_barn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.antall_studenter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.antall_studenter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.antall_voksne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.antall_voksne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reise_dato_tid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reise_dato_tid)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
