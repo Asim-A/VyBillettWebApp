@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VyBillettWebApp.Models;
+using VyBillettWebApp.Models.Utillity;
 
 namespace VyBillettWebApp.Controllers
 {
@@ -28,6 +29,7 @@ namespace VyBillettWebApp.Controllers
             if (ModelState.IsValid)
             {
                 //mener dette burde skje et annet sted + må behandle dato.
+                System.Diagnostics.Debug.WriteLine("ActionResult registrer med innkunde");
                 var b = new Bestillinger();
                 b.fra = bestilling.fra;
                 b.til = bestilling.til;
