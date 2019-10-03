@@ -7,10 +7,10 @@
 <h2>Index</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>BestillingViewModel</h4>
         <hr />
@@ -48,17 +48,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.antall_vokse, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.antall_voksne, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.antall_vokse, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.antall_vokse, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.antall_voksne, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.antall_voksne, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.reise_dato_tid, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "form-control datepicker" } })
                 @Html.ValidationMessageFor(model => model.reise_dato_tid, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -69,6 +69,19 @@
             </div>
         </div>
     </div>
+}
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+    <script>
+
+        $(function () {
+
+            $(".datepicker").datetimepicker();
+        });
+    </script>
 }
 
 <div>
