@@ -48,7 +48,6 @@
     </div>
 
     <div class="form-group">
-
         @Html.LabelFor(model => model.antall_voksne, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="qty mt-5">
@@ -56,47 +55,38 @@
                 <input type="number" class="count" name="qty" value="1">
                 <span class="plus bg-dark">+</span>
             </div>
-            @Html.ValidationMessageFor(model => model.antall_voksne, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(model => model.reise_dato_tid, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-
-            @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "form-control datepicker" } })
-            @Html.ValidationMessageFor(model => model.reise_dato_tid, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
+                @Html.ValidationMessageFor(model => model.reise_dato_tid, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
 </div>
 }
 
-
-
-<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
-<link href="~/Content/jquery-ui-timepicker-addon.css" rel="stylesheet" />
-@section scripts{
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
-    <script>
-
-        $(function () {
-
-            $(".datepicker").datetimepicker();
-        });
-    </script>
-}
-
+<link href="~/Content/Pikaday/pikaday.css" rel="stylesheet" />
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Pikaday/pikaday.js"></script>
+    <script>
+        var picker = new Pikaday(
+            {
+                field: document.getElementById('datepicker'),
+                minDate: new Date(),
+                onSelect: function () {
+                    console.log(this);
+                }
+            });
+    </script>
+}

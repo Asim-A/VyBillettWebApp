@@ -8,12 +8,12 @@ namespace VyBillettWebApp.Models
 {
     public class BestillingViewModel
     {
-        [Display(Name = "Fra")]
+        [Display(Name = "Reise fra")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]
         [RegularExpression("[a-zA-ZøæåØÆÅ]{2,16}", ErrorMessage = "æla psyko skriv riktig a")]
         public string fra { get; set; }
 
-        [Display(Name = "Til")]
+        [Display(Name = "Reise til")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise til")]
         [RegularExpression("[a-zA-ZøæåØÆÅ]{2,16}", ErrorMessage = "æla psyko skriv riktig a")]
         public string til { get; set; }

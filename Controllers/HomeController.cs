@@ -23,19 +23,24 @@ namespace VyBillettWebApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult index(BestillingViewModel bestilling) {
+        public ActionResult LeggInnBestilling(BestillingViewModel bestilling)
+        {
             if (ModelState.IsValid)
             {
+                //mener dette burde skje et annet sted + må behandle dato.
                 var b = new Bestillinger();
                 b.fra = bestilling.fra;
                 b.til = bestilling.til;
                 b.reise_dato = bestilling.reise_dato_tid;
                 b.bestilling_dato = DateTime.Now;
-             
+
             }
             return View();
+        }
 
+        [HttpPost]
+        public ActionResult Index(BestillingViewModel bestilling) {
+            return RedirectToAction("LeggInnBestilling", bestilling);
         }
     }
 }
