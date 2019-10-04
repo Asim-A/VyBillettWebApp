@@ -44,6 +44,7 @@ namespace VyBillettWebApp.Controllers
             }).ToList();                            
             System.Diagnostics.Debug.WriteLine(" "+TestListeBestillinger[0].fra);
             System.Diagnostics.Debug.WriteLine("antall " + TestListeBestillinger.Count);
+            System.Diagnostics.Debug.WriteLine(" " + TestListeBestillinger[0].reise_dato_tid);
 
 
 
