@@ -52,24 +52,9 @@ namespace VyBillettWebApp.Controllers
                
             }
             ///////////for test
-<<<<<<< HEAD
             
             
             
-=======
-            List<BestillingViewModel> TestListeBestillinger = db.Bestillinger.Select(b => new BestillingViewModel()
-            {
-                fra = b.fra,
-                til = b.til,
-                reise_dato_tid = b.reise_dato,
-                antall_voksne= b.billett_liste.Count
-            }).ToList();                            
-
-            System.Diagnostics.Debug.WriteLine(" "+TestListeBestillinger[0].fra);
-            System.Diagnostics.Debug.WriteLine("antall " + TestListeBestillinger.Count);
-            System.Diagnostics.Debug.WriteLine(" " + TestListeBestillinger[0].reise_dato_tid);
-
->>>>>>> 394b7253d310d330903a9eb23a58c470ea2fe4d1
 
 
 
