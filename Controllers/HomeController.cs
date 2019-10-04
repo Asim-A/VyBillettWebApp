@@ -21,24 +21,7 @@ namespace VyBillettWebApp.Controllers
         }
         public ActionResult Index()
         {
-            List<BestillingViewModel> TestListeBestillinger = db.Bestillinger.Select(b => new BestillingViewModel()
-            {
-                fra = b.fra,
-                til = b.til,
-                reise_dato_tid = b.reise_dato,
-                antall_voksne = b.billett_liste.Count
-            }).ToList();
-            foreach (var testshitmannen in TestListeBestillinger)
-            {
-                System.Diagnostics.Debug.WriteLine(testshitmannen.fra);
-                System.Diagnostics.Debug.WriteLine(testshitmannen.til);
-                System.Diagnostics.Debug.WriteLine(testshitmannen.antall_barn);
-                System.Diagnostics.Debug.WriteLine(testshitmannen.antall_studenter);
-                System.Diagnostics.Debug.WriteLine(testshitmannen.antall_voksne);
-                System.Diagnostics.Debug.WriteLine(testshitmannen.reise_dato_tid);
-               
-            }
-
+          
             return View();
         }
 
@@ -52,9 +35,16 @@ namespace VyBillettWebApp.Controllers
                
             }
             ///////////for test
-            
-            
-            
+            List<BestillingViewModel> TestListeBestillinger = db.Bestillinger.Select(b => new BestillingViewModel()
+            {
+                fra = b.fra,
+                til = b.til,
+                reise_dato_tid = b.reise_dato,
+                antall_voksne= b.billett_liste.Count
+            }).ToList();                            
+            System.Diagnostics.Debug.WriteLine(" "+TestListeBestillinger[0].fra);
+            System.Diagnostics.Debug.WriteLine("antall " + TestListeBestillinger.Count);
+
 
 
 
