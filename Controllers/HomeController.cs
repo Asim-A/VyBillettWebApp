@@ -30,7 +30,7 @@ namespace VyBillettWebApp.Controllers
             System.Diagnostics.Debug.WriteLine("LeggInnBestilling med innkunde");
             if (ModelState.IsValid)
             {
-                var md = new ModellBuilder();
+                var md = new dbModellBygger();
                 md.BuildBestillingModells(bestilling, db);
                
             }
@@ -44,7 +44,6 @@ namespace VyBillettWebApp.Controllers
             }).ToList();                            
             System.Diagnostics.Debug.WriteLine(" "+TestListeBestillinger[0].fra);
             System.Diagnostics.Debug.WriteLine("antall " + TestListeBestillinger.Count);
-            System.Diagnostics.Debug.WriteLine(db.Bestillinger.SqlQuery("Select * Bestillinger").ToList<Bestillinger>()) ;
 
 
 

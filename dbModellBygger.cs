@@ -7,7 +7,7 @@ using VyBillettWebApp.Models.Utillity;
 
 namespace VyBillettWebApp
 {
-    public class ModellBuilder
+    public class dbModellBygger
     {
 
         BestillingViewModel bestilling_VM;
@@ -26,12 +26,10 @@ namespace VyBillettWebApp
             try
             {
                 db.Bestillinger.Add(bestillinger);
-
                 db.SaveChanges();
             }
             catch (Exception feil)
-            {
-                //
+            {              
                 System.Diagnostics.Debug.WriteLine("feil");
             }          
         }       
@@ -64,7 +62,7 @@ namespace VyBillettWebApp
         {
             foreach (Billetter b in bestillinger.billett_liste)
             {
-                bestillinger.total_pris = +MappingUtillity.getBillettPris(b.billett_type);
+                bestillinger.total_pris = bestillinger.total_pris + MappingUtillity.getBillettPris(b.billett_type);
             }
         }
     }
