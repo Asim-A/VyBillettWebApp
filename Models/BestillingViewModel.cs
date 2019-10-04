@@ -31,9 +31,7 @@ namespace VyBillettWebApp.Models
         public int antall_voksne { get; set; }
 
         [Display(Name = "Reise dato")]
-        public DateTime reise_dato_tid { get; set; }        //TODO 
-        //skal vi bruke mapping utility her?
+        public DateTime reise_dato_tid { get; set; }     
  
-
     }
 }

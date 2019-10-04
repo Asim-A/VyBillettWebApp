@@ -9,22 +9,21 @@ namespace VyBillettWebApp.Models.Utillity
     {
 
         readonly public static string DATETIME_FORMAT = "dd/MM/yyyy HH:mm:ss";
-        
-        public enum Billett_Type
+        readonly public static IDictionary<string, double> billett_type_til_pris = new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase)
         {
-            BILLETT = 0,
-            VOKSEN = 1,
-            STUDENT = 2,
-            BARN = 3,
-        }
-                
-        readonly public static IDictionary<Billett_Type, int> billett_type_til_pris = new Dictionary<Billett_Type, int>()
-        {
-            {Billett_Type.VOKSEN, 130 },
-            {Billett_Type.STUDENT, 60 },
-            {Billett_Type.BARN, 30 }
+            {"VOKSEN", 130 },
+            {"STUDENT", 60 },
+            {"BARN", 30 }
         };
 
+        public static double getBillettPris(string billettType) {
+            double pris;
+            if (!billett_type_til_pris.TryGetValue(billettType, out pris))
+            {
+                throw new Exception("Billettype Er Ikke Registrert i Systemet ");            
+            }
+            return pris;
+        }
         public static string DateTimeNowToString()
         {
             return DateTimeToString(DateTime.Now);
