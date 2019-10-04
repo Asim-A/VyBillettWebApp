@@ -24,6 +24,17 @@ namespace VyBillettWebApp.Models.Utillity
             }
             return pris;
         }
+
+        public static double BeregnBestillingPris(Bestillinger bestillinger)
+        {
+            double total_pris = 0;
+            foreach (Billetter b in bestillinger.billett_liste)
+            {
+                total_pris = total_pris + getBillettPris(b.billett_type);
+            }
+            return total_pris;
+        }
+
         public static string DateTimeNowToString()
         {
             return DateTimeToString(DateTime.Now);
