@@ -13,7 +13,7 @@ namespace VyBillettWebApp.Models
         public DB() : base("name=DB")
         {
             Database.CreateIfNotExists();
-            Database.SetInitializer(new DBInit());
+           // Database.SetInitializer(new DBInit());
 
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

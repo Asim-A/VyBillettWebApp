@@ -20,11 +20,13 @@ namespace VyBillettWebApp
             BuildBilletter("Barn", bestilling_VM.antall_barn);
             BuildBilletter("Student", bestilling_VM.antall_studenter);
             BuildBilletter("Voksen", bestilling_VM.antall_voksne);
-            BeregnBestillingPris();           
+            BeregnBestillingPris();
+            System.Diagnostics.Debug.WriteLine("pris "+ bestillinger.total_pris);
                
             try
             {
                 db.Bestillinger.Add(bestillinger);
+
                 db.SaveChanges();
             }
             catch (Exception feil)
