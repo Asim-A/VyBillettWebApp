@@ -39,10 +39,17 @@ namespace VyBillettWebApp.Controllers
             {
                 fra = b.fra,
                 til = b.til,
-                reise_dato_tid = b.reise_dato                
+                reise_dato_tid = b.reise_dato,
+                antall_voksne= b.billett_liste.Count
             }).ToList();                            
             System.Diagnostics.Debug.WriteLine("fitte i helvete kukk system  "+TestListeBestillinger[0].fra);
             System.Diagnostics.Debug.WriteLine("fitte i helvete kukk system  ANTALL" + TestListeBestillinger.Count);
+            System.Diagnostics.Debug.WriteLine("f  ANTALLbilleter bare å legge opp om du adder billetter og denna er null" +
+                "" + TestListeBestillinger[0].antall_voksne);
+
+
+
+
 
             /////////////
             return View();
