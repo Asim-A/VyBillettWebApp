@@ -20,7 +20,7 @@ namespace VyBillettWebApp.Models
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-        public virtual DbSet<Bestillinger> Bestilling { get; set; }
+        public virtual DbSet<Bestillinger> Bestillinger { get; set; }
         public virtual DbSet<Billetter> Billetter { get; set; }
         public virtual DbSet<BillettType> BillettType { get; set; }
 

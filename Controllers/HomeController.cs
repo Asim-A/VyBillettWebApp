@@ -26,17 +26,24 @@ namespace VyBillettWebApp.Controllers
 
         public ActionResult LeggInnBestilling(BestillingViewModel bestilling)
         {
+            System.Diagnostics.Debug.WriteLine("LeggInnBestilling med innkunde");
             if (ModelState.IsValid)
             {
-                //mener dette burde skje et annet sted + må behandle dato.
-                System.Diagnostics.Debug.WriteLine("ActionResult registrer med innkunde");
-                var b = new Bestillinger();
-                b.fra = bestilling.fra;
-                b.til = bestilling.til;
-                b.reise_dato = bestilling.reise_dato_tid;
-                b.bestilling_dato = DateTime.Now;
-
+                var md = new ModellBuilder();
+                md.BuildBestillingModells(bestilling, db);
+               
             }
+            ///////////for test
+            List<BestillingViewModel> TestListeBestillinger = db.Bestillinger.Select(b => new BestillingViewModel()
+            {
+                fra = b.fra,
+                til = b.til,
+                reise_dato_tid = b.reise_dato                
+            }).ToList();                            
+            System.Diagnostics.Debug.WriteLine("fitte i helvete kukk system  "+TestListeBestillinger[0].fra);
+            System.Diagnostics.Debug.WriteLine("fitte i helvete kukk system  ANTALL" + TestListeBestillinger.Count);
+
+            /////////////
             return View();
         }
 

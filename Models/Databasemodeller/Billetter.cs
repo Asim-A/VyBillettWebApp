@@ -11,7 +11,6 @@ namespace VyBillettWebApp.Models
         [Required]
         public Bestillinger bestilling_id { get; set; }
         [Required]
-        public BillettType billett_type_id { get; set; }
-
+        public string billett_type { get; set; }
     }
 }
