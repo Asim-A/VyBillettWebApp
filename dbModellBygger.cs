@@ -27,7 +27,7 @@ namespace VyBillettWebApp
             BuildBilletter("Barn", bestilling_VM.antall_barn);
             BuildBilletter("Student", bestilling_VM.antall_studenter);
             BuildBilletter("Voksen", bestilling_VM.antall_voksne);
-            MappingUtillity.BeregnBestillingPris(bestillinger);
+            bestillinger.total_pris = MappingUtillity.BeregnBestillingPris(bestillinger);
             
             try
             {
