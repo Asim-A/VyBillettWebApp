@@ -8,14 +8,14 @@ namespace VyBillettWebApp.Models
 {
     public class BestillingViewModel
     {
-        [Display(Name = "Reise fra")]
+        [Display(Name = "fra:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]
-        [RegularExpression("[a-zA-ZøæåØÆÅ]{2,16}", ErrorMessage = "æla psyko skriv riktig a")]
+        [RegularExpression("[a-zA-ZøæåØÆÅ]{2,16}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
         public string fra { get; set; }
 
-        [Display(Name = "Reise til")]
+        [Display(Name = "til:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise til")]
-        [RegularExpression("[a-zA-ZøæåØÆÅ]{2,16}", ErrorMessage = "æla psyko skriv riktig a")]
+        [RegularExpression("[a-zA-ZøæåØÆÅ]{2,16}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
         public string til { get; set; }
 
         [Display(Name = "Antall Barn")]
@@ -33,7 +33,7 @@ namespace VyBillettWebApp.Models
         [Display(Name = "Reise dato")]
         public DateTime reise_dato_tid { get; set; }        //TODO 
         //skal vi bruke mapping utility her?
-
+ 
 
     }
 }

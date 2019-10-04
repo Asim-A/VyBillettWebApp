@@ -21,6 +21,7 @@ namespace VyBillettWebApp.Controllers
         }
         public ActionResult Index()
         {
+          
             return View();
         }
 
