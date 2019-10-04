@@ -20,9 +20,8 @@ namespace VyBillettWebApp
             BuildBilletter("Barn", bestilling_VM.antall_barn);
             BuildBilletter("Student", bestilling_VM.antall_studenter);
             BuildBilletter("Voksen", bestilling_VM.antall_voksne);
-            BeregnBestillingPris();
-            System.Diagnostics.Debug.WriteLine("pris "+ bestillinger.total_pris);
-               
+            bestillinger.total_pris = MappingUtillity.BeregnBestillingPris(bestillinger);
+            
             try
             {
                 db.Bestillinger.Add(bestillinger);
@@ -56,14 +55,6 @@ namespace VyBillettWebApp
                 billett.billett_type = type;
                 bestillinger.billett_liste.Add(billett);
             }
-        }
-
-        private void BeregnBestillingPris()
-        {
-            foreach (Billetter b in bestillinger.billett_liste)
-            {
-                bestillinger.total_pris = bestillinger.total_pris + MappingUtillity.getBillettPris(b.billett_type);
-            }
-        }
+        }      
     }
 }

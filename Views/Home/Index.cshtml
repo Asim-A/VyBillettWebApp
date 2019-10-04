@@ -4,7 +4,7 @@
     ViewBag.Title = "Bestill billett";
 }
 
-<h2 class="h2">Hvor vil du reise?</h2>
+<h2 class="h2">Hei, Hvor vil du reise?</h2>
 
 
 @using (Html.BeginForm())
@@ -33,7 +33,8 @@
                 @Html.ValidationMessageFor(model => model.til, "", new { @class = "text-danger test" })
             </div>
         </div>
-            </div>
+            
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.antall_barn, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
@@ -70,7 +71,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Bestill Billett" class="btn btn-primary" />
+                <input type="submit" value="Kjøp Billett" class="btn btn-primary" />
             </div>
         </div>
     </div>

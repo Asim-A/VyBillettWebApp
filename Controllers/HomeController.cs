@@ -25,37 +25,80 @@ namespace VyBillettWebApp.Controllers
             return View();
         }
 
-        public ActionResult LeggInnBestilling(BestillingViewModel bestilling)
+        [HttpPost]
+        public ActionResult Index(BestillingViewModel bestilling)
         {
             System.Diagnostics.Debug.WriteLine("LeggInnBestilling med innkunde");
             if (ModelState.IsValid)
             {
                 var md = new dbModellBygger();
                 md.BuildBestillingModells(bestilling, db);
-               
+
             }
             ///////////for test
+            string toSeachFor = "osloveiendenne";
+            List<Bestillinger> bestillinger_liste = db.Bestillinger.ToList();
+            IEnumerable<Bestillinger> match = bestillinger_liste.Where(x => x.fra.Equals(toSeachFor));
+            foreach (Bestillinger b in match) {
+                System.Diagnostics.Debug.WriteLine(" id " + b.bestilling_id);
+                System.Diagnostics.Debug.WriteLine(" fra "+b.fra);
+                System.Diagnostics.Debug.WriteLine(" til "+b.til); 
+            }
+
+
             List<BestillingViewModel> TestListeBestillinger = db.Bestillinger.Select(b => new BestillingViewModel()
             {
                 fra = b.fra,
-                til = b.til,
-                reise_dato_tid = b.reise_dato,
-                antall_voksne= b.billett_liste.Count
-            }).ToList();                            
-            System.Diagnostics.Debug.WriteLine(" "+TestListeBestillinger[0].fra);
-            System.Diagnostics.Debug.WriteLine("antall " + TestListeBestillinger.Count);
+                til = b.til,               
+                antall_barn = b.billett_liste.Where(x => x.billett_type.Equals("Barn")).Count(),
+                antall_studenter = b.billett_liste.Where(x => x.billett_type.Equals("Student")).Count(),
+                antall_voksne = b.billett_liste.Where(x => x.billett_type.Equals("Voksen", StringComparison.InvariantCultureIgnoreCase)).ToList().Count(),
+                reise_dato_tid = b.reise_dato
+            }).ToList();
 
+            foreach (var testshitmannen in TestListeBestillinger) {
+                System.Diagnostics.Debug.WriteLine("============== nytt BestillingViewModel i TestListeBestillingerView ===============");
+                System.Diagnostics.Debug.WriteLine(testshitmannen.fra); 
+                System.Diagnostics.Debug.WriteLine(testshitmannen.til); 
+                System.Diagnostics.Debug.WriteLine(testshitmannen.antall_barn); 
+                System.Diagnostics.Debug.WriteLine(testshitmannen.antall_studenter);
+                System.Diagnostics.Debug.WriteLine(testshitmannen.antall_voksne);
+                System.Diagnostics.Debug.WriteLine(testshitmannen.reise_dato_tid); 
+            }
+            System.Diagnostics.Debug.WriteLine("============== TestListeBestillingerview antall elementer:  "+TestListeBestillinger.Count);
 
+            List<Billetter> TestListebilletter = db.Billetter.ToList();
+            System.Diagnostics.Debug.WriteLine("============== TestListeBilletter antall billetter"+ TestListebilletter.Count());
+            foreach (var testshitmannen in TestListebilletter)
+            {
 
+                System.Diagnostics.Debug.WriteLine("============== nye billet i  TestListeBilletter ========");
+                System.Diagnostics.Debug.WriteLine("Billett id  "+testshitmannen.billett_id);
+                System.Diagnostics.Debug.WriteLine("bestilling id  "+testshitmannen.bestilling_id.bestilling_id);
+                System.Diagnostics.Debug.WriteLine("Billett_type id  "+testshitmannen.billett_type);
+            }
 
-
+            List<Bestillinger> testListebBestillinger = db.Bestillinger.ToList();
+            System.Diagnostics.Debug.WriteLine("==========*********** TestListebestillinger antall billetter" + TestListebilletter.Count());
+            foreach (var testshitmannen in testListebBestillinger)
+            {
+                System.Diagnostics.Debug.WriteLine("==========****==== nye billet i  TestListeBilletter ========");
+                System.Diagnostics.Debug.WriteLine("bestilling id  " + testshitmannen.bestilling_id);
+                System.Diagnostics.Debug.WriteLine("bestilling fra  " + testshitmannen.fra);
+                System.Diagnostics.Debug.WriteLine("bestilling Til  " + testshitmannen.til);
+                System.Diagnostics.Debug.WriteLine("bestilling TOTALPRIS  " + testshitmannen.total_pris);
+                System.Diagnostics.Debug.WriteLine("bestilling reise_dato  " + testshitmannen.reise_dato);
+                System.Diagnostics.Debug.WriteLine("bestilling bestilling_dato  " + testshitmannen.bestilling_dato);
+                System.Diagnostics.Debug.WriteLine("bestilling liste  " + testshitmannen.billett_liste.Count());
+            }
             /////////////
             return View();
         }
-
+        /*
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling) {
             return RedirectToAction("LeggInnBestilling", bestilling);
-        }
+        } 
+        */
     }
 }
