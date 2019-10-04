@@ -15,14 +15,20 @@ namespace VyBillettWebApp
         internal void BuildBestillingModells(BestillingViewModel bestilling, DB db)
         {
             bestilling_VM = bestilling;
-            bestillinger = BuildBestilling();           
-
+            bestillinger = new Bestillinger
+            {
+                fra = bestilling_VM.fra,
+                til = bestilling_VM.til,
+                reise_dato = bestilling_VM.reise_dato_tid,
+                bestilling_dato = DateTime.Now,
+                total_pris = 0,
+                billett_liste = new List<Billetter>()
+            };
             BuildBilletter("Barn", bestilling_VM.antall_barn);
             BuildBilletter("Student", bestilling_VM.antall_studenter);
             BuildBilletter("Voksen", bestilling_VM.antall_voksne);
-            BeregnBestillingPris();
-            System.Diagnostics.Debug.WriteLine("pris "+ bestillinger.total_pris);
-               
+            MappingUtillity.BeregnBestillingPris(bestillinger);
+            
             try
             {
                 db.Bestillinger.Add(bestillinger);
@@ -34,19 +40,6 @@ namespace VyBillettWebApp
             }          
         }       
 
-        private Bestillinger BuildBestilling()
-        {
-            var b = new Bestillinger {
-                fra = bestilling_VM.fra,
-                til = bestilling_VM.til,
-                reise_dato = bestilling_VM.reise_dato_tid,
-                bestilling_dato = DateTime.Now,
-                total_pris = 0,
-                billett_liste = new List<Billetter>()
-            };
-            return b;
-        }
-
         private void BuildBilletter(String type, int antall)
         {
             for (int counter = 0; counter < antall; counter++)
@@ -55,14 +48,6 @@ namespace VyBillettWebApp
                 billett.bestilling_id = bestillinger;
                 billett.billett_type = type;
                 bestillinger.billett_liste.Add(billett);
-            }
-        }
-
-        private void BeregnBestillingPris()
-        {
-            foreach (Billetter b in bestillinger.billett_liste)
-            {
-                bestillinger.total_pris = bestillinger.total_pris + MappingUtillity.getBillettPris(b.billett_type);
             }
         }
     }
