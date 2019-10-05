@@ -44,6 +44,18 @@ namespace VyBillettWebApp.Models.Utillity
             return DateTime.ParseExact(date, dateFormatString, null);
         }
 
+        public static double BeregnBestillingPris(Bestillinger bestillinger)
+        {
+            double sum = 0;
+
+            foreach (var billett in bestillinger.billett_liste) {
+
+                sum += billett_type_til_pris[billett.billett_type];
+
+            }
+
+            return sum;
+        }
         
     }
 }
