@@ -180,8 +180,6 @@ function show_menu_id(id, input_id) {
 
 }
 
-
-
 fra_input.setAttribute("autocomplete", "off");
 til_input.setAttribute("autocomplete", "off");
 setup_timepicker();
