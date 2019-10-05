@@ -31,7 +31,8 @@ namespace VyBillettWebApp.Models
         public int antall_voksne { get; set; }
 
         [Display(Name = "Reise dato")]
-        public DateTime reise_dato_tid { get; set; }     
+        public DateTime reise_dato { get; set; }     
+        public DateTime reise_dato_tid { get; set; }
  
     }
 }

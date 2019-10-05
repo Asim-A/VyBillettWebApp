@@ -37,10 +37,12 @@ namespace VyBillettWebApp.Controllers
         
         public string ajaxtestinn(BestillingViewModel bestilling)
         {
-            System.Diagnostics.Debug.WriteLine(" ajaxtestinn "+ bestilling.reise_dato_tid);
+            System.Diagnostics.Debug.WriteLine(" ajaxtestinn "+ bestilling.reise_dato);
             var jsonSerializer = new JavaScriptSerializer();
-            return jsonSerializer.Serialize("bestilling date "+bestilling.reise_dato_tid);
+            return jsonSerializer.Serialize("bestilling date "+bestilling.reise_dato);
         }
+
+
 
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling)
@@ -70,7 +72,7 @@ namespace VyBillettWebApp.Controllers
                 antall_barn = b.billett_liste.Where(x => x.billett_type.Equals("Barn")).Count(),
                 antall_studenter = b.billett_liste.Where(x => x.billett_type.Equals("Student")).Count(),
                 antall_voksne = b.billett_liste.Where(x => x.billett_type.Equals("Voksen", StringComparison.InvariantCultureIgnoreCase)).ToList().Count(),
-                reise_dato_tid = b.reise_dato
+                reise_dato = b.reise_dato
             }).ToList();
 
             foreach (var testshitmannen in TestListeBestillinger) {
@@ -80,7 +82,7 @@ namespace VyBillettWebApp.Controllers
                 System.Diagnostics.Debug.WriteLine(testshitmannen.antall_barn); 
                 System.Diagnostics.Debug.WriteLine(testshitmannen.antall_studenter);
                 System.Diagnostics.Debug.WriteLine(testshitmannen.antall_voksne);
-                System.Diagnostics.Debug.WriteLine(testshitmannen.reise_dato_tid); 
+                System.Diagnostics.Debug.WriteLine(testshitmannen.reise_dato); 
             }
             System.Diagnostics.Debug.WriteLine("============== TestListeBestillingerview antall elementer:  "+TestListeBestillinger.Count);
 

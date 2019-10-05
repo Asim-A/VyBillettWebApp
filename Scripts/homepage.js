@@ -46,6 +46,34 @@ $("#submit_buy_btn").click(function () {
 let fra_input = document.getElementById("fra");
 let til_input = document.getElementById("til");
 
+function setup_timepicker() {
+    let timepicker = document.getElementById("timepicker");
+
+    for (let i = 0; i < 24; i++) {
+        let node;
+        let value = "";
+
+        if (i < 10) {
+            value = "0" + i + ":00";
+        }
+        else {
+            value = i + ":00";
+        }
+
+        node = create_option(value);
+        timepicker.appendChild(node);
+    }
+
+}
+
+function create_option(option) {
+    const element_name = "option";
+    const node = document.createElement(element_name);
+    node.innerHTML = option; 
+    return node;
+
+}
+
 function setup_dropdown() {
     setup_individual_dropdown("myDropdownFra");
     setup_individual_dropdown("myDropdownTil");
@@ -110,25 +138,26 @@ function show_menu() {
     show_menu_id("myDropdownTil", document.getElementById("til"));
 }
 
-function show_menu_id(id, input) {
+function show_menu_id(id, input_id) {
     let el = document.getElementById(id);
+    let input = document.getElementById(input_id);
 
+    if (input.value !== "") {
 
-    if (input !== "") {
-
-        if (!el.classList.contains("show"))
+        if (!el.classList.contains("show")) 
             el.classList.add("show");
 
     }
-    if (input.value === "") {
+
+    if(input.value === "")
         el.classList.remove("show");
-    }
+
 }
 
 
 fra_input.setAttribute("autocomplete", "off");
 til_input.setAttribute("autocomplete", "off");
-
+setup_timepicker();
 setup_dropdown();
 
 $("#fra").keyup(function (event) {

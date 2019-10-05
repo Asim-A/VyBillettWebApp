@@ -15,11 +15,16 @@ namespace VyBillettWebApp
         internal void BuildBestillingModells(BestillingViewModel bestilling, DB db)
         {
             bestilling_VM = bestilling;
+            DateTime kombinert_dato = 
+                bestilling_VM.reise_dato.Date.Add(bestilling_VM.reise_dato_tid.TimeOfDay);
+            
+
             bestillinger = new Bestillinger
             {
                 fra = bestilling_VM.fra,
                 til = bestilling_VM.til,
-                reise_dato = bestilling_VM.reise_dato_tid,
+                reise_dato = kombinert_dato,
+                
                 bestilling_dato = DateTime.Now,
                 total_pris = 0,
                 billett_liste = new List<Billetter>()
