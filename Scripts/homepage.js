@@ -71,7 +71,6 @@ function bind_input_timepicker() {
     let timepicker = document.getElementById("timepicker");
 
     timepicker.addEventListener("change", function () {
-        console.log("DET FUNKER");
         timepicker_form.value = timepicker.options[timepicker.selectedIndex].value;
     }, false);
 
@@ -86,12 +85,20 @@ function create_option(option) {
 }
 
 function setup_dropdown() {
-    setup_individual_dropdown("myDropdownFra");
-    setup_individual_dropdown("myDropdownTil");
+    let dropdownFra = document.getElementById("myDropdownFra");
+    let dropdownTil = document.getElementById("myDropdownTil");
+    
+
+    setup_individual_dropdown(dropdownFra);
+    setup_individual_dropdown(dropdownTil);
+
+    setup_onfocusout_dropdown(document.getElementById("fra"), dropdownFra);
+    setup_onfocusout_dropdown(document.getElementById("til"), dropdownTil);
+    
 }
 
-function setup_individual_dropdown(id) {
-    let dropdown = document.getElementById(id);
+function setup_individual_dropdown(dropdown) {
+    id = dropdown.id;
     let input;
 
     if (id === "myDropdownFra") {
@@ -107,6 +114,14 @@ function setup_individual_dropdown(id) {
         let node = create_menu_item(liste_stasjoner[i], input, dropdown);
         dropdown.appendChild(node);
     }
+}
+
+function setup_onfocusout_dropdown(input, dropdown) {
+
+    input.addEventListener("focusout", function () {
+        dropdown.classList.remove("show");
+    });
+
 }
 
 function create_menu_item(value, input, dropdown) {
@@ -164,6 +179,7 @@ function show_menu_id(id, input_id) {
         el.classList.remove("show");
 
 }
+
 
 
 fra_input.setAttribute("autocomplete", "off");
