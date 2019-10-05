@@ -85,11 +85,9 @@
                                 <div class="col-md-6">
                                     @Html.LabelFor(model => model.reise_dato, htmlAttributes: new { @class = "control-label" })
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-
-                                        @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control datovelger", @id = "datepicker" } })
-                                        @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
 
                                     </div>
 
