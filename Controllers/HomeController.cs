@@ -121,6 +121,15 @@ namespace VyBillettWebApp.Controllers
         } 
         */
 
+        [HttpGet]
+        public ActionResult Liste()
+        {
+            using (var db = new DB())
+            {
+                var alleBilletter = db.Bestillinger.ToList();
+                return View(alleBilletter);
+            }
+        }
 
 
     }
