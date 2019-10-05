@@ -3,9 +3,60 @@
     width: 70px;
     border-radius: 50px;
 }
-.form-control {
-    border-bottom: 2px solid #00866e;
-    background-color: #f5f5f5;
+.tidvelger {
+    width: 100%;
+    height: 64px;
+    font-size: 1.25rem;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border-style: none;
+    border-bottom: 2px solid #2B2B2C;
+    border-radius: 0px;
+    background-color: #F5F5F5;
+    text-indent: 12px;
+    outline-color: #A7BCD6;
+    font-size:xx-large;
+}
+.datovelger {
+    width: 100%;
+    height: 64px;
+    border-style: none;
+    border-bottom: 2px solid #2B2B2C;
+    border-radius: 0px;
+    background-color: #F5F5F5;
+    text-indent: 12px;
+    outline-color: #A7BCD6;
+    font-size: xx-large;
+}
+.form-control-strekning {
+    border-radius: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 72px;
+    padding-top: 2px;
+    display: flex;
+    align-items: flex-start;
+    background-color: #F5F5F5;
+    text-indent: 12px;
+    color: #2B2B2C;
+    border: 0;
+    border-bottom: 2px solid #2B2B2C;
+    background-image: url(/web-assets/travel-planner/SearchMediumGrey.svg);
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: 22px center;
+    padding-left: 40px;
+    font-weight: 400;
+    font-family: VySans, arial, sans-serif;
+    padding-right: 54px;
+    font-size:xx-large;
 }
 
 .hidden {

@@ -31,7 +31,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    @Html.EditorFor(model => model.fra, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.fra,"fra", new { htmlAttributes = new { @class = "form-control-strekning" } })
                                     @Html.ValidationMessageFor(model => model.fra, "", new { @class = "text-danger" })
 
                                     <div id="myDropdownFra" class="dropdown-content">
@@ -55,7 +55,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control-strekning" } })
                                     @Html.ValidationMessageFor(model => model.til, "", new { @class = "text-danger" })
                                     <div id="myDropdownTil" class="dropdown-content">
 
@@ -83,19 +83,19 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
-                                    @Html.LabelFor(model => model.reise_dato, htmlAttributes: new { @class = "control-label fontforboks" })
+                                    @Html.LabelFor(model => model.reise_dato, htmlAttributes: new { @class = "control-label" })
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
 
-                                    @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
+                                    @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control datovelger", @id = "datepicker" } })
                                     @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
 
                                 </div>
 
                                 <div class="col-md-3">
-                                    <select id="timepicker">
+                                    <select id="timepicker" class="tidvelger">
                                     </select>
 
                                     @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "hidden" } })
