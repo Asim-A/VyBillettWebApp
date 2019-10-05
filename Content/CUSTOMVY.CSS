@@ -8,11 +8,10 @@
     background-color: #f5f5f5;
 }
 
-
-.row{
-    margin-left: 25%;
-    margin-right: -50%;
+.hidden {
+    visibility: hidden;
 }
+
 .test {
     margin-left: 17%;
     color: #a94442;
@@ -32,9 +31,9 @@ margin-left:48%;
 .navbar-inverse {
     background-color:#383e42;
 }
-    .navbar-inverse .navbar-brand {
-        color: white;
-    }
+.navbar-inverse .navbar-brand {
+    color: white;
+}
 .btn-primary {
     background-color:#00866e;
    font-size: 17px;
@@ -58,12 +57,13 @@ margin-left:48%;
     z-index: 1;
 }
 
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+
+}
 
 .dropdown a:hover {
     background-color: #ddd;

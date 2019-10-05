@@ -3,90 +3,102 @@
     ViewBag.Title = "View";
 }
 
-    <div class="container-fluid">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                Hei, hvor vil du reise?
+            </h3>
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <!--Fra og til-->
         <div class="row">
             <div class="col-md-12">
-                <h3>
-                    Hei, hvor vil du reise?
-                </h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.fra, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+
+                            @Html.EditorFor(model => model.fra, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.fra, "", new { @class = "text-danger test" })
+                        </div>
+                        <div id="myDropdownFra" class="dropdown-content">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.til, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+
+                            @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.til, "", new { @class = "text-danger test" })
+                        </div>
+                        <div id="myDropdownTil" class="dropdown-content">
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+        <!--Her skal være tur-retur greier-->
+        <div class="row">
+            <div class="col-md-12">
 
-            <!--Fra og til-->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.fra, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+            </div>
+        </div>
 
-                                @Html.EditorFor(model => model.fra, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.fra, "", new { @class = "text-danger test" })
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.reise_dato, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+                            <div class="col-md-3">
+
+                                @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
+                                @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
+
                             </div>
-                            <div id="myDropdownFra" class="dropdown-content">
 
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.til, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
-
-                                @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.til, "", new { @class = "text-danger test" })
-                            </div>
-                            <div id="myDropdownTil" class="dropdown-content">
-
+                            <div class="col-md-3">
+                                <select id="timepicker">
+                                </select>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!--Her skal være tur-retur greier-->
-            <div class="row">
-                <div class="col-md-12">
+                    <!--Her skal være retur dato og tid-->
+                    <div class="col-md-6">
 
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.reise_dato, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
-                                <div class="col-md-3">
-
-                                    @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
-                                    @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
-
-                                </div>
-
-                                <div class="col-md-3">
-                                    <select id="timepicker">
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Her skal være retur dato og tid-->
-                        <div class="col-md-6">
-
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!--Billettyper-->
-            <div class="row">
-                <div class="col-md-12">
-                </div>
+        <!--Billettyper-->
+        <div class="row">
+            <div class="col-md-12">
             </div>
-         }
-    </div>
+        </div>
+    }
+</div>
 
+<link href="~/Content/CUSTOMVY.CSS" rel="stylesheet" />
+<link href="~/Content/Pikaday/pikaday.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Pikaday/pikaday.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/stasjonerdata.js"></script>
+    <script src="~/Scripts/homepage.js"></script>
+}
