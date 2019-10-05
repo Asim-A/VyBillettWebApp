@@ -27,6 +27,11 @@ namespace VyBillettWebApp.Controllers
             return View();
         }
 
+        public ActionResult Index_new()
+        {
+            return View();
+        }
+
         public string ajaxtest()
         {
             System.Diagnostics.Debug.WriteLine(" ajaxtest ");
