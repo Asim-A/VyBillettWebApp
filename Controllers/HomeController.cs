@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using VyBillettWebApp.Models;
 using VyBillettWebApp.Models.Utillity;
+using System.Web.Script.Serialization;
+
 
 namespace VyBillettWebApp.Controllers
 {
@@ -23,6 +25,21 @@ namespace VyBillettWebApp.Controllers
         {
           
             return View();
+        }
+
+        public string ajaxtest()
+        {
+            System.Diagnostics.Debug.WriteLine(" ajaxtest ");
+            var jsonSerializer = new JavaScriptSerializer();
+            return jsonSerializer.Serialize("AJAx \n det funka faen ikke med engang nei, men nå gjørre d");
+
+        }
+        
+        public string ajaxtestinn(BestillingViewModel bestilling)
+        {
+            System.Diagnostics.Debug.WriteLine(" ajaxtestinn "+ bestilling.reise_dato_tid);
+            var jsonSerializer = new JavaScriptSerializer();
+            return jsonSerializer.Serialize("bestilling date "+bestilling.reise_dato_tid);
         }
 
         [HttpPost]
@@ -103,5 +120,8 @@ namespace VyBillettWebApp.Controllers
             return RedirectToAction("LeggInnBestilling", bestilling);
         } 
         */
+
+
+
     }
 }
