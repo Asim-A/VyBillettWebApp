@@ -55,7 +55,8 @@ margin-left:48%;
     overflow: auto;
     border: 1px solid #ddd;
     z-index: 1;
-    margin-top: -3.5%;
+    margin-top: 0%;
+    max-height: 400px;
 }
 
 .dropdown-content a {
