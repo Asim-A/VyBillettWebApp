@@ -1,4 +1,4 @@
-﻿@model List<VyBillettWebApp.Models.BestillingViewModel>
+﻿@model List<VyBillettWebApp.Models.Bestillinger>
 @{
     ViewBag.Title = "Liste";
 }
@@ -9,6 +9,9 @@
 
     <tr>
         <th>
+            Id
+        </th>
+        <th>
             Fra
         </th>
         <th>
@@ -17,20 +20,14 @@
         <th>
             Utreise
         </th>
-        <th>
-            Antall voksne
-        </th>
-        <th>
-            Antall barn
-        </th>
-        <th>
-            Antall studenter
-        </th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @item.bestilling_id
+            </td>
             <td>
                 @item.fra
             </td>
@@ -38,16 +35,7 @@
                 @item.til
             </td>
             <td>
-                @item.reise_dato_tid
-            </td>
-            <td>
-                @item.antall_voksne
-            </td>
-            <td>
-                @item.antall_barn
-            </td>
-            <td>
-                @item.antall_studenter
+                @item.reise_dato
             </td>
         </tr>
     }
