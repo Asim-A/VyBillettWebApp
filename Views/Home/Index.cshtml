@@ -73,7 +73,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input id="cancer" type="submit" value="Kjøp Billett" class="btn btn-primary" />
+                <input id="submit_buy_btn" type="submit" value="Kjøp Billett" class="btn btn-primary" />
             </div>
         </div>
     </div>
@@ -89,53 +89,7 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/Pikaday/pikaday.js"></script>
-    <script>
-        var picker = new Pikaday(
-            {
-                field: document.getElementById('datepicker'),
-                minDate: new Date(),
-                onSelect: function () {
-                    console.log(this);
-                }
-            });
-    </script>
-
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $.ajax({
-                url: '/Home/ajaxtest',
-                type: 'GET',
-                dataType: 'json',
-                success: function (n) {
-                    alert(n);
-                },
-                error: function (x, y, z) {
-                    alert(x + '\n' + y + '\n' + z);
-                }
-            });
-        })
-    </script>
-    <script type="text/javascript">
-        $("#cancer").click(function () {
-            var Inn = {
-                reise_dato_tid: $("#datepicker").val()
-            }
+    <script src="~/Scripts/homepage.js"></script>
 
-            $.ajax({
-                url: '/Home/ajaxtestinn',
-                type: 'POST',
-                dataType: 'json',
-                data: JSON.stringify(Inn),
-                contentType: "application/json;charset=utf-8",
-                success: function (i) {
-                    alert(i);
-                },
-                error: function (x, y, z) {
-                    alert(x + '\n' + y + '\n' + z);
-                }
-            });               
-            
-        })
-    </script>
 }
