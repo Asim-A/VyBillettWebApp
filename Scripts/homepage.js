@@ -7,19 +7,19 @@
         }
     });
 
-$(function () {
-    $.ajax({
-        url: '/Home/ajaxtest',
-        type: 'GET',
-        dataType: 'json',
-        success: function (n) {
-            alert(n);
-        },
-        error: function (x, y, z) {
-            alert(x + '\n' + y + '\n' + z);
-        }
-    });
-})
+//$(function () {
+//    $.ajax({
+//        url: '/Home/ajaxtest',
+//        type: 'GET',
+//        dataType: 'json',
+//        success: function (n) {
+//            alert(n);
+//        },
+//        error: function (x, y, z) {
+//            alert(x + '\n' + y + '\n' + z);
+//        }
+//    });
+//})
 
 $("#submit_buy_btn").click(function () {
     var Inn = {
@@ -63,6 +63,17 @@ function setup_timepicker() {
         node = create_option(value);
         timepicker.appendChild(node);
     }
+
+}
+
+function bind_input_timepicker() {
+    let timepicker_form = document.getElementById("reise_dato_tid");
+    let timepicker = document.getElementById("timepicker");
+
+    timepicker.addEventListener("change", function () {
+        console.log("DET FUNKER");
+        timepicker_form.value = timepicker.options[timepicker.selectedIndex].value;
+    }, false);
 
 }
 
@@ -158,6 +169,7 @@ function show_menu_id(id, input_id) {
 fra_input.setAttribute("autocomplete", "off");
 til_input.setAttribute("autocomplete", "off");
 setup_timepicker();
+bind_input_timepicker()
 setup_dropdown();
 
 $("#fra").keyup(function (event) {
