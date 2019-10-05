@@ -29,10 +29,10 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        @Html.EditorFor(model => model.fra, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.fra, "", new { @class = "text-danger" })
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.EditorFor(model => model.fra,"fra", new { htmlAttributes = new { @class = "form-control-strekning" } })
+                                    @Html.ValidationMessageFor(model => model.fra, "", new { @class = "text-danger" })
 
                                         <div id="myDropdownFra" class="dropdown-content">
 
@@ -55,7 +55,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control-strekning" } })
                                         @Html.ValidationMessageFor(model => model.til, "", new { @class = "text-danger" })
                                         <div id="myDropdownTil" class="dropdown-content">
 
@@ -76,20 +76,19 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        @Html.LabelFor(model => model.reise_dato, htmlAttributes: new { @class = "control-label fontforboks" })
-                                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.reise_dato, htmlAttributes: new { @class = "control-label" })
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
 
-                                        @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
+                                        @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control datovelger", @id = "datepicker" } })
                                         @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
 
                                     </div>
@@ -114,80 +113,90 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
+                                        <div class="col-md-3">
+                                            <select id="timepicker" class="tidvelger">
+                                            </select>
 
-                                        @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
-                                        @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
+                                            @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
+                                            @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
 
-                                    </div>
+                                        </div>
 
-                                    <div class="col-md-3">
-                                        <select id="timepicker">
-                                        </select>
+                                        <div class="col-md-3">
+                                            <select id="timepicker">
+                                            </select>
 
-                                        @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "hidden" } })
+                                            @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "hidden" } })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
             <!--Billettyper-->
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-12">
-                                @Html.LabelFor(model => model.antall_voksne, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                @Html.EditorFor(model => model.antall_voksne, new { htmlAttributes = new { @class = "form-control antall" } })
-                                @Html.ValidationMessageFor(model => model.antall_voksne, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.antall_voksne, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
                     </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-12">
-                                @Html.LabelFor(model => model.antall_barn, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                @Html.EditorFor(model => model.antall_barn, new { htmlAttributes = new { @class = "form-control antall" } })
-                                @Html.ValidationMessageFor(model => model.antall_barn, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-12">
-                                @Html.LabelFor(model => model.antall_studenter, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                @Html.EditorFor(model => model.antall_studenter, new { htmlAttributes = new { @class = "form-control antall" } })
-                                @Html.ValidationMessageFor(model => model.antall_studenter, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.antall_voksne, new { htmlAttributes = new { @class = "form-control antall" } })
+                        @Html.ValidationMessageFor(model => model.antall_voksne, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
 
-            
-         }
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.antall_barn, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.antall_barn, new { htmlAttributes = new { @class = "form-control antall" } })
+                        @Html.ValidationMessageFor(model => model.antall_barn, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.antall_studenter, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.antall_studenter, new { htmlAttributes = new { @class = "form-control antall" } })
+                        @Html.ValidationMessageFor(model => model.antall_studenter, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
     </div>
 
+           
+        
+    
+
+            
 <link href="~/Content/CUSTOMVY.CSS" rel="stylesheet" />
 <link href="~/Content/Pikaday/pikaday.css" rel="stylesheet" />
+
+
+
 
 @section scripts{
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -198,3 +207,5 @@
     <script src="~/Scripts/stasjonerdata.js"></script>
     <script src="~/Scripts/homepage.js"></script>
 }
+
+            
