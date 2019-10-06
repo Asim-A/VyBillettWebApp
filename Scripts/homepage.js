@@ -59,6 +59,9 @@ function setup_timepicker() {
     setup_timepicker_id("timepicker");
     setup_timepicker_id("timepicker2");
 
+    bind_input_timepicker("reise_dato_tid", "timepicker");
+    bind_input_timepicker("retur_dato_tid", "timepicker2");
+
 }
 
 function setup_timepicker_id(id) {
@@ -80,9 +83,9 @@ function setup_timepicker_id(id) {
     }
 }
 
-function bind_input_timepicker() {
-    let timepicker_form = document.getElementById("reise_dato_tid");
-    let timepicker = document.getElementById("timepicker");
+function bind_input_timepicker(timepicker_form_id, timepicker_id) {
+    let timepicker_form = document.getElementById(timepicker_form_id);
+    let timepicker = document.getElementById(timepicker_id);
 
     timepicker.addEventListener("change", function () {
         timepicker_form.value = timepicker.options[timepicker.selectedIndex].value;
@@ -266,7 +269,7 @@ function cleanseAttributes() {
 cleanseAttributes();
 
 setup_timepicker();
-bind_input_timepicker()
+
 setup_dropdown();
 setup_bind_increment_input();
 
