@@ -55,16 +55,24 @@ namespace VyBillettWebApp.Controllers
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling)
         {
+
             System.Diagnostics.Debug.WriteLine("LeggInnBestilling med innkunde");
             System.Diagnostics.Debug.WriteLine("retur dato " + bestilling.retur_dato);
             System.Diagnostics.Debug.WriteLine("retur dato " + bestilling.retur_dato.HasValue);
             System.Diagnostics.Debug.WriteLine("Modelstate "+ModelState.IsValid);
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             var errorsl = errors.ToList();
+           
+
             foreach (var e in errorsl)
             {
                 System.Diagnostics.Debug.WriteLine("Errors " + e.ErrorMessage );
 
+            }
+
+            if (!(bestilling.antall_barn.HasValue && bestilling.antall_studenter.HasValue && bestilling.antall_voksne.HasValue))
+            {
+                return View();
             }
 
             if (ModelState.IsValid)
