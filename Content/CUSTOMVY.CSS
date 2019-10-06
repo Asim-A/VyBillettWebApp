@@ -20,6 +20,7 @@
     background-size: 35px;
     background-position: 70px center;
     background-image: url('Ikoner/klokke.png');
+    text-align:center;
 }
 
 #header{
@@ -41,7 +42,7 @@
     outline-color: #A7BCD6;
     font-size: 20px;
     margin-right: 10%;
-    text-align: -webkit-center;
+    text-align: center;
     background-image: url('Ikoner/calendar_1067994.png');
 }
 .form-control-strekning {
