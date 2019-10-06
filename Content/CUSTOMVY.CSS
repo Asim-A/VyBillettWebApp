@@ -19,7 +19,7 @@
     background-repeat: no-repeat;
     background-size: 35px;
     background-position: 70px center;
-    background-image: url('klokke.png');
+    background-image: url('Ikoner/klokke.png');
 }
 
 #header{
@@ -42,7 +42,7 @@
     font-size: 20px;
     margin-right: 10%;
     text-align: -webkit-center;
-    background-image: url(calendar_1067994.png);
+    background-image: url('Ikoner/calendar_1067994.png');
 }
 .form-control-strekning {
     border-radius: 0;
@@ -58,8 +58,6 @@
     text-indent: 12px;
     color: #2B2B2C;
     border: 0;
-    border-bottom: 2px solid #2B2B2C;
-    background-image: url(/web-assets/travel-planner/SearchMediumGrey.svg);
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: 15px center;
@@ -68,14 +66,14 @@
     font-family: VySans, arial, sans-serif;
     padding-right: 40px;
     font-size: xx-large;
-    border-bottom: 3px solid #00866e;
-    transition: border-bottom 0.5s;
-    background-image: url('PinClipart.com_camera-lens-clipart_157992.png');
+    border-bottom: 1px solid transparent;
+    background-image: url('Ikoner/PinClipart.com_camera-lens-clipart_157992.png');
 }
 
     .form-control-strekning:hover {
-        border-bottom: 1px solid transparent;
-       
+        
+        transition: border-bottom 0.25s;
+        border-bottom: 3px solid #00866e;
     }
 
 
