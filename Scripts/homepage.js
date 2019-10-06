@@ -197,18 +197,14 @@ function bind_input_to_buttons(inputId) {
     let increment_button = input_parent.getElementsByClassName("plus")[0];
     let decrememnt_button = input_parent.getElementsByClassName("minus")[0];
     let user_input = input_source[0];
-
-    user_input.addEventListener("change", function () {
-        input.value = user_input.value;
-    }
-    , false)
-   
+  
     increment_button.addEventListener("click", function () {
 
         let current = user_input.value;
         let incremented_value = parseInt(current) + 1;
 
         user_input.value = incremented_value;
+        input.value = user_input.value;
 
     }, false);
 
@@ -219,6 +215,7 @@ function bind_input_to_buttons(inputId) {
         if (decremented_value <= 0) decremented_value = 0;
 
         user_input.value = decremented_value;
+        input.value = user_input.value;
 
     }, false)
 
