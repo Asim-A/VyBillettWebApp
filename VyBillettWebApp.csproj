@@ -103,7 +103,6 @@
     <Content Include="Content\Ikoner\calendar_1067994.png" />
     <Content Include="Content\Ikoner\klokke.png" />
     <Content Include="Content\Ikoner\PinClipart.com_camera-lens-clipart_157992.png" />
-    <Content Include="Content\jquery-ui-timepicker-addon.css" />
     <Content Include="Content\Pikaday\pikaday.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
