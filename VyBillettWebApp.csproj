@@ -102,6 +102,7 @@
     <Content Include="Content\CUSTOMVY.CSS" />
     <Content Include="Content\jquery-ui-timepicker-addon.css" />
     <Content Include="Content\Pikaday\pikaday.css" />
+    <Content Include="Content\PinClipart.com_camera-lens-clipart_157992.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

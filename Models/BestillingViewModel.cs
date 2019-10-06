@@ -30,7 +30,7 @@ namespace VyBillettWebApp.Models
         [Range(0, 10, ErrorMessage = "velg antall voksne, maksgrense er 10 per bestilling")]
         public int antall_voksne { get; set; }
 
-        [Display(Name = "Reise Dato")]
+        [Display(Name = "Utreise")]
         public DateTime reise_dato { get; set; }     
         public DateTime reise_dato_tid { get; set; }
  

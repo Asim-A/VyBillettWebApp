@@ -53,7 +53,7 @@
     background-image: url(/web-assets/travel-planner/SearchMediumGrey.svg);
     background-repeat: no-repeat;
     background-size: 22px;
-    background-position: 22px center;
+    background-position: 11px center;
     padding-left: 40px;
     font-weight: 400;
     font-family: VySans, arial, sans-serif;
@@ -61,6 +61,7 @@
     font-size: xx-large;
     border-bottom: 3px solid #00866e;
     transition: border-bottom 0.5s;
+    background-image: url('PinClipart.com_camera-lens-clipart_157992.png');
 }
 
     .form-control-strekning:hover {
