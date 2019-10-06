@@ -118,6 +118,7 @@
     <Content Include="libman.json" />
     <Content Include="Models\stasjoner.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\bestilling_detalje_page.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\stasjonerdata.js" />

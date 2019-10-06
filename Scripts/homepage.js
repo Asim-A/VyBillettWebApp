@@ -1,22 +1,4 @@
-﻿var picker = new Pikaday(
-    {
-        field: document.getElementById('datepicker'),
-        minDate: new Date(),
-        onSelect: function () {
-            
-        }
-    });
-
-var picker2 = new Pikaday(
-    {
-        field: document.getElementById("datepicker2"),
-        mindate: new Date(),
-        onSelect: function () {
-
-        }
-    });
-
-//$(function () {
+﻿//$(function () {
 //    $.ajax({
 //        url: '/Home/ajaxtest',
 //        type: 'GET',
@@ -30,26 +12,7 @@ var picker2 = new Pikaday(
 //    });
 //})
 
-$("#submit_buy_btn").click(function () {
-    var Inn = {
-        reise_dato_tid: $("#datepicker").val()
-    }
 
-    $.ajax({
-        url: '/Home/ajaxtestinn',
-        type: 'POST',
-        dataType: 'json',
-        data: JSON.stringify(Inn),
-        contentType: "application/json;charset=utf-8",
-        success: function (i) {
-            alert(i);
-        },
-        error: function (x, y, z) {
-            alert(x + '\n' + y + '\n' + z);
-        }
-    });
-
-})
 
 function setup_timepicker() {
 
@@ -265,19 +228,64 @@ function cleanseAttributes() {
 
 }
 
-cleanseAttributes();
-setup_timepicker();
-setup_dropdown();
-setup_bind_increment_input();
-$("#fra").keyup(function (event) {
+$(document).ready(function () {
+    var picker = new Pikaday(
+        {
+            field: document.getElementById('datepicker'),
+            minDate: new Date(),
+            onSelect: function () {
 
-    filter_function("fra", "myDropdownFra");
-    show_menu_id("myDropdownFra", "fra");
+            }
+        });
 
+    var picker2 = new Pikaday(
+        {
+            field: document.getElementById("datepicker2"),
+            mindate: new Date(),
+            onSelect: function () {
+
+            }
+        });
+
+    $("#submit_buy_btn").click(function () {
+        var Inn = {
+            reise_dato_tid: $("#datepicker").val()
+        }
+
+        $.ajax({
+            url: '/Home/ajaxtestinn',
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(Inn),
+            contentType: "application/json;charset=utf-8",
+            success: function (i) {
+                alert(i);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+
+    });
+
+    cleanseAttributes();
+    setup_timepicker();
+    setup_dropdown();
+    setup_bind_increment_input();
+
+    $("#fra").keyup(function (event) {
+
+        filter_function("fra", "myDropdownFra");
+        show_menu_id("myDropdownFra", "fra");
+
+    });
+
+    $("#til").keyup(function () {
+        filter_function("til", "myDropdownTil");
+        show_menu_id("myDropdownTil", "til");
+    });
 });
-$("#til").keyup(function () {
-    filter_function("til", "myDropdownTil");
-    show_menu_id("myDropdownTil", "til");
-});
+
+
 
 
