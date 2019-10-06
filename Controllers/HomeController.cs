@@ -125,10 +125,10 @@ namespace VyBillettWebApp.Controllers
             }
 
             List<Bestillinger> testListebBestillinger = db.Bestillinger.ToList();
-            System.Diagnostics.Debug.WriteLine("==========*********** TestListebestillinger antall billetter" + TestListebilletter.Count());
+            System.Diagnostics.Debug.WriteLine("==========*********** TestListebestillinger antall billetter" + testListebBestillinger.Count());
             foreach (var testshitmannen in testListebBestillinger)
             {
-                System.Diagnostics.Debug.WriteLine("==========****==== nye billet i  TestListeBilletter ========");
+                System.Diagnostics.Debug.WriteLine("==========****==== nye bestilling i  TestListeBestilling ========");
                 System.Diagnostics.Debug.WriteLine("bestilling id  " + testshitmannen.bestilling_id);
                 System.Diagnostics.Debug.WriteLine("bestilling fra  " + testshitmannen.fra);
                 System.Diagnostics.Debug.WriteLine("bestilling Til  " + testshitmannen.til);

@@ -22,7 +22,6 @@ namespace VyBillettWebApp.Models
         }
         public virtual DbSet<Bestillinger> Bestillinger { get; set; }
         public virtual DbSet<Billetter> Billetter { get; set; }
-        public virtual DbSet<BillettType> BillettType { get; set; }
 
         public void LeggInnBestilling(BestillingViewModel bestilling) {
                                               
