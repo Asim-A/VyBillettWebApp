@@ -133,6 +133,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Pikaday\pikaday.js" />
     <Content Include="Scripts\homepage.js" />
+    <Content Include="Scripts\visRetur.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
