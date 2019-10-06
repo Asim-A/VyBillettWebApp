@@ -72,8 +72,9 @@ namespace VyBillettWebApp.Controllers
                 md.BuildBestillingModells(bestilling, db);
                 if (!bestilling.retur_dato.Equals(new DateTime()))
                 {
+                    String fra = bestilling.fra;
                     bestilling.fra = bestilling.til;
-                    bestilling.til = bestilling.fra;
+                    bestilling.til = fra;
                     bestilling.reise_dato = bestilling.retur_dato;
                     bestilling.reise_dato_tid = bestilling.retur_dato_tid;
                     md.BuildBestillingModells(bestilling, db);
