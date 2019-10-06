@@ -16,6 +16,10 @@
     text-indent: 12px;
     outline-color: #A7BCD6;
     font-size: 20px;
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position: 70px center;
+    background-image: url('klokke.png');
 }
 
 #header{
@@ -24,6 +28,9 @@
 }
 
 .datovelger {
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position: 15px center;
     width: 100%;
     height: 64px;
     border-style: none;
@@ -34,6 +41,8 @@
     outline-color: #A7BCD6;
     font-size: 20px;
     margin-right: 10%;
+    text-align: -webkit-center;
+    background-image: url(calendar_1067994.png);
 }
 .form-control-strekning {
     border-radius: 0;
@@ -183,7 +192,7 @@ margin-left:48%;
 }
 
 .input_antall {
-    border: 1px solid #cecece;
+    border: 1px solid #cecece00;
     width: 2%;
 }
 
