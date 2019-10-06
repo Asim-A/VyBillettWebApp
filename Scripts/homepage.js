@@ -140,7 +140,7 @@ function setup_onfocusout_dropdown(input, dropdown) {
 
         setTimeout(function () {
             dropdown.classList.remove("show");
-        }, 100)
+        }, 200)
         
     });
 
