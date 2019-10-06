@@ -119,7 +119,11 @@ function setup_individual_dropdown(dropdown) {
 function setup_onfocusout_dropdown(input, dropdown) {
 
     input.addEventListener("focusout", function () {
-        dropdown.classList.remove("show");
+
+        setTimeout(function () {
+            dropdown.classList.remove("show");
+        }, 100)
+        
     });
 
 }
