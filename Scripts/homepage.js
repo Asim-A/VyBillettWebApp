@@ -14,8 +14,7 @@ var picker2 = new Pikaday(
         onSelect: function () {
 
         }
-    }
-);
+    });
 
 //$(function () {
 //    $.ajax({
@@ -51,8 +50,6 @@ $("#submit_buy_btn").click(function () {
     });
 
 })
-
-
 
 function setup_timepicker() {
 
@@ -269,19 +266,15 @@ function cleanseAttributes() {
 }
 
 cleanseAttributes();
-
 setup_timepicker();
-
 setup_dropdown();
 setup_bind_increment_input();
-
 $("#fra").keyup(function (event) {
 
     filter_function("fra", "myDropdownFra");
     show_menu_id("myDropdownFra", "fra");
 
 });
-
 $("#til").keyup(function () {
     filter_function("til", "myDropdownTil");
     show_menu_id("myDropdownTil", "til");
