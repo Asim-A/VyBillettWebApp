@@ -12,7 +12,7 @@ namespace VyBillettWebApp
 
         BestillingViewModel bestilling_VM;
         Bestillinger bestillinger;
-        internal void BuildBestillingModells(BestillingViewModel bestilling, DB db )
+        internal Bestillinger BuildBestillingModells(BestillingViewModel bestilling, DB db )
         {
             bestilling_VM = bestilling;
             DateTime kombinert_dato = 
@@ -38,9 +38,11 @@ namespace VyBillettWebApp
             {
                 db.Bestillinger.Add(bestillinger);
                 db.SaveChanges();
+                return bestillinger;
             }
             catch (Exception feil)
-            {              
+            {
+                return null;
                 System.Diagnostics.Debug.WriteLine("feil");
             }          
         }       
