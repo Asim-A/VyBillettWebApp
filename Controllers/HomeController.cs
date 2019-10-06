@@ -56,11 +56,28 @@ namespace VyBillettWebApp.Controllers
         public ActionResult Index(BestillingViewModel bestilling)
         {
             System.Diagnostics.Debug.WriteLine("LeggInnBestilling med innkunde");
+            System.Diagnostics.Debug.WriteLine("retur dato " + bestilling.retur_dato);
+            System.Diagnostics.Debug.WriteLine("Modelstate "+ModelState.IsValid);
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            var errorsl = errors.ToList();
+            foreach (var e in errorsl)
+            {
+                System.Diagnostics.Debug.WriteLine("Errors " + e.ErrorMessage );
+
+            }
+
             if (ModelState.IsValid)
             {
                 var md = new dbModellBygger();
                 md.BuildBestillingModells(bestilling, db);
-
+                if (!bestilling.retur_dato.Equals(new DateTime()))
+                {
+                    bestilling.fra = bestilling.til;
+                    bestilling.til = bestilling.fra;
+                    bestilling.reise_dato = bestilling.retur_dato;
+                    bestilling.reise_dato_tid = bestilling.retur_dato_tid;
+                    md.BuildBestillingModells(bestilling, db);
+                }
             }
             ///////////for test
             string toSeachFor = "osloveiendenne";

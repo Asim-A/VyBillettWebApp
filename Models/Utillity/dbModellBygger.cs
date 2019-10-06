@@ -12,7 +12,7 @@ namespace VyBillettWebApp
 
         BestillingViewModel bestilling_VM;
         Bestillinger bestillinger;
-        internal void BuildBestillingModells(BestillingViewModel bestilling, DB db)
+        internal void BuildBestillingModells(BestillingViewModel bestilling, DB db )
         {
             bestilling_VM = bestilling;
             DateTime kombinert_dato = 

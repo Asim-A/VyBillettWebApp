@@ -10,12 +10,12 @@ namespace VyBillettWebApp.Models
     {
         [Display(Name = "Reise Fra:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]
-        [RegularExpression("[a-zA-ZøæåØÆÅ]{2,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
+        [RegularExpression("[a-zA-ZøæåØÆÅ ]{1,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
         public string fra { get; set; }
 
         [Display(Name = "Reise Til:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise til")]
-        [RegularExpression("[a-zA-ZøæåØÆÅ]{2,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
+        [RegularExpression("[a-zA-ZøæåØÆÅ ]{1,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
         public string til { get; set; }
 
         [Display(Name = "Antall Barn")]
@@ -33,6 +33,9 @@ namespace VyBillettWebApp.Models
         [Display(Name = "Utreise")]
         public DateTime reise_dato { get; set; }     
         public DateTime reise_dato_tid { get; set; }
- 
+
+        [Display(Name = "Retur Dato")]
+        public DateTime retur_dato { get; set; }
+        public DateTime retur_dato_tid { get; set; }
     }
 }

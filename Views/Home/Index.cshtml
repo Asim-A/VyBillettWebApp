@@ -72,7 +72,10 @@
         <!--Her skal være tur-retur greier-->
         <div class="row rad">
             <div class="col-md-12">
-                <input type="radio" name="turRetur" id="enVei" class="radioknapper" checked/><label class="fontforboks radiolabel">En vei</label> <input type="radio" name="turRetur" id="knappretur" class="radioknapper" /><label class="fontforboks radiolabel">Tur / Retur</label>
+                <input type="radio" name="turRetur" id="enVei" class="radioknapper" checked/>
+                    <label class="fontforboks radiolabel">En vei</label> 
+                <input type="radio" name="turRetur" id="knappretur" class="radioknapper" />
+                    <label class="fontforboks radiolabel">Tur / Retur</label>
             </div>
         </div>
 
@@ -112,13 +115,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "datovelger", @id = "datepicker2" } })
-                                    @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.retur_dato, new { htmlAttributes = new { @class = "datovelger", @id = "datepicker2" } })
                                 </div>
                                 <div class="col-md-3">
                                     <select id="timepicker2" class="tidvelger">
                                     </select>
-                                    @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "hidden" } })
+                                    @Html.EditorFor(model => model.retur_dato_tid, new { htmlAttributes = new { @class = "hidden" } })
                                 </div>
                             </div>
                         </div>
