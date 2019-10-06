@@ -9,9 +9,6 @@
     font-size: 1.25rem;
     -moz-appearance: none;
     -webkit-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
     border-style: none;
     border-bottom: 2px solid #2B2B2C;
     border-radius: 0px;
@@ -42,9 +39,6 @@
     border-radius: 0;
     -moz-appearance: none;
     -webkit-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
     width: 100%;
     min-width: 363px;
     height: 72px;
@@ -64,9 +58,15 @@
     font-weight: 400;
     font-family: VySans, arial, sans-serif;
     padding-right: 40px;
-    font-size:xx-large;
-    
+    font-size: xx-large;
+    border-bottom: 3px solid #00866e;
+    transition: border-bottom 0.5s;
 }
+
+    .form-control-strekning:hover {
+        border-bottom: 1px solid transparent;
+       
+    }
 
 
 .test {
@@ -208,6 +208,7 @@ margin-left:48%;
 .radiolabel {
     vertical-align: super;
     margin-left: 7px;
+    margin-right: 20px;
 }
 
 .bg-primary {
@@ -224,4 +225,11 @@ margin-left:48%;
     margin-bottom:15px;
 }
 
+#submit_buy_btn {
+    float: right;
+    width: 345px;
+    text-align: center;
+    margin-right: -2%;
+    font-size: 28px;
+}
 /*INKREMENTKNAPP SLUTT*/
