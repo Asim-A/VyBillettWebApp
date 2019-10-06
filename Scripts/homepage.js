@@ -91,6 +91,8 @@ function bind_input_timepicker(timepicker_form_id, timepicker_id) {
         timepicker_form.value = timepicker.options[timepicker.selectedIndex].value;
     }, false);
 
+    timepicker_form.value = timepicker.options[0].value;
+
 }
 
 function create_option(option) {
