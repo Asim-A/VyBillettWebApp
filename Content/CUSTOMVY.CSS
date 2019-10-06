@@ -131,3 +131,69 @@ margin-left:48%;
 .show {
     display: block;
 }
+
+/*INKREMENTKNAPP START*/
+
+.qty .count {
+    color: #000;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0 2px;
+    min-width: 35px;
+    text-align: center;
+}
+
+.qty .plus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 32px/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.qty .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 32px/0.80 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    background-clip: padding-box;
+}
+
+.increment_btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.increment_btn:hover {
+    background-color: #7e8eff; 
+}
+
+.input_antall {
+    border: 1px solid #cecece;
+    width: 2%;
+}
+
+/*Prevent text selection*/
+.minus .plus span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+
+
+/*INKREMENTKNAPP SLUTT*/
