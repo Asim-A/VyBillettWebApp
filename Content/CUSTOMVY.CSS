@@ -13,14 +13,14 @@
     border-bottom: 2px solid #2B2B2C;
     border-radius: 0px;
     background-color: #F5F5F5;
-    text-indent: 12px;
+    text-indent: 7%;
     outline-color: #A7BCD6;
     font-size: 20px;
     background-repeat: no-repeat;
     background-size: 35px;
     background-position: 70px center;
     background-image: url('Ikoner/klokke.png');
-    text-align:center;
+   
 }
 
 #header{
