@@ -211,11 +211,26 @@ function bind_input_to_buttons(inputId) {
     let increment_button = input_parent.getElementsByClassName("plus")[0];
     let decrememnt_button = input_parent.getElementsByClassName("minus")[0];
     let user_input = input_source[0];
+
+    user_input.addEventListener("change", function () {
+        let current = user_input.value;
+
+        if (current > 10) {
+            user_input.value = 10; 
+        }
+        if (current < 0) {
+            user_input.value = 0;
+        }
+
+    }, false);
   
     increment_button.addEventListener("click", function () {
 
         let current = user_input.value;
         let incremented_value = parseInt(current) + 1;
+
+        if (incremented_value > 10)
+            incremented_value = 10;
 
         user_input.value = incremented_value;
         input.value = user_input.value;
@@ -242,8 +257,18 @@ function setup_bind_increment_input() {
     bind_input_to_buttons("antall_studenter");
 }
 
-fra_input.setAttribute("autocomplete", "off");
-til_input.setAttribute("autocomplete", "off");
+function cleanseAttributes() {
+    let theForm = document.getElementsByTagName("form");
+    let allInputs = theForm[0].getElementsByTagName("input");
+
+    for (let i = 0; i < allInputs.length; i++) {
+        allInputs[i].setAttribute("autocomplete", "off");
+    }
+
+}
+
+cleanseAttributes();
+
 setup_timepicker();
 bind_input_timepicker()
 setup_dropdown();
