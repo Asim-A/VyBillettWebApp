@@ -112,11 +112,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "datovelger", @id = "datepicker" } })
+                                    @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "datovelger", @id = "datepicker2" } })
                                     @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="col-md-3">
-                                    <select id="timepicker" class="tidvelger">
+                                    <select id="timepicker2" class="tidvelger">
                                     </select>
                                     @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "hidden" } })
                                 </div>
