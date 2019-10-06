@@ -184,11 +184,59 @@ function show_menu_id(id, input_id) {
 
 }
 
+function find_increment_buttons(className) {
+    return document.getElementsByClassName(className);
+}
+
+function bind_input_to_buttons(inputId) {
+
+    let input = document.getElementById(inputId);
+    let input_parent = input.parentElement;
+    let input_source = input_parent.getElementsByClassName("count");
+
+    let increment_button = input_parent.getElementsByClassName("plus")[0];
+    let decrememnt_button = input_parent.getElementsByClassName("minus")[0];
+    let user_input = input_source[0];
+
+    user_input.addEventListener("change", function () {
+        input.value = user_input.value;
+    }
+    , false)
+   
+    increment_button.addEventListener("click", function () {
+
+        let current = user_input.value;
+        let incremented_value = parseInt(current) + 1;
+
+        user_input.value = incremented_value;
+
+    }, false);
+
+    decrememnt_button.addEventListener("click", function () {
+
+        let current = user_input.value;
+        let decremented_value = parseInt(current) - 1;
+        if (decremented_value <= 0) decremented_value = 0;
+
+        user_input.value = decremented_value;
+
+    }, false)
+
+
+}
+
+function setup_bind_increment_input() {
+    bind_input_to_buttons("antall_voksne");
+    bind_input_to_buttons("antall_barn");
+    bind_input_to_buttons("antall_studenter");
+}
+
 fra_input.setAttribute("autocomplete", "off");
 til_input.setAttribute("autocomplete", "off");
 setup_timepicker();
 bind_input_timepicker()
 setup_dropdown();
+setup_bind_increment_input();
 
 $("#fra").keyup(function (event) {
 
