@@ -10,12 +10,12 @@ namespace VyBillettWebApp.Models
     {
         [Display(Name = "Reise Fra:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]
-        [RegularExpression("[a-zA-ZøæåØÆÅ]{2,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
+        [RegularExpression("[a-zA-ZøæåØÆÅ ]{1,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
         public string fra { get; set; }
 
         [Display(Name = "Reise Til:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise til")]
-        [RegularExpression("[a-zA-ZøæåØÆÅ]{2,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
+        [RegularExpression("[a-zA-ZøæåØÆÅ ]{1,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
         public string til { get; set; }
 
         [Display(Name = "Antall Barn")]
