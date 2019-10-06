@@ -8,12 +8,12 @@ namespace VyBillettWebApp.Models
 {
     public class BestillingViewModel
     {
-        [Display(Name = "fra:")]
+        [Display(Name = "Reise Fra:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]
         [RegularExpression("[a-zA-ZøæåØÆÅ]{2,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
         public string fra { get; set; }
 
-        [Display(Name = "til:")]
+        [Display(Name = "Reise Til:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise til")]
         [RegularExpression("[a-zA-ZøæåØÆÅ]{2,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
         public string til { get; set; }
@@ -30,7 +30,7 @@ namespace VyBillettWebApp.Models
         [Range(0, 10, ErrorMessage = "velg antall voksne, maksgrense er 10 per bestilling")]
         public int antall_voksne { get; set; }
 
-        [Display(Name = "Reise dato")]
+        [Display(Name = "Reise Dato")]
         public DateTime reise_dato { get; set; }     
         public DateTime reise_dato_tid { get; set; }
  

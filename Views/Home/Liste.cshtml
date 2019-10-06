@@ -5,7 +5,7 @@
 
 <h2>Liste</h2>
 
-<table class="table">
+<table id="table" class="table">
 
     <tr>
         <th>
@@ -24,8 +24,8 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
+        <tr id="row">
+            <td id="@item.bestilling_id">
                 @item.bestilling_id
             </td>
             <td>
@@ -40,4 +40,27 @@
         </tr>
     }
 </table>
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Pikaday/pikaday.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/stasjonerdata.js"></script>
+    <script>
+        $('#table').click(function () {
+            var i = $(this).find('td').map(function() {
+            return $(this).text();
+            }).get();
+
+            alert(i)
+        })
+
+
+    </script>
+
+
+}
 <a href="Index">Kjøp ny billett</a>
+
