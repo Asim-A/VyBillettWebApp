@@ -45,7 +45,7 @@ namespace VyBillettWebApp
             }          
         }       
 
-        private void BuildBilletter(String type, int antall)
+        private void BuildBilletter(String type, int? antall)
         {
             for (int counter = 0; counter < antall; counter++)
             {
