@@ -1,0 +1,110 @@
+﻿@model VyBillettWebApp.Models.BestillingViewModel
+
+@{
+    ViewBag.Title = "Bestill billett";
+}
+
+<h2 class="h2">Hei, Hvor vil du reise?</h2>
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-3 dropdown">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fra, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+
+                    @Html.EditorFor(model => model.fra, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.fra, "", new { @class = "text-danger test" })
+                </div>
+                <div id="myDropdownFra" class="dropdown-content">
+
+                </div>
+            </div>
+
+            <div class="col-md-3 dropdown">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.til, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+
+                    @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.til, "", new { @class = "text-danger test" })
+                </div>
+                <div id="myDropdownTil" class="dropdown-content">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.antall_barn, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.antall_barn, new { htmlAttributes = new { @class = "form-control antall" } })
+                @Html.ValidationMessageFor(model => model.antall_barn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.antall_studenter, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.antall_studenter, new { htmlAttributes = new { @class = "form-control antall" } })
+                @Html.ValidationMessageFor(model => model.antall_studenter, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.antall_voksne, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.antall_voksne, new { htmlAttributes = new { @class = "form-control antall" } })
+                @Html.ValidationMessageFor(model => model.antall_voksne, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.reise_dato, htmlAttributes: new { @class = "control-label col-md-2 fontforboks" })
+            <div class="col-md-3">
+
+                @Html.EditorFor(model => model.reise_dato, new { htmlAttributes = new { @class = "form-control", @id = "datepicker" } })
+                @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
+
+            </div>
+            
+             <div class="col-md-3">
+                <select id="timepicker">
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit_buy_btn" type="submit" value="Kjøp Billett" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Back to List", "Liste")
+</div>
+
+<link href="~/Content/CUSTOMVY.CSS" rel="stylesheet" />
+<link href="~/Content/Pikaday/pikaday.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Pikaday/pikaday.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/stasjonerdata.js"></script>
+    <script src="~/Scripts/homepage.js"></script>
+}
