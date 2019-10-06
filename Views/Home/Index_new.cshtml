@@ -31,7 +31,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    @Html.EditorFor(model => model.fra, "fra", new { htmlAttributes = new { @class = "form-control-strekning" } })
+                                    @Html.EditorFor(model => model.fra, "fra", new { htmlAttributes = new { @class = "form-control-strekning", @placeholder = "Hvor vil du reise fra?" } })
                                     @Html.ValidationMessageFor(model => model.fra, "", new { @class = "text-danger" })
 
                                     <div id="myDropdownFra" class="dropdown-content">
@@ -55,7 +55,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control-strekning" } })
+                                    @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control-strekning",  @placeholder = "Hvor vil du dra?"} })
                                     @Html.ValidationMessageFor(model => model.til, "", new { @class = "text-danger" })
                                     <div id="myDropdownTil" class="dropdown-content">
 
