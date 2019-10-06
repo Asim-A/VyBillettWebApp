@@ -33,6 +33,9 @@ namespace VyBillettWebApp.Models
         [Display(Name = "Reise Dato")]
         public DateTime reise_dato { get; set; }     
         public DateTime reise_dato_tid { get; set; }
- 
+
+        [Display(Name = "Retur Dato")]
+        public DateTime retur_dato { get; set; }
+        public DateTime retur_dato_tid { get; set; }
     }
 }
