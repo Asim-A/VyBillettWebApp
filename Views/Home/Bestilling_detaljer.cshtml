@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Bestilling_detaljer";
+}
+
+<h1>Bestilling_detaljer</h1>
+
+<p>QR-koden inneholder verdien til id-en som kan bli brukt til å aksessere databasen. Hensikten med QR koden er at man ikke trenger å ha et innlogging system.</p>
+<p>Dette er egentlig ikke sikkert, men det gjør at besvarelsen er mer komplett siden da har man "fått billettene".</p>
+
+<div id="qrcode"></div>
+
+<div>
+    @Html.ActionLink("Back to List", "Liste")
+    @Html.ActionLink("Tilbake til indeks", "Index")
+</div>
+
+<script src="~/Scripts/qrcode.min.js"></script>
+<script src="~/Scripts/bestilling_detalje_page.js"></script>
