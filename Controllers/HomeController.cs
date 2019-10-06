@@ -57,6 +57,7 @@ namespace VyBillettWebApp.Controllers
         {
             System.Diagnostics.Debug.WriteLine("LeggInnBestilling med innkunde");
             System.Diagnostics.Debug.WriteLine("retur dato " + bestilling.retur_dato);
+            System.Diagnostics.Debug.WriteLine("retur dato " + bestilling.retur_dato.HasValue);
             System.Diagnostics.Debug.WriteLine("Modelstate "+ModelState.IsValid);
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             var errorsl = errors.ToList();
@@ -70,13 +71,13 @@ namespace VyBillettWebApp.Controllers
             {
                 var md = new dbModellBygger();
                 md.BuildBestillingModells(bestilling, db);
-                if (!bestilling.retur_dato.Equals(new DateTime()))
+                if (bestilling.retur_dato.HasValue)//!(bestilling.retur_dato.GetValueOrDefault()==null) || !(bestilling.retur_dato.GetValueOrDefault()==(new DateTime?().GetValueOrDefault()))))
                 {
                     String fra = bestilling.fra;
                     bestilling.fra = bestilling.til;
                     bestilling.til = fra;
-                    bestilling.reise_dato = bestilling.retur_dato;
-                    bestilling.reise_dato_tid = bestilling.retur_dato_tid;
+                    bestilling.reise_dato = (DateTime) bestilling.retur_dato;
+                    bestilling.reise_dato_tid = (DateTime) bestilling.retur_dato_tid;
                     md.BuildBestillingModells(bestilling, db);
                 }
             }

@@ -20,22 +20,22 @@ namespace VyBillettWebApp.Models
 
         [Display(Name = "Antall Barn")]
         [Range(0, 10, ErrorMessage ="velg antall barn, maksgrense er 10 per bestilling")]
-        public int antall_barn { get; set; }
+        public int? antall_barn { get; set; }
 
         [Display(Name = "Antall Studenter")]
         [Range(0, 10, ErrorMessage = "velg antall studenter, maksgrense er 10 per bestilling")]
-        public int antall_studenter { get; set; }
+        public int? antall_studenter { get; set; }
 
         [Display(Name = "Antall Voksne")]
         [Range(0, 10, ErrorMessage = "velg antall voksne, maksgrense er 10 per bestilling")]
-        public int antall_voksne { get; set; }
+        public int? antall_voksne { get; set; }
 
         [Display(Name = "Utreise")]
         public DateTime reise_dato { get; set; }     
         public DateTime reise_dato_tid { get; set; }
 
         [Display(Name = "Retur Dato")]
-        public DateTime retur_dato { get; set; }
-        public DateTime retur_dato_tid { get; set; }
+        public DateTime? retur_dato { get; set; }
+        public DateTime? retur_dato_tid { get; set; }
     }
 }
