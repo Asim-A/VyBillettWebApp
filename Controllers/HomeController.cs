@@ -47,11 +47,6 @@ namespace VyBillettWebApp.Controllers
             return jsonSerializer.Serialize("bestilling date "+bestilling.reise_dato);
         }
 
-        public string send_steder_liste()
-        {
-            return "";
-        }
-
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling)
         {         
@@ -80,8 +75,17 @@ namespace VyBillettWebApp.Controllers
 
                 }
             }
+
+            int id = bestillinger_liste[0].bestilling_id;
+
+            return RedirectToAction("Bestilling_detaljer", new { id = @id });
+        }
+
+        public ActionResult Bestilling_detaljer()
+        {
             return View();
         }
+
         /*
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling) {
