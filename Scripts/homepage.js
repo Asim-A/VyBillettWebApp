@@ -247,26 +247,7 @@ $(document).ready(function () {
             }
         });
 
-    $("#submit_buy_btn").click(function () {
-        var Inn = {
-            reise_dato_tid: $("#datepicker").val()
-        }
-
-        $.ajax({
-            url: '/Home/ajaxtestinn',
-            type: 'POST',
-            dataType: 'json',
-            data: JSON.stringify(Inn),
-            contentType: "application/json;charset=utf-8",
-            success: function (i) {
-                alert(i);
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-
-    });
+   
 
     cleanseAttributes();
     setup_timepicker();

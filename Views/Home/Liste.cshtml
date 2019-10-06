@@ -25,7 +25,7 @@
     @foreach (var item in Model)
     {
         <tr id="row">
-            <td id="@item.bestilling_id">
+            <td >
                 @item.bestilling_id
             </td>
             <td>
@@ -48,17 +48,6 @@
     <script src="~/Scripts/Pikaday/pikaday.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script src="~/Scripts/stasjonerdata.js"></script>
-    <script>
-        $('#table').click(function () {
-            var i = $(this).find('td').map(function() {
-            return $(this).text();
-            }).get();
-
-            alert(i)
-        })
-
-
-    </script>
 
 
 }
