@@ -3,9 +3,19 @@
         field: document.getElementById('datepicker'),
         minDate: new Date(),
         onSelect: function () {
-            console.log(this);
+            
         }
     });
+
+var picker2 = new Pikaday(
+    {
+        field: document.getElementById("datepicker2"),
+        mindate: new Date(),
+        onSelect: function () {
+
+        }
+    }
+);
 
 //$(function () {
 //    $.ajax({
@@ -47,7 +57,16 @@ let fra_input = document.getElementById("fra");
 let til_input = document.getElementById("til");
 
 function setup_timepicker() {
-    let timepicker = document.getElementById("timepicker");
+
+
+    setup_timepicker_id("timepicker");
+    setup_timepicker_id("timepicker2");
+
+    console.log("done");
+}
+
+function setup_timepicker_id(id) {
+    let timepicker = document.getElementById(id);
 
     for (let i = 0; i < 24; i++) {
         let node;
@@ -63,7 +82,6 @@ function setup_timepicker() {
         node = create_option(value);
         timepicker.appendChild(node);
     }
-
 }
 
 function bind_input_timepicker() {
@@ -182,10 +200,6 @@ function show_menu_id(id, input_id) {
     if(input.value === "")
         el.classList.remove("show");
 
-}
-
-function find_increment_buttons(className) {
-    return document.getElementsByClassName(className);
 }
 
 function bind_input_to_buttons(inputId) {

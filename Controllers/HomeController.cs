@@ -47,7 +47,10 @@ namespace VyBillettWebApp.Controllers
             return jsonSerializer.Serialize("bestilling date "+bestilling.reise_dato);
         }
 
-
+        public string send_steder_liste()
+        {
+            return "";
+        }
 
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling)
