@@ -148,6 +148,7 @@
     <Compile Include="Models\BestillingViewModel.cs" />
     <Compile Include="Models\Databasemodeller\Billetter.cs" />
     <Compile Include="Models\Databasemodeller\BillettType.cs" />
+    <Compile Include="Models\Logiskemodeller\Bestilling.cs" />
     <Compile Include="Models\Logiskemodeller\Billett.cs" />
     <Compile Include="Models\Databasemodeller\VoksenBillett.cs" />
     <Compile Include="Models\DB.cs" />
