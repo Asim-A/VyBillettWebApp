@@ -1,0 +1,12 @@
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\VyBillettWebApp.UnitTests.dll
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\VyBillettWebApp.UnitTests.pdb
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+F:\WebappProjects\VyBillettWebApp.UnitTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+F:\WebappProjects\VyBillettWebApp.UnitTests\obj\Release\VyBillettWebApp.UnitTests.csproj.CopyComplete
+F:\WebappProjects\VyBillettWebApp.UnitTests\obj\Release\VyBillettWebApp.UnitTests.dll
+F:\WebappProjects\VyBillettWebApp.UnitTests\obj\Release\VyBillettWebApp.UnitTests.pdb
