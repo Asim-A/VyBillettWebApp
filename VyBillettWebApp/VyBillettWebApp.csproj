@@ -186,16 +186,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{15f9852d-9310-4443-80c1-a1c74ce5df80}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{5530c83c-fea0-4c92-b0d8-0d8ba15b6f82}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
