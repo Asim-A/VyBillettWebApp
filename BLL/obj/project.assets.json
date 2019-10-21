@@ -25,6 +25,28 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
       }
     }
   },
@@ -171,10 +193,22 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "DAL >= 1.0.0",
+      "Model >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -207,7 +241,14 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\WebappProjects\\VyWebApp\\DAL\\DAL.csproj": {
+              "projectPath": "F:\\WebappProjects\\VyWebApp\\DAL\\DAL.csproj"
+            },
+            "F:\\WebappProjects\\VyWebApp\\Model\\Model.csproj": {
+              "projectPath": "F:\\WebappProjects\\VyWebApp\\Model\\Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

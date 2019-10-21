@@ -1,0 +1,8 @@
+F:\WebappProjects\VyWebApp\Model\bin\Debug\netstandard2.0\Model.deps.json
+F:\WebappProjects\VyWebApp\Model\bin\Debug\netstandard2.0\Model.dll
+F:\WebappProjects\VyWebApp\Model\bin\Debug\netstandard2.0\Model.pdb
+F:\WebappProjects\VyWebApp\Model\obj\Debug\netstandard2.0\Model.csprojAssemblyReference.cache
+F:\WebappProjects\VyWebApp\Model\obj\Debug\netstandard2.0\Model.AssemblyInfoInputs.cache
+F:\WebappProjects\VyWebApp\Model\obj\Debug\netstandard2.0\Model.AssemblyInfo.cs
+F:\WebappProjects\VyWebApp\Model\obj\Debug\netstandard2.0\Model.dll
+F:\WebappProjects\VyWebApp\Model\obj\Debug\netstandard2.0\Model.pdb

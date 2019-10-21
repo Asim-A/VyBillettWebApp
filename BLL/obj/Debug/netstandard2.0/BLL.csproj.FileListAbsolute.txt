@@ -1,0 +1,14 @@
+F:\WebappProjects\VyWebApp\BLL\bin\Debug\netstandard2.0\BLL.deps.json
+F:\WebappProjects\VyWebApp\BLL\bin\Debug\netstandard2.0\BLL.dll
+F:\WebappProjects\VyWebApp\BLL\bin\Debug\netstandard2.0\BLL.pdb
+F:\WebappProjects\VyWebApp\BLL\bin\Debug\netstandard2.0\DAL.dll
+F:\WebappProjects\VyWebApp\BLL\bin\Debug\netstandard2.0\Model.dll
+F:\WebappProjects\VyWebApp\BLL\bin\Debug\netstandard2.0\DAL.pdb
+F:\WebappProjects\VyWebApp\BLL\bin\Debug\netstandard2.0\Model.pdb
+F:\WebappProjects\VyWebApp\BLL\obj\Debug\netstandard2.0\BLL.csprojAssemblyReference.cache
+F:\WebappProjects\VyWebApp\BLL\obj\Debug\netstandard2.0\BLL.AssemblyInfoInputs.cache
+F:\WebappProjects\VyWebApp\BLL\obj\Debug\netstandard2.0\BLL.AssemblyInfo.cs
+F:\WebappProjects\VyWebApp\BLL\obj\Debug\netstandard2.0\BLL.csproj.CopyComplete
+F:\WebappProjects\VyWebApp\BLL\obj\Debug\netstandard2.0\BLL.dll
+F:\WebappProjects\VyWebApp\BLL\obj\Debug\netstandard2.0\BLL.pdb
+F:\WebappProjects\VyWebApp\BLL\bin\Debug\netstandard2.0\DAL.dll.config

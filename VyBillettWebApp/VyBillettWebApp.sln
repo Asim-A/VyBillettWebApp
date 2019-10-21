@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VyBillettWebApp.UnitTests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL\DAL.csproj", "{9597827E-3DB7-476C-BC1D-37C63DBFF1F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "..\BLL\BLL.csproj", "{15F9852D-9310-4443-80C1-A1C74CE5DF80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "..\BLL\BLL.csproj", "{15F9852D-9310-4443-80C1-A1C74CE5DF80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\Model\Model.csproj", "{5530C83C-FEA0-4C92-B0D8-0D8BA15B6F82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{15F9852D-9310-4443-80C1-A1C74CE5DF80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15F9852D-9310-4443-80C1-A1C74CE5DF80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15F9852D-9310-4443-80C1-A1C74CE5DF80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5530C83C-FEA0-4C92-B0D8-0D8BA15B6F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5530C83C-FEA0-4C92-B0D8-0D8BA15B6F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5530C83C-FEA0-4C92-B0D8-0D8BA15B6F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5530C83C-FEA0-4C92-B0D8-0D8BA15B6F82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

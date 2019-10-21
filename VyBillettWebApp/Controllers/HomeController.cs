@@ -49,7 +49,8 @@ namespace VyBillettWebApp.Controllers
 
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling)
-        {         
+        {    
+            
             if (!(bestilling.antall_barn.HasValue || bestilling.antall_studenter.HasValue || bestilling.antall_voksne.HasValue))
             {
                 return View();
