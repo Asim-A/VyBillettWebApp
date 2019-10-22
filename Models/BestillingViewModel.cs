@@ -8,6 +8,8 @@ namespace VyBillettWebApp.Models
 {
     public class BestillingViewModel
     {
+        public string brukernavn { get; set; }
+        public string passord { get; set; }
         [Display(Name = "Reise fra:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]
         [RegularExpression("[a-zA-ZøæåØÆÅ ]{1,32}", ErrorMessage = "vennligst gi en gyldig destinasjon")]
