@@ -1,0 +1,51 @@
+﻿@model List<VyBillettWebApp.Models.Databasemodeller.Bruker>
+@{
+    ViewBag.Title = "Liste";
+}
+
+<h2>Liste</h2>
+
+<table id="table" class="table">
+
+    <tr>
+        <th>
+            id
+        </th>
+        <th>
+            brukernavn
+        </th>
+        <th>
+            passord
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="row">
+            <td>
+                @item.bruker_id
+            </td>
+            <td>
+                @item.e_postadresse
+            </td>
+            <td>
+                @item.passord
+            </td>
+            
+        </tr>
+    }
+</table>
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Pikaday/pikaday.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/stasjonerdata.js"></script>
+
+
+}
+<a href="Index">Kjøp ny billett</a>
+

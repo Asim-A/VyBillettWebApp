@@ -8,7 +8,7 @@ namespace VyBillettWebApp.Models
 {
     public class BestillingViewModel
     {
-        public string brukernavn { get; set; }
+        public string e_postadresse { get; set; }
         public string passord { get; set; }
         [Display(Name = "Reise fra:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]

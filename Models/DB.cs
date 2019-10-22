@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
-
+using VyBillettWebApp.Models.Databasemodeller;
 
 namespace VyBillettWebApp.Models
 {
@@ -22,6 +22,7 @@ namespace VyBillettWebApp.Models
         }
         public virtual DbSet<Bestillinger> Bestillinger { get; set; }
         public virtual DbSet<Billetter> Billetter { get; set; }
+        public virtual DbSet<Bruker> Bruker { get; set; }
 
         public void LeggInnBestilling(BestillingViewModel bestilling) {
                                               
