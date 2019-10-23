@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace VyBillettWebApp.Models
+
+namespace Model
 {
     public class Bestillinger
     {

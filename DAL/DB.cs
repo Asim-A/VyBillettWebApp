@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -6,10 +7,11 @@ using System.Linq;
 using System.Web;
 
 
-namespace VyBillettWebApp.Models
+namespace DAL
 {
      public class DB : DbContext
-    {
+    {        
+
         public DB() : base("name=DB")
         {
             Database.CreateIfNotExists();
@@ -23,9 +25,6 @@ namespace VyBillettWebApp.Models
         public virtual DbSet<Bestillinger> Bestillinger { get; set; }
         public virtual DbSet<Billetter> Billetter { get; set; }
 
-        public void LeggInnBestilling(BestillingViewModel bestilling) {
-                                              
-        }
 
     }
 }

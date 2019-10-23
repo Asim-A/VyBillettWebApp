@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using VyBillettWebApp.Models;
-using VyBillettWebApp.Models.Utillity;
+using DAL;
+using Model;
 
-namespace VyBillettWebApp
+namespace DAL
 {
     public class dbModellBygger
     {
 
         BestillingViewModel bestilling_VM;
         Bestillinger bestillinger;
-        internal Bestillinger BuildBestillingModells(BestillingViewModel bestilling, DB db )
+        public Bestillinger settInnBestilling(BestillingViewModel bestilling)
         {
+            DB db = new DB();
             bestilling_VM = bestilling;
             DateTime kombinert_dato = 
                 bestilling_VM.reise_dato.Date.Add(bestilling_VM.reise_dato_tid.TimeOfDay);
