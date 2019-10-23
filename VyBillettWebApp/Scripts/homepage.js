@@ -267,6 +267,17 @@ $(document).ready(function () {
     });
 });
 
+function validateForm(event) {
+    event = event || window.event || event.srcElement;
+    let voksne = $('#voksne').val(); 
+    let barn = $('#barn').val(); 
+    let studenter = $('#studenter').val();
+    if (voksne+barn+studenter==0) {
+        event.preventDefault();
+        alert("Antall reisende kan ikke være 0");
+    }
+};
+
 
 
 

@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Index","Home",FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "validateForm()" }))
     {
         @Html.AntiForgeryToken()
 
@@ -143,7 +143,7 @@
                             @Html.ValidationMessageFor(model => model.antall_voksne, "", new { @class = "text-danger" })
                             <div class="qty mt-5">
                                 <span class="minus bg-primary increment_btn">-</span>
-                                <input class="count input_antall" name="qty" value="0">
+                                <input id="voksne" class="count input_antall" name="qty" value="0">
                                 <span class="plus bg-primary increment_btn">+</span>
                             </div>
                         </div>
@@ -162,7 +162,7 @@
                             @Html.ValidationMessageFor(model => model.antall_barn, "", new { @class = "text-danger" })
                             <div class="qty mt-5">
                                 <span class="minus bg-primary increment_btn">-</span>
-                                <input class="count input_antall" name="qty" value="0">
+                                <input id="barn" class="count input_antall" name="qty" value="0">
                                 <span class="plus bg-primary increment_btn">+</span>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                             @Html.ValidationMessageFor(model => model.antall_studenter, "", new { @class = "text-danger" })
                             <div class="qty mt-5">
                                 <span class="minus bg-primary increment_btn">-</span>
-                                <input class="count input_antall" name="qty" value="0">
+                                <input id="studenter" class="count input_antall" name="qty" value="0">
                                 <span class="plus bg-primary increment_btn">+</span>
                             </div>
                         </div>
