@@ -14,11 +14,10 @@ namespace DAL
         Bestillinger bestillinger;
         public Bestillinger settInnBestilling(BestillingViewModel bestilling)
         {
-            DB db = new DB();
+            
             bestilling_VM = bestilling;
             DateTime kombinert_dato = 
-                bestilling_VM.reise_dato.Date.Add(bestilling_VM.reise_dato_tid.TimeOfDay);
-            
+                bestilling_VM.reise_dato.Date.Add(bestilling_VM.reise_dato_tid.TimeOfDay);            
 
             bestillinger = new Bestillinger
             {
@@ -30,13 +29,17 @@ namespace DAL
                 total_pris = 0,
                 billett_liste = new List<Billetter>()
             };
+
+            bestillinger.total_pris = BeregnBestillingPris(bestilling);
+
             BuildBilletter("Barn", bestilling_VM.antall_barn);
             BuildBilletter("Student", bestilling_VM.antall_studenter);
             BuildBilletter("Voksen", bestilling_VM.antall_voksne);
-            bestillinger.total_pris = MappingUtillity.BeregnBestillingPris(bestillinger);
+
             
             try
             {
+                DB db = new DB();
                 db.Bestillinger.Add(bestillinger);
                 db.SaveChanges();
                 return bestillinger;
@@ -57,6 +60,24 @@ namespace DAL
                 billett.billett_type = type;
                 bestillinger.billett_liste.Add(billett);
             }
+        }
+
+        
+
+        public static double BeregnBestillingPris(BestillingViewModel bestilling)
+        {
+            /*
+            double total_pris = db.Billett_typer.Where(bt => bt.billett_type == "Barn")
+                      
+            return total_pris;*/
+            double total_pris = 0;
+            using (var db = new DB()) { 
+                List<Billett_type> btListe = db.Billett_typer.ToList();
+                if (!(bestilling.antall_barn == null)) total_pris += btListe[0].pris * (double)bestilling.antall_barn;
+                if (!(bestilling.antall_studenter == null)) total_pris += btListe[1].pris * (double)bestilling.antall_studenter;
+                if (!(bestilling.antall_voksne == null)) total_pris += btListe[2].pris * (double)bestilling.antall_voksne;
+            }
+            return total_pris;
         }
     }
 }
