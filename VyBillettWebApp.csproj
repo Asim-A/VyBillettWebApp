@@ -178,6 +178,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Bestilling_detaljer.cshtml" />
     <Content Include="Views\Admin\SjekkLogIn.cshtml" />
+    <Content Include="Views\Admin\logInBruker.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

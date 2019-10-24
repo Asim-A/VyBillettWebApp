@@ -18,46 +18,32 @@ namespace VyBillettWebApp.Controllers
         {
             var eAdresse = bruker.e_postadresse;
             var ePassord = bruker.passord;
-          
-            if (IsValidEmail(bruker.e_postadresse))
-            {
-                using (var db = new DB()) {
-                    if (db.Bruker.Any(epos => epos.e_postadresse == eAdresse))
-                    {
-                        System.Diagnostics.Debug.WriteLine("FANT BRUKER I DB");
-                        logInBruker(eAdresse, ePassord);
-                    }
-                    else { System.Diagnostics.Debug.WriteLine("-----FANT IKKE----"); }
+            List<Bruker> allesammen;
+            List<Bruker> randomshit = new List<Bruker>();
+            Bruker testshit = new Bruker();
+            testshit.bruker_id = 100;
+            testshit.dato = DateTime.Now;
+            testshit.e_postadresse = "halla12@oslomet.com";
+            testshit.passord = "weeb0";
+            testshit.salt = "watashiva";
+            randomshit.Add(testshit);
+            
+            using (var db = new DB()) {
+                allesammen = db.Bruker.ToList();
+            }
+
+
+                if (IsValidEmail(bruker.e_postadresse)&& finsIDb(eAdresse))
+                {
+                    return logInBruker(eAdresse, ePassord);
                     
+
                 }
 
-                    var saltForHash = lagSalt();
-                var dbSalt = Convert.ToBase64String(saltForHash);
-                var hashetPassordIDb = Convert.ToBase64String(LagHashetPassord(bruker.passord, saltForHash));            
-                Bruker nyBruker = lagBruker(bruker, hashetPassordIDb, dbSalt);
-                
-
-                using (var db = new DB())
-                    {
-                        try
-                        {
-                            db.Bruker.Add(nyBruker);
-                            db.SaveChanges();
-                        }
-                        catch (Exception e)
-                        {
-                            System.Diagnostics.Debug.WriteLine("her kan det skrives til fil kanskje også");
-                        }
-
-                        var personer = db.Bruker.ToList();
-                        return View(personer);
-                    }
-
-            }
-
-            else {
-                return View(bruker);
-            }
+                else {
+                    System.Diagnostics.Debug.WriteLine("hvis email ikke er godkjent");
+                    return View(randomshit);
+                }
           
           
                
@@ -99,8 +85,6 @@ namespace VyBillettWebApp.Controllers
             return salt;
         
         }
-
-      
         static Bruker lagBruker(BestillingViewModel bruker, string passordIDb, string dbSalt) {
             Bruker nyBruker = new Bruker
             {
@@ -112,46 +96,85 @@ namespace VyBillettWebApp.Controllers
             };
             return nyBruker;
         }
-        static void logInBruker(string eAdresse, string ePassord) {
+        public ActionResult logInBruker(string eAdresse, string ePassord) {
 
             string salt;
             string passord;
             using (var db = new DB()) {
-                if (db.Bruker.Any(epos => epos.e_postadresse == eAdresse))
-                {
+              
                     salt = (from bruker in db.Bruker where bruker.e_postadresse == eAdresse select bruker.salt).First();
                     byte[] saltIByte = Convert.FromBase64String(salt);
                     passord = Convert.ToBase64String(LagHashetPassord(ePassord, saltIByte));
-                    if (db.Bruker.Where(bruker => bruker.e_postadresse == eAdresse).Select(brukerpas => brukerpas.passord == passord).First())
+                   
+
+                    if (db.Bruker.Where(bruker => bruker.e_postadresse == eAdresse).Select(brukerpas => brukerpas.passord == passord).FirstOrDefault())
                     {
-                        System.Diagnostics.Debug.WriteLine((from s in db.Bruker where s.e_postadresse == eAdresse select s.passord).FirstOrDefault());
+                        var test = (from brk in db.Bruker where brk.e_postadresse == eAdresse select brk.passord);
+                        foreach (var v in test) {
+                            System.Diagnostics.Debug.WriteLine(v.FirstOrDefault());
+                        }
+                        var personer = db.Bruker.ToList();
+                        System.Diagnostics.Debug.WriteLine(test);
+                        System.Diagnostics.Debug.WriteLine("logget inn");
+
+                        return View("SjekkLogIn", personer);
                     }
                     else
                     {
-                        System.Diagnostics.Debug.WriteLine("------FUNKER IKKE FINNER IKKE PASSORD------");
-                    }
-                    System.Diagnostics.Debug.WriteLine("FANT BRUKER I DB");
-                    logInBruker(eAdresse, ePassord);
-                }
-                else { System.Diagnostics.Debug.WriteLine("retunere view som ikke fant"); }
-             
+                    List<Bruker> randomshit = new List<Bruker>();
+                    Bruker testshit = new Bruker();
+                    testshit.bruker_id = 99;
+                    testshit.dato = DateTime.Now;
+                    testshit.passord = "hahahhaha";
+                    testshit.e_postadresse = "hahahhaa@oslomet.com";
+                    testshit.salt = "hahhaha";
+
+                        
+                        System.Diagnostics.Debug.WriteLine("-----feil passord-----");
+                        return View("logInBruker");
+                    }  
+                
+                
 
             }
-            
-            
-            
-            using (var db = new DB()) {
-                
-                if (db.Bruker.Where(bruker => bruker.e_postadresse == eAdresse).Select(brukerpas => brukerpas.passord == passord).First())
+ 
+        }
+        static void registrerBruker(BestillingViewModel bruker) {
+            var saltForHash = lagSalt();
+            var dbSalt = Convert.ToBase64String(saltForHash);
+            var hashetPassordIDb = Convert.ToBase64String(LagHashetPassord(bruker.passord, saltForHash));
+            Bruker nyBruker = lagBruker(bruker, hashetPassordIDb, dbSalt);
+            using (var db = new DB())
+            {
+                try
                 {
-                    System.Diagnostics.Debug.WriteLine((from s in db.Bruker where s.e_postadresse == eAdresse select s.passord).FirstOrDefault());
+                    db.Bruker.Add(nyBruker);
+                    db.SaveChanges();
+                    
                 }
-                else {
-                    System.Diagnostics.Debug.WriteLine("------FUNKER IKKE FINNER IKKE PASSORD------");
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine("her kan det skrives til fil kanskje også");
                 }
+
             }
 
         }
+        public static bool finsIDb(string eAdresse) {
+            using (var db = new DB()) {
+                if (db.Bruker.Any(epos => epos.e_postadresse == eAdresse))
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+                  
+            }
+
+
+        }
+
 
 
     }
