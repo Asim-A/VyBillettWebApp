@@ -12,10 +12,9 @@ namespace DAL
      public class DB : DbContext
     {        
 
-        public DB() : base("name=DB")
+        public DB() : base("DB")
         {
-            Database.CreateIfNotExists();
-           // Database.SetInitializer(new DBInit());
+            Database.SetInitializer(new DBInit());
 
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -24,7 +23,7 @@ namespace DAL
         }
         public virtual DbSet<Bestillinger> Bestillinger { get; set; }
         public virtual DbSet<Billetter> Billetter { get; set; }
-        public virtual DbSet<Billett_type> Billett_type { get; set; }
+        public virtual DbSet<Billett_type> Billett_typer { get; set; }
 
 
     }
