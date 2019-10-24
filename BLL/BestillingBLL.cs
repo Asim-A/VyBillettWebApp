@@ -9,9 +9,6 @@ namespace BLL
 {
     public class BestillingBLL
     {
-
-        BestillingViewModel bestilling_VM;
-        Bestillinger bestillinger;
         public Bestillinger settInnBestilling(BestillingViewModel bestilling)
         {
             var dbModellBygger = new dbModellBygger();
@@ -20,4 +17,4 @@ namespace BLL
         }
             
     }
-}
+} 

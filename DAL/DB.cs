@@ -24,6 +24,7 @@ namespace DAL
         }
         public virtual DbSet<Bestillinger> Bestillinger { get; set; }
         public virtual DbSet<Billetter> Billetter { get; set; }
+        public virtual DbSet<Billett_type> Billett_type { get; set; }
 
 
     }

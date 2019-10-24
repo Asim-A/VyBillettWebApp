@@ -9,8 +9,8 @@ namespace Model
         [Key]
         public int billett_id { get; set; }
         [Required]
-        public Bestillinger bestilling_id { get; set; }
+        public int bestilling_id { get; set; }
         [Required]
-        public string billett_type { get; set; }
+        public String billett_type { get; set; }
     }
 }

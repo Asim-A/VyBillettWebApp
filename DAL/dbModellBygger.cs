@@ -53,7 +53,7 @@ namespace DAL
             for (int counter = 0; counter < antall; counter++)
             {
                 var billett = new Billetter();
-                billett.bestilling_id = bestillinger;
+                billett.bestilling_id = bestillinger.bestilling_id;
                 billett.billett_type = type;
                 bestillinger.billett_liste.Add(billett);
             }
