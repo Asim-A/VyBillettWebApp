@@ -14,5 +14,9 @@ namespace VyBillettWebApp.Models.Databasemodeller
         public string e_postadresse { get; set; }
         [Required]
         public string passord { get; set; }
+        [Required]
+        public DateTime dato { get; set; }
+        [Required]
+        public string salt { get; set; }
     }
 }
