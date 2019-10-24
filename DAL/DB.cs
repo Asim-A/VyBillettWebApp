@@ -12,7 +12,7 @@ namespace DAL
      public class DB : DbContext
     {        
 
-        public DB() : base("DB")
+        public DB() : base("name=DB")
         {
             Database.SetInitializer(new DBInit());
 
