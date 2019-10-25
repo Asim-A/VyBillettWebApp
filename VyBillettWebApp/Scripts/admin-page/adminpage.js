@@ -53,3 +53,21 @@ function setup_modal_delete_ajax() {
 
 }
 
+/*
+ * Kan sende melding om at en handling har skjedd. Krever ett div med id="snackbar".
+ * Brukes i konjuksjon med click-event, f.eks. en knapp. Input message er meldingen du vil vise
+ * og timeout er tiden snackbaren vises. Anbefaler verdier [1500-4500] 
+ * Hurtig: 1500, Normal: 3000, Treg: 4500
+ * Tid er i millisekunder
+*/
+function setup_snackbar(message="Vellykket", timeout=3000) {
+    let snackbar = document.getElementById("snackbar");
+    snackbar.className = "show";
+    setTimeout(
+        () => {
+            snackbar.className = snackbar.className.replace("show", "");
+            snackbar.innerHTML = message;
+        }, timeout
+    );
+
+}
