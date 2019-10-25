@@ -6,10 +6,10 @@ using DAL;
 using Model;
 
 namespace DAL
-{
+{ }/*
     public class dbModellBygger
     {
-
+       
         BestillingViewModel bestilling_VM;
         Bestillinger bestillinger;
         public Bestillinger settInnBestilling(BestillingViewModel bestilling)
@@ -66,10 +66,10 @@ namespace DAL
 
         public static double BeregnBestillingPris(BestillingViewModel bestilling)
         {
-            /*
+            
             double total_pris = db.Billett_typer.Where(bt => bt.billett_type == "Barn")
                       
-            return total_pris;*/
+            return total_pris;*//*
             double total_pris = 0;
             using (var db = new DB()) { 
                 List<Billett_type> btListe = db.Billett_typer.ToList();
@@ -80,4 +80,4 @@ namespace DAL
             return total_pris;
         }
     }
-}
+}*/

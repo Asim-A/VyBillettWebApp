@@ -146,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BestillingViewModel.cs" />
     <Compile Include="Models\Logiskemodeller\Barn.cs" />
     <Compile Include="Models\Logiskemodeller\BillettType.cs" />
     <Compile Include="Models\Logiskemodeller\Bestilling.cs" />
@@ -177,7 +178,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Databasemodeller\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>

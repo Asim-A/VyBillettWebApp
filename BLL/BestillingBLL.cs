@@ -8,13 +8,19 @@ using Model;
 namespace BLL
 {
     public class BestillingBLL
-    {
-        public Bestillinger settInnBestilling(BestillingViewModel bestilling)
+    {/*
+        public Bestillinger settInnBestilling(Bestilling bestilling)
         {
-            var dbModellBygger = new dbModellBygger();
-            return dbModellBygger.settInnBestilling(bestilling);
 
-        }
+            var dbModellBygger = new dbModellBygger();
+       //     return dbModellBygger.settInnBestilling(bestilling);
+
+        }*/
             
+        public List<Bestilling> GetBestillinger()
+        {
+            var BestillingDAL = new BestillingDAL();
+            return BestillingDAL.GetBestillinger();
+        }
     }
 } 

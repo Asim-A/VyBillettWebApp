@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BestillingDAL.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="DBInit.cs" />
     <Compile Include="dbModellBygger.cs" />

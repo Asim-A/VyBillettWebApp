@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Model;
 using System.Web.Script.Serialization;
 using BLL;
-
+using VyBillettWebApp.Models;
 
 namespace VyBillettWebApp.Controllers
 {
@@ -14,7 +14,9 @@ namespace VyBillettWebApp.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {          
+        {
+          //  var b = new BestillingBLL();
+          //  b.GetBestillinger();
             return View();
         }
 
@@ -26,7 +28,7 @@ namespace VyBillettWebApp.Controllers
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling)
         {         
-            if (!(bestilling.antall_barn.HasValue || bestilling.antall_studenter.HasValue || bestilling.antall_voksne.HasValue))
+           /* if (!(bestilling.antall_barn.HasValue || bestilling.antall_studenter.HasValue || bestilling.antall_voksne.HasValue))
             {
                 return View();
             }
@@ -51,9 +53,9 @@ namespace VyBillettWebApp.Controllers
                 }
             }
 
-            int id = bestillinger_liste[0].bestilling_id;
+            int id = bestillinger_liste[0].bestilling_id;*/
 
-            return RedirectToAction("Bestilling_detaljer", new { id = @id });
+            return RedirectToAction("Bestilling_detaljer");
         }
 
         public ActionResult Bestilling_detaljer()

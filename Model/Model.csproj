@@ -42,10 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bestillinger.cs" />
-    <Compile Include="BestillingViewModel.cs" />
-    <Compile Include="Billetter.cs" />
-    <Compile Include="Billett_type.cs" />
+    <Compile Include="Billett.cs" />
+    <Compile Include="Bestilling.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
