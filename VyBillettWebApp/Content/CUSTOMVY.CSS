@@ -243,7 +243,11 @@ margin-left:48%;
 }
 
 #loggInnKnapp {
+    border: none;
+    height: 100%;
+    position: absolute;
     right: 0;
     background-color: #00866e;
+    border-radius: unset;
 }
 /*INKREMENTKNAPP SLUTT*/
