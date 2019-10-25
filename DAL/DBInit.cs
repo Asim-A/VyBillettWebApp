@@ -19,7 +19,7 @@ namespace DAL
             IList<Bestillinger> defaultBestillinger = new List<Bestillinger>();
             var b = new Bestillinger()
             {
-                bestilling_id = 1,
+                bestilling_id = 0,
                 fra = "Fetsund",
                 til = "Oslo",
                 bestilling_dato = DateTime.Now
@@ -30,7 +30,7 @@ namespace DAL
 
             var bil = new Billetter {
                 bestilling_id = b.bestilling_id,
-                billett_id = 2,
+                billett_id = 0,
                 billett_type = "Barn"
             };
             b.total_pris = 30;
