@@ -19,14 +19,8 @@ namespace VyBillettWebApp.Controllers
             var eAdresse = bruker.e_postadresse;
             var ePassord = bruker.passord;
             List<Bruker> allesammen;
-            List<Bruker> randomshit = new List<Bruker>();
-            Bruker testshit = new Bruker();
-            testshit.bruker_id = 100;
-            testshit.dato = DateTime.Now;
-            testshit.e_postadresse = "halla12@oslomet.com";
-            testshit.passord = "weeb0";
-            testshit.salt = "watashiva";
-            randomshit.Add(testshit);
+           
+           
             
             using (var db = new DB()) {
                 allesammen = db.Bruker.ToList();
@@ -42,7 +36,7 @@ namespace VyBillettWebApp.Controllers
 
                 else {
                     System.Diagnostics.Debug.WriteLine("hvis email ikke er godkjent");
-                    return View(randomshit);
+                    return View("logInBruker");
                 }
           
           
@@ -62,20 +56,13 @@ namespace VyBillettWebApp.Controllers
             }
         }
         static byte[] LagHashetPassord(string psd, byte[] salt) {
-            byte[] passordIByte = Encoding.UTF8.GetBytes(psd);
-            HashAlgorithm hasher = new SHA256Managed();
-            byte[] psdOgSalt = new byte[psd.Length + salt.Length];
-            for (int i = 0; i < psd.Length; i++) {
-                psdOgSalt[i] = passordIByte[i];
-            }
-            for (int i = 0; i<salt.Length; i++)
-            {
-                psdOgSalt[psd.Length + i] = salt[i];
-            }
-            return hasher.ComputeHash(psdOgSalt);
+            const int nøkkelLengde = 20;
+            var hashPassord = new Rfc2898DeriveBytes(psd, salt, 50);
+
+            return hashPassord.GetBytes(nøkkelLengde);
         }
         static byte[] lagSalt() {
-            var saltLengde = 7;
+            var saltLengde = 8;
             var salt = new byte[saltLengde];
             using (var random = new RNGCryptoServiceProvider()) 
             {
@@ -85,7 +72,7 @@ namespace VyBillettWebApp.Controllers
             return salt;
         
         }
-        static Bruker lagBruker(BestillingViewModel bruker, string passordIDb, string dbSalt) {
+        static Bruker lagBruker(BestillingViewModel bruker, byte[] passordIDb, string dbSalt) {
             Bruker nyBruker = new Bruker
             {
                 e_postadresse = bruker.e_postadresse,
@@ -99,15 +86,16 @@ namespace VyBillettWebApp.Controllers
         public ActionResult logInBruker(string eAdresse, string ePassord) {
 
             string salt;
-            string passord;
+            byte[] passord;
             using (var db = new DB()) {
-              
-                    salt = (from bruker in db.Bruker where bruker.e_postadresse == eAdresse select bruker.salt).First();
-                    byte[] saltIByte = Convert.FromBase64String(salt);
-                    passord = Convert.ToBase64String(LagHashetPassord(ePassord, saltIByte));
-                   
+                Bruker dbBrukerFunnet = db.Bruker.FirstOrDefault(brk => brk.e_postadresse == eAdresse);
 
-                    if (db.Bruker.Where(bruker => bruker.e_postadresse == eAdresse).Select(brukerpas => brukerpas.passord == passord).FirstOrDefault())
+                    salt = dbBrukerFunnet.salt;
+                    byte[] saltIByte = Convert.FromBase64String(salt);
+                   passord = LagHashetPassord(ePassord, saltIByte);
+               
+
+                    if (dbBrukerFunnet.passord.SequenceEqual(passord))
                     {
                         var test = (from brk in db.Bruker where brk.e_postadresse == eAdresse select brk.passord);
                         foreach (var v in test) {
@@ -121,14 +109,7 @@ namespace VyBillettWebApp.Controllers
                     }
                     else
                     {
-                    List<Bruker> randomshit = new List<Bruker>();
-                    Bruker testshit = new Bruker();
-                    testshit.bruker_id = 99;
-                    testshit.dato = DateTime.Now;
-                    testshit.passord = "hahahhaha";
-                    testshit.e_postadresse = "hahahhaa@oslomet.com";
-                    testshit.salt = "hahhaha";
-
+                    
                         
                         System.Diagnostics.Debug.WriteLine("-----feil passord-----");
                         return View("logInBruker");
@@ -142,7 +123,7 @@ namespace VyBillettWebApp.Controllers
         static void registrerBruker(BestillingViewModel bruker) {
             var saltForHash = lagSalt();
             var dbSalt = Convert.ToBase64String(saltForHash);
-            var hashetPassordIDb = Convert.ToBase64String(LagHashetPassord(bruker.passord, saltForHash));
+            var hashetPassordIDb = LagHashetPassord(bruker.passord, saltForHash);
             Bruker nyBruker = lagBruker(bruker, hashetPassordIDb, dbSalt);
             using (var db = new DB())
             {
