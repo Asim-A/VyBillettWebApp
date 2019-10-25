@@ -30,6 +30,11 @@ namespace VyBillettWebApp.Controllers
             return View();
         }        
 
+        public ActionResult admin_page()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Index(BestillingViewModel bestilling)
         {         

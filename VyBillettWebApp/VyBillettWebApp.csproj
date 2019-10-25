@@ -138,7 +138,10 @@
     <Content Include="Scripts\Pikaday\pikaday.js" />
     <Content Include="Scripts\homepage.js" />
     <Content Include="Scripts\visRetur.js" />
-    <Content Include="Web.config" />
+    <None Include="Views\Shared\_admin_content.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -169,6 +172,8 @@
     <Content Include="Views\Home\Liste.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Bestilling_detaljer.cshtml" />
+    <Content Include="Views\Shared\_admin_topnav.cshtml" />
+    <Content Include="Views\Shared\_admin_sidenav.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
