@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -9,8 +10,47 @@ using System.Web;
 
 namespace DAL
 {
-     public class DB : DbContext
-    {        
+    // Entiteter 
+    public class Bestillinger
+    {
+        [Key]
+        public int bestilling_id { get; set; }
+        [Required]
+        public string fra { get; set; }
+        [Required]
+        public string til { get; set; }
+        [Required]
+        public DateTime reise_dato { get; set; }
+        [Required]
+        public DateTime bestilling_dato { get; set; }
+        [Required]
+        public double total_pris { get; set; }
+        [Required]
+        public virtual List<Billetter> billett_liste { get; set; }
+
+    }
+
+    public class Billetter
+    {
+        [Key]
+        public int billett_id { get; set; }
+        [Required]
+        public int bestilling_id { get; set; }
+        [Required]
+        public String billett_type { get; set; }
+    }
+
+    public class Billett_type
+    {
+        [Key]
+        public string billett_type { get; set; }
+
+        public double pris { get; set; }
+    }
+
+
+    public class DB : DbContext
+    {
 
         public DB() : base("name=DB")
         {
