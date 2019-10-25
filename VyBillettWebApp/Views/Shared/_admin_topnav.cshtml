@@ -1,4 +1,42 @@
-﻿<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+﻿
+<script type="text/javascript">
+
+    $(document).ready(function () {
+    // lag en hendelse som utføres når en a-href med "data-SletteModal = true" trykkes.
+    $('a[data-modal_delete=true]').click(function () {
+
+        // hent inn data-taggene fra denne a-hef lenken
+        var data_navn = $(this).data('navn');
+        var modal_data_id = $(this).data('id');
+
+        // legg ut dataene i div'en i modal-view'et
+        $('#slettNavn').html(data_navn);
+
+        // lag en hendelse for knappen for å slette via ajax, knappen ligger i modal-view'et
+        // må ligge inne i denne overordnede funksjonen for at id'én som er valgt kan brukes
+        $("#sletteModalKnapp").click(function () {
+            // id som skal slettes ligger i data_id
+            $.ajax({
+                url: '@Url.Action("Slett", "Kunde")',
+                data: { id: data_id },  // en parameter inn i slett(id)-metoden i kunde-kontrolleren (JSON-objekt)
+                success: function () {
+                    // må kalle liste-metoden for å vise den nye listen av kunder
+                    $.ajax({
+                        url: '@Url.Action("Liste", "Kunde")',
+                        success: function () {
+                            // så må siden reloades!
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+        })
+    })
+});
+
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <button class="btn" id="menu-toggle">
         <i class="fa fa-bars" aria-hidden="true"></i>
     </button>

@@ -142,6 +142,7 @@
     <Content Include="Scripts\dependencies\homepage.js" />
     <Content Include="Scripts\visRetur.js" />
     <Content Include="Views\Home\admin_page_billett_typer.cshtml" />
+    <Content Include="Views\Shared\Modals\_delete_modal.cshtml" />
     <None Include="Views\Shared\_admin_content.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
