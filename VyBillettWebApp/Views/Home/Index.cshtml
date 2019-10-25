@@ -4,6 +4,10 @@
     ViewBag.Title = "View";
 }
 
+<link href="~/Content/CUSTOMVY.CSS" rel="stylesheet" />
+<link href="~/Content/Pikaday/pikaday.css" rel="stylesheet" />
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -13,7 +17,7 @@
         </div>
     </div>
 
-    @using (Html.BeginForm("Index","Home",FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "validateForm()" }))
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "validateForm()" }))
     {
         @Html.AntiForgeryToken()
 
@@ -56,7 +60,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control-strekning",  @placeholder = "Hvor vil du dra?"} })
+                                    @Html.EditorFor(model => model.til, new { htmlAttributes = new { @class = "form-control-strekning", @placeholder = "Hvor vil du dra?" } })
                                     @Html.ValidationMessageFor(model => model.til, "", new { @class = "text-danger" })
                                     <div id="myDropdownTil" class="dropdown-content">
 
@@ -73,10 +77,10 @@
         <!--Her skal være tur-retur greier-->
         <div class="row rad">
             <div class="col-md-12">
-                <input type="radio" name="turRetur" id="enVei" class="radioknapper" checked/>
-                    <label class="fontforboks radiolabel">En vei</label> 
+                <input type="radio" name="turRetur" id="enVei" class="radioknapper" checked />
+                <label class="fontforboks radiolabel">En vei</label>
                 <input type="radio" name="turRetur" id="knappretur" class="radioknapper" />
-                    <label class="fontforboks radiolabel">Tur / Retur</label>
+                <label class="fontforboks radiolabel">Tur / Retur</label>
             </div>
         </div>
 
@@ -97,8 +101,7 @@
                                     @Html.ValidationMessageFor(model => model.reise_dato, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="col-md-3">
-                                    <select id="timepicker" class="tidvelger">
-                                    </select>
+                                    <select id="timepicker" class="tidvelger"></select>
                                     @Html.EditorFor(model => model.reise_dato_tid, new { htmlAttributes = new { @class = "hidden" } })
                                 </div>
                             </div>
@@ -111,7 +114,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-12">
-                                    @Html.LabelFor(model => model.reise_dato,"Retur", htmlAttributes: new { @class = "control-label fontforboks" })
+                                    @Html.LabelFor(model => model.reise_dato, "Retur", htmlAttributes: new { @class = "control-label fontforboks" })
                                 </div>
                             </div>
                             <div class="row">
@@ -119,8 +122,7 @@
                                     @Html.EditorFor(model => model.retur_dato, new { htmlAttributes = new { @class = "datovelger", @id = "datepicker2" } })
                                 </div>
                                 <div class="col-md-3">
-                                    <select id="timepicker2" class="tidvelger">
-                                    </select>
+                                    <select id="timepicker2" class="tidvelger"></select>
                                     @Html.EditorFor(model => model.retur_dato_tid, new { htmlAttributes = new { @class = "hidden" } })
                                 </div>
                             </div>
@@ -201,8 +203,6 @@
 
     }
 </div>
-<link href="~/Content/CUSTOMVY.CSS" rel="stylesheet" />
-<link href="~/Content/Pikaday/pikaday.css" rel="stylesheet" />
 
 
 <div>
@@ -211,12 +211,12 @@
 
 
 @section scripts{
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/Pikaday/pikaday.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <script src="~/Scripts/stasjonerdata.js"></script>
+    <script src="~/Scripts/dependencies/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/dependencies/jquery.validate.min.js"></script>
+    <script src="~/Scripts/dependencies/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/dependencies/Pikaday/pikaday.js"></script>
+    <script src="~/Scripts/dependencies/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/dependencies/stasjonerdata.js"></script>
     <script src="~/Scripts/homepage.js"></script>
     <script src="~/Scripts/visRetur.js"></script>
 }
