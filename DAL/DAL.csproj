@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BestillingDAL.cs" />
+    <Compile Include="Billett_TypeDAL.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="DBInit.cs" />
     <Compile Include="dbModellBygger.cs" />

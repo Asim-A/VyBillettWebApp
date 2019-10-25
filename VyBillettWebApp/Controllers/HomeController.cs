@@ -29,7 +29,7 @@ namespace VyBillettWebApp.Controllers
             return View();
         }        
 
-        public ActionResult admin_page()
+        public ActionResult admin_page_billett_typer()
         {
             return View();
         }

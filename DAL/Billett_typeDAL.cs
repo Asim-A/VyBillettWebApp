@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+// using Model.BillettType;
 
 namespace DAL
 {
-    class Billett_typeDAL
+    class Billett_TypeDAL
     {
 
-        //public List<Model.Billett_type> GetBillett_Type()
+        //public List<BillettType> GetBillettTyper()
         //{
         //    using (var db = new DB())
         //    {
-        //        List<Model.Billett_type> list_billett_typer = db.Billett_typer.Select(element => new Billett_type()
+        //        List<Model.BillettType> list_billett_typer = db.Billett_typer.Select(element => new BillettType()
         //        {
         //            billett_type = element.billett_type,
         //            billett_pris = element.billett_pris
