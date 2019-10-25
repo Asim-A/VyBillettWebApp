@@ -6,7 +6,8 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using VyBillettWebApp.Models;
-using VyBillettWebApp.Models.Databasemodeller;
+using Model;
+using BLL;
 
 namespace VyBillettWebApp.Controllers
 {
@@ -20,62 +21,38 @@ namespace VyBillettWebApp.Controllers
             var ePassord = bruker.passord;
             List<Bruker> allesammen;
 
+            var brukerbll = new BrukerBLL();
+
+            
 
 
-            using (var db = new DB())
+            if (brukerbll.IsValidEmail(eAdresse) && brukerbll.eksistererBruker(eAdresse))
             {
-                allesammen = db.Bruker.ToList();
-            }
-
-
-            if (IsValidEmail(bruker.e_postadresse) && finsIDb(eAdresse))
-            {
-                return logInBruker(eAdresse, ePassord);
-
-
+                if (brukerbll.validerBruker(eAdresse, ePassord))
+                {
+                    // bruker har riktig passord og email
+                    return View();
+                }
+                else 
+                {
+                    // bruker har riktig email men feil passord
+                    return View();
+                };
             }
 
             else
             {
-                System.Diagnostics.Debug.WriteLine("hvis email ikke er godkjent");
-                return View("logInBruker");
+                // bruker har enten tastet feil format eller så fins ikke denne brukeren
+               return View();
             }
 
 
 
 
         }
-        bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-        static byte[] LagHashetPassord(string psd, byte[] salt)
-        {
-            const int nøkkelLengde = 20;
-            var hashPassord = new Rfc2898DeriveBytes(psd, salt, 50);
-
-            return hashPassord.GetBytes(nøkkelLengde);
-        }
-        static byte[] lagSalt()
-        {
-            var saltLengde = 8;
-            var salt = new byte[saltLengde];
-            using (var random = new RNGCryptoServiceProvider())
-            {
-                random.GetNonZeroBytes(salt);
-            }
-            // System.Diagnostics.Debug.WriteLine(salt);
-            return salt;
-
-        }
+       
+     
+       
         static Bruker lagBruker(BestillingViewModel bruker, byte[] passordIDb, string dbSalt)
         {
             Bruker nyBruker = new Bruker
@@ -150,23 +127,7 @@ namespace VyBillettWebApp.Controllers
             }
 
         }
-        public static bool finsIDb(string eAdresse)
-        {
-            using (var db = new DB())
-            {
-                if (db.Bruker.Any(epos => epos.e_postadresse == eAdresse))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-
-
-        }
+        
 
 
 

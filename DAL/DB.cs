@@ -48,6 +48,19 @@ namespace DAL
 
         public double pris { get; set; }
     }
+    public class Bruker
+    {
+        [Key]
+        public int bruker_id { get; set; }
+        [Required]
+        public string e_postadresse { get; set; }
+        [Required]
+        public byte[] passord { get; set; }
+        [Required]
+        public DateTime dato { get; set; }
+        [Required]
+        public string salt { get; set; }
+    }
 
     public class DB : DbContext
     {
@@ -64,6 +77,7 @@ namespace DAL
         public virtual DbSet<Bestillinger> Bestillinger { get; set; }
         public virtual DbSet<Billetter> Billetter { get; set; }
         public virtual DbSet<Billett_type> Billett_typer { get; set; }
+        public virtual DbSet<Bruker> Bruker { get; set; }
 
 
     }
