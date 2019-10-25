@@ -24,11 +24,17 @@ namespace DAL
                     bestilling_dato = b.bestilling_dato
                 }).ToList();
 
+
+
                 //TEST///
                 System.Diagnostics.Debug.WriteLine("Billetter på bestillling før");
                 foreach (Bestilling b in BestillingerListe)
                 {
-                    System.Diagnostics.Debug.WriteLine("Liste størrelse " + b.billetter.Count);
+                    if (b.billetter != null)
+                        System.Diagnostics.Debug.WriteLine("Liste størrelse " + b.billetter.Count);
+                    else
+                        System.Diagnostics.Debug.WriteLine("ikke instansiert");
+
                 }
                 ///TEST//
 
@@ -51,6 +57,7 @@ namespace DAL
 
                 foreach (Bestilling bes in BestillingerListe)
                 {
+                    bes.billetter = new List<Billett>();
                     foreach (Billett bil in billetter)
                     {
                         if (bil.bestilling_id == bes.ID)
@@ -66,6 +73,7 @@ namespace DAL
                 {
                     System.Diagnostics.Debug.WriteLine("Liste størrelse " + b.billetter.Count);
                 }
+                db.SaveChanges();
                 ///TEST              
                 return BestillingerListe;
             }

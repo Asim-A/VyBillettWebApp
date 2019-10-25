@@ -21,7 +21,6 @@ namespace DAL
         public string til { get; set; }
         [Required]
         public DateTime reise_dato { get; set; }
-        [Required]
         public DateTime? retur_dato { get; set; }
         [Required]
         public DateTime bestilling_dato { get; set; }
@@ -39,14 +38,13 @@ namespace DAL
         [Required]
         public int bestilling_id { get; set; }
         [Required]
-        public String billett_type { get; set; }
-        public object pris { get; internal set; }
+        public String billett_type { get; set; }     
     }
 
     public class Billett_type
     {
         [Key]
-        public string billett_type { get; set; }
+        public String billett_type { get; set; }
 
         public double pris { get; set; }
     }

@@ -15,8 +15,13 @@ namespace VyBillettWebApp.Controllers
     {
         public ActionResult Index()
         {
-          //  var b = new BestillingBLL();
-          //  b.GetBestillinger();
+
+            var bll = new BestillingBLL();
+            List <Bestilling> bestillinger = bll.GetBestillinger();
+            foreach(Bestilling b in bestillinger)
+            {
+                System.Diagnostics.Debug.WriteLine(" id: " + b.ID + " \nfra-til: " + b.fra+"-" + b.til); 
+            }
             return View();
         }
 

@@ -13,7 +13,7 @@ namespace BLL
         {
 
             var dbModellBygger = new dbModellBygger();
-       //     return dbModellBygger.settInnBestilling(bestilling);
+            return dbModellBygger.settInnBestilling(bestilling);
 
         }*/
             
