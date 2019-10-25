@@ -33,7 +33,7 @@ namespace DAL
                     if (b.billetter != null)
                         System.Diagnostics.Debug.WriteLine("Liste størrelse " + b.billetter.Count);
                     else
-                        System.Diagnostics.Debug.WriteLine("ikke instansiert");
+                        System.Diagnostics.Debug.WriteLine("liste ikke instansiert");
 
                 }
                 ///TEST//

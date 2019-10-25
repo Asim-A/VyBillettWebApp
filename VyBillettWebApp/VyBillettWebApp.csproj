@@ -152,10 +152,6 @@
     <Compile Include="Models\BestillingViewModel.cs" />
     <Compile Include="Models\Logiskemodeller\Barn.cs" />
     <Compile Include="Models\Logiskemodeller\BillettType.cs" />
-    <Compile Include="Models\Logiskemodeller\Bestilling.cs" />
-    <Compile Include="Models\Logiskemodeller\Billett.cs" />
-    <Compile Include="Models\Logiskemodeller\VoksenBillett.cs" />
-    <Compile Include="Models\Logiskemodeller\Student.cs" />
     <Compile Include="Models\Logiskemodeller\BillettDato.cs" />
     <Compile Include="Models\Logiskemodeller\Strekning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
