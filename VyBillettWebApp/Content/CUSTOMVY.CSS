@@ -241,4 +241,9 @@ margin-left:48%;
     margin-right: -2%;
     font-size: 28px;
 }
+
+#loggInnKnapp {
+    right: 0;
+    background-color: #00866e;
+}
 /*INKREMENTKNAPP SLUTT*/
