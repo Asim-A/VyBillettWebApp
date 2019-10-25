@@ -95,7 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\admin-navbar.css" />
+    <Content Include="Content\adminpage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -121,6 +121,7 @@
     <Content Include="libman.json" />
     <Content Include="Models\stasjoner.json" />
     <None Include="Scripts\dependencies\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\admin-page\adminpage.js" />
     <Content Include="Scripts\bestilling_detalje_page.js" />
     <Content Include="Scripts\dependencies\bootstrap.js" />
     <Content Include="Scripts\dependencies\bootstrap.min.js" />
@@ -142,7 +143,7 @@
     <Content Include="Scripts\dependencies\homepage.js" />
     <Content Include="Scripts\visRetur.js" />
     <Content Include="Views\Home\admin_page_billett_typer.cshtml" />
-    <Content Include="Views\Shared\Modals\_delete_modal.cshtml" />
+    <Content Include="Views\Shared\Modals\_modal_delete.cshtml" />
     <None Include="Views\Shared\_admin_content.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
