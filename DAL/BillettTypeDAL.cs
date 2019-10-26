@@ -10,6 +10,11 @@ namespace DAL
     public class BillettTypeDAL
     {
 
+        public BillettType GetBillettType(string billett_type_PK)
+        {
+            return null;
+        }
+
         public List<BillettType> GetBillettTyper()
         {
             using (var db = new DB())
@@ -145,6 +150,30 @@ namespace DAL
             return succeeded;
         }
 
+        public Boolean DeleteBillettType(string slettetBillettTypeString)
+        {
+            Boolean succeeded = false;
+            System.Diagnostics.Debug.WriteLine("STARTER I DELETE =================");
+
+            using (var db = new DB())
+            {
+                System.Diagnostics.Debug.WriteLine("ACCESS DB I DELETE =================");
+                if (billettTypeExists(db, slettetBillettTypeString))
+                {
+                    System.Diagnostics.Debug.WriteLine("Finnes 1");
+                    Billett_type slettetDBBillettType = db.Billett_typer.Find(slettetBillettTypeString);
+                    System.Diagnostics.Debug.WriteLine(slettetDBBillettType.billett_type + " " + slettetDBBillettType.pris + " laget ny type");
+                    db.Billett_typer.Remove(slettetDBBillettType);
+                    db.SaveChanges();
+                    System.Diagnostics.Debug.WriteLine("finnes 3");
+                    succeeded = true;
+                }
+                else System.Diagnostics.Debug.WriteLine("FUNKA IKKE I DELETE =================");
+            }
+
+            return succeeded;
+        }
+
         // Hjelpemetode: pris tillates bare å være 1 eller høyere. Negative verdier er ikke lurt å ha.
         private Boolean checkValidPrisInput(Double pris)
         {
@@ -154,7 +183,7 @@ namespace DAL
         // Hjelpemetode som 
         private Boolean billettTypeExists(DB entry, string inputType)
         {
-            return entry.Billett_typer.Find(inputType) != null;
+            return entry.Billett_typer.FirstOrDefault(btype => btype.billett_type == inputType) != null;
         }
 
     }

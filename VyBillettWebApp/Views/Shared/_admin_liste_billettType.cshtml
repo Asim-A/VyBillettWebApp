@@ -21,7 +21,7 @@
                class="btn btn-large btn-danger" 
                data-detail="@Model.billett_type @Model.pris"
                data-id="@Model.billett_type" 
-               data-url_delete=""
+               data-url_delete="@Url.Action("slett_billett_type", "Home")"
                data-toggle="modal" 
                data-modal_delete="true">Slett</a>
         </div>

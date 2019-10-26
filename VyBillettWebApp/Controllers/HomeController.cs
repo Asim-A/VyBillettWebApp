@@ -61,8 +61,33 @@ namespace VyBillettWebApp.Controllers
         public ActionResult admin_page_billett_typer()
         {
             var liste_billettTyper = new BillettTypeBLL().GetBillettTyper();
-
+            System.Diagnostics.Debug.WriteLine("AHAHHAHAHA");
             return View(liste_billettTyper);
+        }
+
+        
+        public string get_billett_typer()
+        {
+            List<BillettType> liste_billett_typer = new BillettTypeBLL().GetBillettTyper();
+
+            foreach (var i in liste_billett_typer)
+            {
+                System.Diagnostics.Debug.WriteLine("LOG: " + i.billett_type + " " + i.pris);
+            }
+            
+            var jsonSerializer = new JavaScriptSerializer();
+            string json = jsonSerializer.Serialize(liste_billett_typer);
+            System.Diagnostics.Debug.WriteLine(json);
+            return json;
+        }
+
+        [HttpGet]
+        public void slett_billett_type(string billett_type)
+        {
+
+            var btBLL = new BillettTypeBLL();
+            if(btBLL.DeleteBillettType(billett_type)) { }
+            else System.Diagnostics.Debug.WriteLine("FANT IKKE BILLETTTYPEN");
         }
 
         [HttpPost]

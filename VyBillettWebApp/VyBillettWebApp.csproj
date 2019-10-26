@@ -177,6 +177,7 @@
     <Content Include="Views\Shared\_admin_topnav.cshtml" />
     <Content Include="Views\Shared\_admin_sidenav.cshtml" />
     <Content Include="Views\Shared\_admin_layout.cshtml" />
+    <Content Include="Views\Shared\_modal_add_billettType.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

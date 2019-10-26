@@ -95,3 +95,7 @@ body {
 .margin-spacing {
     margin: 5% 0;
 }
+
+.hidden {
+    visibility: hidden;
+}

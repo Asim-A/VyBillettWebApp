@@ -14,7 +14,7 @@
             <div class="row control-row">
 
                 <div class="col">
-                    <button class="btn btn-primary pull-right">
+                    <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalAdd">
                         <i class="fa fa-plus">
                         </i>
                     </button>
@@ -24,16 +24,46 @@
             </div>
             <h1 class="mt-4">Billett Typer:</h1>
 
+            <div id="component-container">
+                @foreach (var billett_type in Model)
+                {
+                    @Html.Partial("_admin_liste_billettType", billett_type);
+                }
+            </div>
 
-            @foreach (var billett_type in Model)
-            {
-                @Html.Partial("_admin_liste_billettType", billett_type);
-            }
 
-
-           
         </div>
     </div>
 </div>
 
 @Html.Partial("_modal_delete")
+@Html.Partial("_modal_add_billettType")
+
+<div id="billett_type_template" class="panel panel-default margin-spacing hidden">
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>Billett Type</th>
+                <th>Pris (norske kroner)</th>
+            </tr>
+            <tr>
+                <td id="model_billettType" class="model_billettType"> </td>
+                <td id="model_pris" class="model_pris"> </td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <a id="billett_type_endre_btn" href="" class="btn btn-success billett_type_endre_btn">Endre</a>
+            <a href="#modal_delete_container"
+               id="delete_container"
+               class="btn btn-large btn-danger delete_container"
+               data-detail=" "
+               data-id=" "
+               data-url_delete=""
+               data-toggle="modal"
+               data-modal_delete="true">Slett</a>
+        </div>
+    </div>
+</div>
+
