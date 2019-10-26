@@ -11,7 +11,7 @@ namespace BLL
     public class BillettTypeBLL
     {
 
-        public List<BillettType> GetBillett_Typer()
+        public List<BillettType> GetBillettTyper()
         {
             return new BillettTypeDAL().GetBillettTyper();
         }

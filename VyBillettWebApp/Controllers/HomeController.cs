@@ -19,6 +19,13 @@ namespace VyBillettWebApp.Controllers
         public HomeController()
         {
             _ILogger = Logg.GetInstance;
+            try
+            {
+                throw new Exception("Test exeption");
+            }catch (Exception e)
+            {
+
+            }
         }
 
         protected override void OnException(ExceptionContext filterContext)
@@ -28,7 +35,17 @@ namespace VyBillettWebApp.Controllers
             this.View("Error").ExecuteResult(this.ControllerContext);
         }
         public ActionResult Index()
-        {
+        {/*
+            new Model.BillettType
+            {
+             billett_type
+             
+
+            }*/
+            List<BillettType> btl=new List<BillettType>();
+            var typeBLL = new BillettTypeBLL();
+            var boo = typeBLL.SetBilletttyper(btl);
+            System.Diagnostics.Debug.WriteLine(boo);
             var bll = new BestillingBLL();
             List <Bestilling> bestillinger = bll.GetBestillinger();
             foreach(Bestilling b in bestillinger)
@@ -94,6 +111,7 @@ namespace VyBillettWebApp.Controllers
                 til = bestilling_VM.til,
                 reise_dato = kombinert_dato,
                 bestilling_dato = DateTime.Now,
+                
                 billetter = new List<Billett>()
             };
             lagBilletter("Barn", bestilling_VM.antall_barn, bestilling);

@@ -9,16 +9,26 @@ namespace BLL
 {
     public class BestillingBLL
     {
-        public Boolean settInnBestilling(Bestilling bestilling)
-        {
-            var dbModellBygger = new dbModellBygger();
-            return dbModellBygger.settInnBestilling(bestilling);
-        }
+        
             
         public List<Bestilling> GetBestillinger()
         {
             var BestillingDAL = new BestillingDAL();
             return BestillingDAL.GetBestillinger();
+        }
+
+
+
+        public bool slettBestilling(int id)
+        {
+            var BestillingDAL = new BestillingDAL();
+            return BestillingDAL.slettBestilling(id);
+        }
+        
+        public Boolean settInnBestilling(Bestilling bestilling)
+        {
+            var dbModellBygger = new dbModellBygger();
+            return dbModellBygger.settInnBestilling(bestilling);
         }
     }
 } 

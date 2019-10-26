@@ -78,6 +78,51 @@ namespace DAL
                 return BestillingerListe;
             }
         }
+        
+        public Bestilling GetBestilling(int id)
+        {            
+            using (var db = new DB())
+            {
+               
+                Bestillinger bestillinger = db.Bestillinger.Find(id);
+                if (bestillinger == null)
+                {
+                    return null;
+                }
+                var Bestilling = new Bestilling
+                {
+                    ID = bestillinger.bestilling_id,
+                    fra = bestillinger.fra,
+                    til = bestillinger.til,
+                    reise_dato = bestillinger.reise_dato,
+                    retur_dato = bestillinger.retur_dato,
+                    bestilling_dato = bestillinger.bestilling_dato
+                };
+                return Bestilling;                              
+            }
+        }
+
+        public bool slettBestilling(int id)
+        {
+            using (var db = new DB())
+            {
+                try
+                {
+                    Bestillinger bestillinger = db.Bestillinger.Find(id);
+                    foreach(Billetter billett in bestillinger.billett_liste)
+                    {
+                        db.Billetter.Remove(billett);
+                    }
+                    db.Bestillinger.Remove(bestillinger);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception feil)
+                {
+                    return false;
+                }
+            }
+        }
 
 
        

@@ -22,8 +22,10 @@ namespace Logger
         }
         public void LoggFeil(string melding)
         {
+    
             string filNavn = string.Format("{0}_{1}.log", "Feil", DateTime.Now.ToShortDateString());
             string loggBane = string.Format(@"{0}\{1}", AppDomain.CurrentDomain.BaseDirectory, filNavn);
+            System.Diagnostics.Debug.WriteLine("Logger i"+ AppDomain.CurrentDomain.BaseDirectory+" "+filNavn);
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(DateTime.Now.ToString());
             sb.AppendLine(melding);

@@ -22,6 +22,19 @@ namespace DAL
                 billett_liste = new List<Billetter>()
             };
 
+            var billetttyperDAL = new BillettTypeDAL();
+            List<BillettType> billettTyper = billetttyperDAL.GetBillettTyper();
+            foreach (Billett b in bestilling.billetter)
+            {
+                foreach(BillettType bt in billettTyper)
+                {
+                    if (bt.billett_type == b.billett_type)
+                    {
+                        bestillinger.total_pris += bt.pris;
+                    }
+                }                 
+            }
+
             foreach (Billett b in bestilling.billetter){
                 var billetter = new Billetter
                 {
