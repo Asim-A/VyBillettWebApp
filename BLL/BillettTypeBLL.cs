@@ -21,5 +21,20 @@ namespace BLL
             return new BillettTypeDAL().SetBilletttyper(BillettTyper);
         }
 
+        public Boolean SetBillettType(BillettType nyBillettType)
+        {
+            return new BillettTypeDAL().NyBillettType(nyBillettType);
+        }
+
+        public Boolean PatchBillettType(BillettType endretBillettType)
+        {
+            return new BillettTypeDAL().PatchBillettType(endretBillettType);
+        }
+
+        public Boolean DeleteBillettType(BillettType slettetBillettType)
+        {
+            return new BillettTypeDAL().DeleteBillettType(slettetBillettType);
+        }
+
     }
 }

@@ -1,0 +1,29 @@
+﻿@model Model.BillettType
+
+<div class="panel panel-default margin-spacing">
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>Billett Type</th>
+                <th>Pris (norske kroner)</th>
+            </tr>
+            <tr>
+                <td>@Model.billett_type</td>
+                <td>@Model.pris</td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <a href="@Url.Action("endre_billett_type", "BillettType", new { id = @Model.billett_type })" class="btn btn-success ">Endre</a>
+            <a href="#modal_delete_container" 
+               id="delete_container"
+               class="btn btn-large btn-danger" 
+               data-detail="@Model.billett_type @Model.pris"
+               data-id="@Model.billett_type" 
+               data-url_delete=""
+               data-toggle="modal" 
+               data-modal_delete="true">Slett</a>
+        </div>
+    </div>
+</div>

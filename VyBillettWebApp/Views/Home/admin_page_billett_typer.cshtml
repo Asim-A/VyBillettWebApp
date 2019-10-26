@@ -1,27 +1,39 @@
-﻿@* MANGLER MODELL *@
+﻿@model List<Model.BillettType>
+
 @{
     ViewBag.Title = "admin_page_billett_typer";
     Layout = "~/Views/Shared/_admin_layout.cshtml";
 }
 
 
-    @Html.Partial("_admin_topnav")
-    <div class="d-flex" id="wrapper">
-        @Html.Partial("_admin_sidenav")
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <h1 class="mt-4">CONTENT</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                    animi modi culpa, explicabo ratione voluptates quod neque nemo
-                    impedit, adipisci, sit officiis laboriosam! Culpa illo molestias
-                    voluptatem reiciendis laborum quidem.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea sed
-                    sequi possimus dolores et deserunt quaerat qui obcaecati. Ducimus
-                    minus voluptates minima ab pariatur corporis a vel rem quae et!
-                </p>
+@Html.Partial("_admin_topnav")
+<div class="d-flex" id="wrapper">
+    @Html.Partial("_admin_sidenav")
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row control-row">
+
+                <div class="col">
+                    <button class="btn btn-primary pull-right">
+                        <i class="fa fa-plus">
+                        </i>
+                    </button>
+                </div>
+
+
             </div>
+            <h1 class="mt-4">Billett Typer:</h1>
+
+
+            @foreach (var billett_type in Model)
+            {
+                @Html.Partial("_admin_liste_billettType", billett_type);
+            }
+
+
+           
         </div>
     </div>
+</div>
+
+@Html.Partial("_modal_delete")

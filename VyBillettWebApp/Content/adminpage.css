@@ -20,7 +20,7 @@ body {
 }
 
 #page-content-wrapper {
-  min-width: 100vw;
+  
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -34,7 +34,8 @@ body {
 
   #page-content-wrapper {
     min-width: 0;
-    width: 100%;
+    width: 40%;
+    margin: 0 auto;
   }
 
   #wrapper.toggled #sidebar-wrapper {
@@ -85,3 +86,12 @@ body {
   to {bottom: 0; opacity: 0;}
 }
 /*SNACKBAR END*/
+
+.control-row {
+    margin-top: 5%;
+
+}
+
+.margin-spacing {
+    margin: 5% 0;
+}

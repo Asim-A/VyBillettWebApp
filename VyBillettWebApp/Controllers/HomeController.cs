@@ -42,10 +42,8 @@ namespace VyBillettWebApp.Controllers
              
 
             }*/
-            List<BillettType> btl=new List<BillettType>();
-            var typeBLL = new BillettTypeBLL();
-            var boo = typeBLL.SetBilletttyper(btl);
-            System.Diagnostics.Debug.WriteLine(boo);
+           
+           
             var bll = new BestillingBLL();
             List <Bestilling> bestillinger = bll.GetBestillinger();
             foreach(Bestilling b in bestillinger)
@@ -62,7 +60,9 @@ namespace VyBillettWebApp.Controllers
 
         public ActionResult admin_page_billett_typer()
         {
-            return View();
+            var liste_billettTyper = new BillettTypeBLL().GetBillettTyper();
+
+            return View(liste_billettTyper);
         }
 
         [HttpPost]

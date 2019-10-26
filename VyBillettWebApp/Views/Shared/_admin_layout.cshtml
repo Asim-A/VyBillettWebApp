@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="~/Content/bootstrap4.min.css" />
     <link href="~/Content/adminpage.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/dependencies/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
 </head>
@@ -16,15 +18,8 @@
 </body>
 </html>
 
-@*@Html.Partial("_admin_topnav")
-<div class="d-flex" id="wrapper">
-    @Html.Partial("_admin_sidenav")
-    @Html.Partial("_admin_content")
-</div>*@
 
-
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/admin-page/adminpage.js"></script>
 <script>
 
     $("#menu-toggle").click(function (e) {
