@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BestillingBLL.cs" />
-    <Compile Include="Billett_TypeBLL.cs" />
+    <Compile Include="BillettTypeBLL.cs" />
     <Compile Include="BrukerBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

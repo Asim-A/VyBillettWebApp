@@ -54,10 +54,10 @@ namespace VyBillettWebApp.Controllers
             if (!(bestillingViewModel.antall_barn.HasValue || bestillingViewModel.antall_studenter.HasValue || bestillingViewModel.antall_voksne.HasValue))
             {
                 return View();
-            }
+            }           
             List<Bestilling> bestillinger_liste = new List<Bestilling>();
             Bestilling bestilling;
-            Boolean BestillingSattInn;
+            Boolean BestillingSattInn = false;
             if (ModelState.IsValid)
             {
                 bestilling = TilDomeneModell(bestillingViewModel);
@@ -65,9 +65,12 @@ namespace VyBillettWebApp.Controllers
                 BestillingSattInn = md.settInnBestilling(TilDomeneModell(bestillingViewModel));
                 bestillinger_liste.Add(bestilling);
             }
-            if ()
-            int id = bestillinger_liste[0].ID;
-            return RedirectToAction("Bestilling_detaljer", new { id = @id });
+            if (BestillingSattInn)
+            {
+                int id = bestillinger_liste[0].ID;
+                return RedirectToAction("Bestilling_detaljer", new { id = @id });
+            }
+            return RedirectToAction("Bestilling_detaljer");
         }
 
         public ActionResult Bestilling_detaljer()
