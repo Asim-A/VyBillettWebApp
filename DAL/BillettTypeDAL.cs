@@ -67,11 +67,13 @@ namespace DAL
         public Boolean NyBillettType(BillettType nyBillettType)
         {
             Boolean succeeded = false;
+            System.Diagnostics.Debug.WriteLine("FIRST ==================");
 
             if (checkValidPrisInput(nyBillettType.pris))
             {
                 using (var db = new DB())
                 {
+                    System.Diagnostics.Debug.WriteLine("SECOND =================="); 
                     Billett_type nyDatabaseBillettType = new Billett_type()
                     {
                         billett_type = nyBillettType.billett_type,
@@ -80,6 +82,7 @@ namespace DAL
 
                     if(!billettTypeExists(db, nyBillettType.billett_type))
                     {
+                        System.Diagnostics.Debug.WriteLine("THRID ==================");
                         db.Billett_typer.Add(nyDatabaseBillettType);
                         db.SaveChanges();
                         succeeded = true;
@@ -177,7 +180,7 @@ namespace DAL
         // Hjelpemetode: pris tillates bare å være 1 eller høyere. Negative verdier er ikke lurt å ha.
         private Boolean checkValidPrisInput(Double pris)
         {
-            return (pris < 1); 
+            return (pris >= 1); 
         }
 
         // Hjelpemetode som 

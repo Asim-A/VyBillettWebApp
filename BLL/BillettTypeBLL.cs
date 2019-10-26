@@ -41,5 +41,10 @@ namespace BLL
             return new BillettTypeDAL().DeleteBillettType(slettetBillettTypeString);
         }
 
+        public Boolean NyBillettType(BillettType nyBillettType)
+        {
+            return new BillettTypeDAL().NyBillettType(nyBillettType);
+        }
+
     }
 }

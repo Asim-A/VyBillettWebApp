@@ -91,6 +91,17 @@ namespace VyBillettWebApp.Controllers
         }
 
         [HttpPost]
+        public void ny_billet_type(BillettType billettType)
+        {
+            var btBLL = new BillettTypeBLL();
+            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
+            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
+            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
+
+            btBLL.NyBillettType(billettType);
+        }
+
+        [HttpPost]
         public ActionResult Index(BestillingViewModel bestillingViewModel)
         {         
             if (!(bestillingViewModel.antall_barn.HasValue || bestillingViewModel.antall_studenter.HasValue || bestillingViewModel.antall_voksne.HasValue))

@@ -3,7 +3,8 @@
 */
 
 $(document).ready(function () {
-    setup_modal_delete_ajax();
+    setup_modal_delete_bt_ajax();
+    setup_modal_add_bt_ajax();
 });
 
 
@@ -15,18 +16,16 @@ $(document).ready(function () {
  * som tar seg av oppdateringen av databasen. 
  * 
 */ 
-function setup_modal_delete_ajax() {
+function setup_modal_delete_bt_ajax() {
 
     // lag en hendelse som utføres når en a-href med "data-SletteModal = true" trykkes.
     $("a[data-modal_delete=true]").click(function() {
-
-        console.log($(this).attr("data-id"));
-
+        var me = $(this);
         // hent inn data-taggene fra denne a-hef lenken
-        const modal_data_detail = $(this).data("detail");
-        const modal_data_id = $(this).data("id");
-        let modal_data_url_self = $(this).data("url_self");
-        let modal_data_url_delete = $(this).data("url_delete");
+        let modal_data_detail = me.data("detail");
+        let modal_data_id = me.data("id");
+        let modal_data_url_self = me.data("url_self");
+        let modal_data_url_delete = me.data("url_delete");
 
         // legg ut dataene i div'en i modal-view'et
         $('#modal_delete_data_detail').html(modal_data_detail);
@@ -37,27 +36,11 @@ function setup_modal_delete_ajax() {
             // id som skal slettes ligger i data_id
             $.ajax({
                 url: "/Home/slett_billett_type",
+                type: "GET",
                 data: { billett_type: modal_data_id },  // en parameter inn i slett(id)-metoden i kunde-kontrolleren (JSON-objekt)
                 success: function () {
-                    // må kalle liste-metoden for å vise den nye listen av kunder
-                    $.ajax({
-                        url: "/Home/get_billett_typer",
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function (liste) {
-                            const container = document.getElementById("component-container");
-                            container.innerHTML = "";
-
-                            console.log(liste[0]["billett_type"] + " " + liste[0]["pris"]);
-
-                            for (let itemIndex = 0; itemIndex < liste.length; itemIndex++) {
-                                console.log(liste[itemIndex]["billett_type"] + " " + liste[itemIndex]["pris"]);
-                                container.appendChild(get_billett_type_partial(liste[itemIndex]["billett_type"], liste[itemIndex]["pris"]));
-                            }
-                        },error: function (x, y, z) {
-                            alert(x + '\n' + y + '\n' + z);
-                        }
-                    });
+                    get_bt();
+                    
                 }, error: function (x, y, z) {
                     alert(x + '\n' + y + '\n' + z);
                 }
@@ -65,6 +48,54 @@ function setup_modal_delete_ajax() {
         })
     })
 
+}
+
+function get_bt() {
+    $.ajax({
+        url: "/Home/get_billett_typer",
+        type: 'GET',
+        dataType: 'json',
+        success: function (liste) {
+            const container = document.getElementById("component-container");
+            container.innerHTML = "";
+
+            for (let itemIndex = 0; itemIndex < liste.length; itemIndex++) {
+                console.log(liste[itemIndex]["billett_type"] + " " + liste[itemIndex]["pris"]);
+                container.appendChild(get_billett_type_partial(liste[itemIndex]["billett_type"], liste[itemIndex]["pris"]));
+            }
+        }, error: function (x, y, z) {
+            alert(x + '\n' + y + '\n' + z);
+        }
+    });
+}
+
+function setup_modal_add_bt_ajax() {
+    $("#leggTilBillettType").click(function () {
+        const bt = document.getElementById("bt_input").value;
+        const bt_pris = document.getElementById("bt_pris_input").value;
+
+        let new_bt = {
+            billett_type: bt,
+            pris: bt_pris
+        }
+
+        if (bt != null && bt_pris != null) {
+            $.ajax({
+                url: "/Home/ny_billet_type",
+                type: "POST",
+                data: JSON.stringify(new_bt),
+                contentType: "application/json;charset=utf-8",
+                success: function (ok) {
+                    console.log(ok);
+                    get_bt();
+
+                }, error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+
+    });
 }
 
 /*
