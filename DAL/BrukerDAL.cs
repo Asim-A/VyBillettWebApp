@@ -73,20 +73,14 @@ namespace DAL
                 {
                     db.Bruker.Add(bruker);
                     db.SaveChanges();
+                    
 
                 }
                 catch (Exception e)
                 {
                     System.Diagnostics.Debug.WriteLine("her kan det skrives til fil kanskje også");
                 }
-                if (db.Bruker.Contains(bruker))
-                {
-                    return true;
-                }
-                else 
-                {
-                    return false;
-                }
+                return true;
 
             }
             

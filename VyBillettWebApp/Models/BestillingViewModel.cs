@@ -14,7 +14,7 @@ namespace VyBillettWebApp.Models
         public string e_postadresse { get; set; }
 
         [Required(ErrorMessage = "vennligst fyll ut felt")]
-        [RegularExpression(@"^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{4,10}$", ErrorMessage = "Passordet må inneholde et tall, stor bokstav, liten bokstav og i tillegg være mellom 4 og 10 tegn")]
+      
         public string passord { get; set; }
 
         [Display(Name = "Reise fra:")]
