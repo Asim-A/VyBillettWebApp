@@ -33,7 +33,7 @@ namespace VyBillettWebApp.Controllers
                     // bruker har riktig passord og email
                     Session["LoggetInn"] = true;
                     System.Diagnostics.Debug.WriteLine("riktig passord og bruker");
-                    return View("../Home/admin_page_billett_typer");
+                    return View("admin_page_billett_typer");
                 }
                 else 
                 {
@@ -60,7 +60,23 @@ namespace VyBillettWebApp.Controllers
 
         }
        
+        public ActionResult admin_page_billett_typer()
+        {
+            if(Session["LoggetInn"] != null)
+            {
+                bool loggetInn = (bool)Session["LoggetInn"];
+                if (loggetInn)
+                {
+                    return View();
+                }
+                else
+                {
+                    return View("../Home/Index");
+                }
 
+            }
+            return View("../Home/Index");
+        }
 
     }
 }

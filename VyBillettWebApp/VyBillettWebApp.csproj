@@ -142,7 +142,7 @@
     <Content Include="Scripts\Pikaday\pikaday.js" />
     <Content Include="Scripts\homepage.js" />
     <Content Include="Scripts\visRetur.js" />
-    <Content Include="Views\Home\admin_page_billett_typer.cshtml" />
+    <Content Include="Views\Admin\admin_page_billett_typer.cshtml" />
     <Content Include="Views\Shared\_modal_delete.cshtml" />
     <Content Include="Views\Shared\_admin_liste_billettType.cshtml" />
     <None Include="Views\Shared\_admin_content.cshtml" />
@@ -188,7 +188,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
