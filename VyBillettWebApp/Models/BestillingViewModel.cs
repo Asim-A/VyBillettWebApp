@@ -16,6 +16,7 @@ namespace VyBillettWebApp.Models
         [Required(ErrorMessage = "vennligst fyll ut felt")]
       
         public string passord { get; set; }
+        public string loginErrorMessage { get; set; }
 
         [Display(Name = "Reise fra:")]
         [Required(ErrorMessage = "Du må velge hvor du skal reise fra")]

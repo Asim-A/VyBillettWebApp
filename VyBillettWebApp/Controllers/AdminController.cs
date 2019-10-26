@@ -32,13 +32,15 @@ namespace VyBillettWebApp.Controllers
                 {
                     // bruker har riktig passord og email
                     System.Diagnostics.Debug.WriteLine("riktig passord og bruker");
-                    return View();
+                    return View("../Home/admin_page_billett_typer");
                 }
                 else 
                 {
                     System.Diagnostics.Debug.WriteLine("riktig email feil passord");
                     // bruker har riktig email men feil passord
-                    return View();
+                    bruker.loginErrorMessage = "feil passord";
+                    
+                    return View("../Home/Index", bruker);
                 };
             }
 
@@ -46,7 +48,8 @@ namespace VyBillettWebApp.Controllers
             {
                 System.Diagnostics.Debug.WriteLine("bruker fins ikke");
                 // bruker har enten tastet feil format eller så fins ikke denne brukeren
-               return View();
+              
+                return View("../Home/Index");
             }
 
 
