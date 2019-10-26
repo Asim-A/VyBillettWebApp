@@ -47,10 +47,11 @@ namespace VyBillettWebApp.Controllers
             if (ModelState.IsValid)
             {
                 bestilling = TilDomeneModell(bestillingViewModel);
-                var md = new BestillingBLL();               
-                md.settInnBestilling(TilDomeneModell(bestillingViewModel));
+                var md = new BestillingBLL();
+                BestillingSattInn = md.settInnBestilling(TilDomeneModell(bestillingViewModel));
                 bestillinger_liste.Add(bestilling);
             }
+            if ()
             int id = bestillinger_liste[0].ID;
             return RedirectToAction("Bestilling_detaljer", new { id = @id });
         }

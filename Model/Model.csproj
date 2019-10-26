@@ -45,6 +45,7 @@
     <Compile Include="Billett.cs" />
     <Compile Include="Bestilling.cs" />
     <Compile Include="Bruker.cs" />
+    <Compile Include="BillettType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
