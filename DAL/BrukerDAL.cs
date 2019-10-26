@@ -46,7 +46,7 @@ namespace DAL
                 if (dbBrukerFunnet.passord.SequenceEqual(ePassord))
                 {
 
-
+                    
                     return true;
                 }
                 else

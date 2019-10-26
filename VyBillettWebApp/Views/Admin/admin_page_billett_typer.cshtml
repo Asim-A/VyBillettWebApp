@@ -1,6 +1,9 @@
 ﻿@model List<Model.BillettType>
 
 @{
+    if (Session["LoggetInn"]==null) {
+        Response.Redirect("../Home/Index");
+    }
     ViewBag.Title = "admin_page_billett_typer";
     Layout = "~/Views/Shared/_admin_layout.cshtml";
 }
@@ -25,10 +28,7 @@
             <h1 class="mt-4">Billett Typer:</h1>
 
             <div id="component-container">
-                @foreach (var billett_type in Model)
-                {
-                    @Html.Partial("_admin_liste_billettType", billett_type);
-                }
+              
             </div>
 
 
