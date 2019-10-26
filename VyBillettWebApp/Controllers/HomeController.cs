@@ -16,7 +16,7 @@ namespace VyBillettWebApp.Controllers
     public class HomeController : Controller
     {
         private ILogger _ILogger;
-        private HomeController()
+        public HomeController()
         {
             _ILogger = Logg.GetInstance;
         }
