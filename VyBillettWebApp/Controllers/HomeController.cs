@@ -7,12 +7,26 @@ using Model;
 using System.Web.Script.Serialization;
 using BLL;
 using VyBillettWebApp.Models;
+using Logger;
+
 
 namespace VyBillettWebApp.Controllers
 {
     
     public class HomeController : Controller
     {
+        private ILogger _ILogger;
+        private HomeController()
+        {
+            _ILogger = Logg.GetInstance;
+        }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            _ILogger.LoggFeil(filterContext.Exception.ToString());
+            filterContext.ExceptionHandled = true;
+            this.View("Error").ExecuteResult(this.ControllerContext);
+        }
         public ActionResult Index()
         {
             var bll = new BestillingBLL();
