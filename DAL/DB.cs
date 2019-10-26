@@ -72,6 +72,7 @@ namespace DAL
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<DB>(null);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
         public virtual DbSet<Bestillinger> Bestillinger { get; set; }
