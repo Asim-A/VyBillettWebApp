@@ -70,11 +70,6 @@ namespace DAL
             Database.SetInitializer(new DBInit());
 
         }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            Database.SetInitializer<DB>(null);
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
         public virtual DbSet<Bestillinger> Bestillinger { get; set; }
         public virtual DbSet<Billetter> Billetter { get; set; }
         public virtual DbSet<Billett_type> Billett_typer { get; set; }
