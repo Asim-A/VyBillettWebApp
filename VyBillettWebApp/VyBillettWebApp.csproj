@@ -140,7 +140,7 @@
     <Content Include="Scripts\dependencies\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Pikaday\pikaday.js" />
-    <Content Include="Scripts\dependencies\homepage.js" />
+    <Content Include="Scripts\homepage.js" />
     <Content Include="Scripts\visRetur.js" />
     <Content Include="Views\Home\admin_page_billett_typer.cshtml" />
     <Content Include="Views\Shared\Modals\_modal_delete.cshtml" />
