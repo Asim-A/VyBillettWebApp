@@ -195,6 +195,10 @@
       <Project>{dc7b05e9-9d55-4a1c-81ad-fa250745a279}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{4dae17d7-0471-43dc-86c2-e5f2b5ec1b55}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{04746f11-e2e1-421e-9027-485748639494}</Project>
       <Name>Model</Name>

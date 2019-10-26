@@ -45,27 +45,5 @@
     <Compile Include="ILogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{dc7b05e9-9d55-4a1c-81ad-fa250745a279}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{df1bb1e8-9a58-4650-83af-5224dca31202}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Enhetstester\Enhetstester.csproj">
-      <Project>{e6126e69-f6f3-482f-8174-6a20c9964caf}</Project>
-      <Name>Enhetstester</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{04746f11-e2e1-421e-9027-485748639494}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VyBillettWebApp\VyBillettWebApp.csproj">
-      <Project>{b161e2be-54b2-40d8-af3a-d7f51d537fda}</Project>
-      <Name>VyBillettWebApp</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
