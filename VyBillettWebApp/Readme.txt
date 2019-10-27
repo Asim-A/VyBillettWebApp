@@ -10,5 +10,5 @@ Vi fikk ikke tid for administrering av admin brukere. For å vise forståelse le
 Det vi også veldig gjerne ville gjøre var å implementere interfacer i DAL for hver modell, som både DAL og stubbene arvet fra. 
 
 Pålogginginformasjon for admin:
-tester1@oslomet.com
-Tester1 
+email: tester1@oslomet.com
+passord: Tester1 
