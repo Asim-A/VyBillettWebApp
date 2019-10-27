@@ -19,13 +19,6 @@ namespace VyBillettWebApp.Controllers
         public HomeController()
         {
             _ILogger = Logg.GetInstance;
-            try
-            {
-                throw new Exception("Test exeption");
-            }catch (Exception e)
-            {
-
-            }
         }
 
         protected override void OnException(ExceptionContext filterContext)

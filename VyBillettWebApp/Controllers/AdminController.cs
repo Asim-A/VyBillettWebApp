@@ -8,12 +8,28 @@ using System.Web.Mvc;
 using VyBillettWebApp.Models;
 using Model;
 using BLL;
+using Logger;
 
 namespace VyBillettWebApp.Controllers
 {
     public class AdminController : Controller
     {
         // GET: Admin
+
+        private ILogger _ILogger;
+        public AdminController()
+        {
+            _ILogger = Logg.GetInstance;
+            testFeil();
+        }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            _ILogger.LoggFeil(filterContext.Exception.ToString());
+            filterContext.ExceptionHandled = true;
+            this.View("Error").ExecuteResult(this.ControllerContext);
+        }
+
         [HttpPost]
         public ActionResult SjekkLogIn(BestillingViewModel bruker)
         {
@@ -77,6 +93,11 @@ namespace VyBillettWebApp.Controllers
 
             }
             return View("../Home/Index");
+        }
+
+        public void testFeil()
+        {
+            throw new InvalidOperationException();
         }
 
     }
