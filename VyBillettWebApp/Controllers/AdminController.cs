@@ -32,6 +32,7 @@ namespace VyBillettWebApp.Controllers
                 {
                     // bruker har riktig passord og email
                     Session["LoggetInn"] = true;
+                    Session["username"] = eAdresse;
                     System.Diagnostics.Debug.WriteLine("riktig passord og bruker");
                     return View("admin_page_billett_typer");
                 }
