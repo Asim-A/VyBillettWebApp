@@ -33,13 +33,17 @@ namespace VyBillettWebApp.Controllers
         [HttpPost]
         public ActionResult SjekkLogIn(BestillingViewModel bruker)
         {
+
+            if(Session["LoggetInn"] != null)
+            {
+                RedirectToAction("admin_page_billett_typer");
+            }
+
             var eAdresse = bruker.e_postadresse;
             var ePassord = bruker.passord;
             List<Bruker> allesammen;
 
             var brukerbll = new BrukerBLL();
-
-            var liste_billettTyper = new BillettTypeBLL().GetBillettTyper();
 
 
             if (brukerbll.IsValidEmail(eAdresse) && brukerbll.eksistererBruker(eAdresse))
@@ -50,7 +54,7 @@ namespace VyBillettWebApp.Controllers
                     Session["LoggetInn"] = true;
                     ViewBag.InnLogget = true;
                     System.Diagnostics.Debug.WriteLine("riktig passord og bruker");
-                    return View("admin_page_billett_typer", liste_billettTyper);
+                    return RedirectToAction("admin_page_billett_typer");
                 }
                 else 
                 {
@@ -79,13 +83,15 @@ namespace VyBillettWebApp.Controllers
        
         public ActionResult admin_page_billett_typer()
         {
-            
+
+            var liste_billettTyper = new BillettTypeBLL().GetBillettTyper();
+
             if (Session["LoggetInn"] != null)
             {
                 bool loggetInn = (bool)Session["LoggetInn"];
                 if (loggetInn)
                 {
-                    return View();
+                    return View(liste_billettTyper);
                 }
                 else
                 {
