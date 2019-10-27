@@ -179,6 +179,7 @@
     <Content Include="Views\Shared\_admin_sidenav.cshtml" />
     <Content Include="Views\Shared\_admin_layout.cshtml" />
     <Content Include="Views\Shared\_modal_add_billettType.cshtml" />
+    <Content Include="Views\Shared\_modal_bt_endre.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
