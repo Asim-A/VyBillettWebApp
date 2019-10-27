@@ -35,7 +35,16 @@ namespace VyBillettWebApp.Controllers
             this.View("Error").ExecuteResult(this.ControllerContext);
         }
         public ActionResult Index()
-        {/*
+        {
+            if (Session["LoggetInn"] == null)
+            {
+                Session["LoggetInn"] = false;
+                ViewBag.InnLogget = false;
+            }
+            else {
+                ViewBag.InnLogget = (bool)Session["LoggetInn"];
+            }
+            /*
             new Model.BillettType
             {
              billett_type

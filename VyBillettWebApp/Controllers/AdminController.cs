@@ -32,7 +32,7 @@ namespace VyBillettWebApp.Controllers
                 {
                     // bruker har riktig passord og email
                     Session["LoggetInn"] = true;
-                    Session["username"] = eAdresse;
+                    ViewBag.InnLogget = true;
                     System.Diagnostics.Debug.WriteLine("riktig passord og bruker");
                     return View("admin_page_billett_typer");
                 }
@@ -41,9 +41,9 @@ namespace VyBillettWebApp.Controllers
                     Session["LoggetInn"] = false;
                     System.Diagnostics.Debug.WriteLine("riktig email feil passord");
                     // bruker har riktig email men feil passord
-                    bruker.loginErrorMessage = "feil passord";
+                    ViewBag.InnLogget = false;
                     
-                    return View("../Home/Index", bruker);
+                    return View("../Home/Index");
                 };
             }
 
@@ -52,7 +52,7 @@ namespace VyBillettWebApp.Controllers
                 Session["LoggetInn"] = false;
                 System.Diagnostics.Debug.WriteLine("bruker fins ikke");
                 // bruker har enten tastet feil format eller så fins ikke denne brukeren
-              
+                ViewBag.InnLogget = false;
                 return View("../Home/Index");
             }
 

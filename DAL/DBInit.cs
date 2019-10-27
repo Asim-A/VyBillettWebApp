@@ -16,7 +16,7 @@ namespace DAL
             {
                 bruker_id = 10,
                 dato = DateTime.Now,
-                e_postadresse = "tester2@oslomet.com",
+                e_postadresse = "tester1@oslomet.com",
                 passord = Encoding.Default.GetBytes("à0m$¼ñk²Çü‰¯?œ¥|fèŠ"),
                 salt = "JQNyws7BdxU="
 

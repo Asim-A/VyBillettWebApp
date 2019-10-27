@@ -253,7 +253,14 @@
         <div class="row rad">
             <div class="form-group">
                 <div class="col-md-10">
+                    @if (ViewBag.InnLogget)
+                    {
+                        <input id="submit_buy_btn" type="submit" value="Kjøp Billett(Logget Inn)" class="btn btn-primary" />
+                    }
+                    else
+                    {
                     <input id="submit_buy_btn" type="submit" value="Kjøp Billett" class="btn btn-primary" />
+                    }
                 </div>
             </div>
         </div>
