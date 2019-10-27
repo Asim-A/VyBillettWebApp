@@ -1,18 +1,14 @@
-Vi har lagd en mappe "Logiskemodeller" den inneholder modeller for klasser som kan brukes i framtiden,
-men den mappen er ikke i bruk i denne oppgaven.
+Vi har satt opp lagdeling per instrukser. Hensikten med lagdeling er at hvert "lag" kaller på funksjoner til lagene under. Dette brukes for å separere ansvar og som konsekvens føre til et mindre avhengig system (loose coupling & high cohesion). 
 
+Slik som oppgaven har lagt det opp, ser arkitekturen slik ut: Prosjekt -> BLL -> DAL -> Model.
+Dette fører til at mesteparten av logikken ligger i DAL og måten man grensesnitter (interfacer) med databatabasen skjer via DAL. Man grensesnitter med DAL gjennom BLL. 
 
-"Utillity"-mappen inneholder to klasser: en for å konstruere objekter som skal bli lagt inn i databasen,
-det vil si at den har en metode for konstruere bestillinger og en annen metode for å konstruere billetter.
-klassen "MappingUtillity" blir brukt til å ha riktig dato-format, få dato nå og noen generelle tidsmetoder
-og til å definere en Dictionary for pris og forskjellige billett-typer.
-Den inneholder også en metode for å få totalpris basert på hvilke type billett det er.
+I denne oppgaven har vi prøvd å sette opp administrasjon på en så virksom måte som mulig. Det mest relevante å implementere var å utføre CRUD operasjoner på billett typer. Dette er et tillegg fra forrige oppgave fordi vi tenkte det mest aktuelt å gjøre noe med. 
 
-Pikaday er en tredjepart JavaScript Datepicker. Den består av følgende mapper og filer
-pikaday er en mappe som inneholder css og et script pikaday.js, dette blir brukt for å gi kunden, 
-en UI for å velge dato.
+Vi fikk ikke tid for administrering av admin brukere. For å vise forståelse legger vi til hvordan vi hadde løst problemstillingen hvis vi hadde annledning: Hatt veldig likt oppsett slik som billett typer sin side. En add knapp som åpner opp en modal der man kan taste inn brukernavn og passord. Ved tastetrykk vil så et ajax post call som kaller på en metode i AdminController. Post callet vil vært av et json objekt der nøkkel/verdi -ene hadde vært epost og passord. I AdminController ville det så bli opprettet en BrukerBLL der "registrerBruker" metoden hadde blitt brukt.
 
-Etter du trykker "kjøp billet" tas du til et nytt view med en QRkode.
-QR-koden inneholder verdien til id-en som kan bli brukt til å aksessere databasen. Hensikten med QR koden er at man ikke trenger å ha et innlogging system.
-Dette er egentlig ikke sikkert, men det gjør at besvarelsen er mer komplett siden da har man "fått billettene".
+Det vi også veldig gjerne ville gjøre var å implementere interfacer i DAL for hver modell, som både DAL og stubbene arvet fra. 
 
+Pålogginginformasjon for admin:
+tester1@oslomet.com
+Tester1 
