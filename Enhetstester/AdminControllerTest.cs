@@ -7,7 +7,7 @@ namespace Enhetstester
     public class AdminControllerTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void SjekkLogIn_Riktig()
         {
 
         }
