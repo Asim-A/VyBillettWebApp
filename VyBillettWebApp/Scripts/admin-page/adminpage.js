@@ -35,7 +35,7 @@ function setup_modal_delete_bt_ajax() {
         $("#modal_delete_btn").click(function () {
             // id som skal slettes ligger i data_id
             $.ajax({
-                url: "/Home/slett_billett_type",
+                url: "/Admin/slett_billett_type",
                 type: "GET",
                 data: { billett_type: modal_data_id },  // en parameter inn i slett(id)-metoden i kunde-kontrolleren (JSON-objekt)
                 success: function () {
@@ -52,17 +52,18 @@ function setup_modal_delete_bt_ajax() {
 
 function get_bt() {
     $.ajax({
-        url: "/Home/get_billett_typer",
+        url: "/Admin/get_billett_typer",
         type: 'GET',
         dataType: 'json',
         success: function (liste) {
-            const container = document.getElementById("component-container");
-            container.innerHTML = "";
+            window.location.reload(true);
+            //const container = document.getElementById("component-container");
+            //container.innerHTML = "";
 
-            for (let itemIndex = 0; itemIndex < liste.length; itemIndex++) {
-                console.log(liste[itemIndex]["billett_type"] + " " + liste[itemIndex]["pris"]);
-                container.appendChild(get_billett_type_partial(liste[itemIndex]["billett_type"], liste[itemIndex]["pris"]));
-            }
+            //for (let itemIndex = 0; itemIndex < liste.length; itemIndex++) {
+            //    console.log(liste[itemIndex]["billett_type"] + " " + liste[itemIndex]["pris"]);
+            //    container.appendChild(get_billett_type_partial(liste[itemIndex]["billett_type"], liste[itemIndex]["pris"]));
+            //}
         }, error: function (x, y, z) {
             alert(x + '\n' + y + '\n' + z);
         }
@@ -81,13 +82,12 @@ function setup_modal_add_bt_ajax() {
 
         if (bt != null && bt_pris != null) {
             $.ajax({
-                url: "/Home/ny_billet_type",
+                url: "/Admin/ny_billet_type",
                 type: "POST",
                 data: JSON.stringify(new_bt),
                 contentType: "application/json;charset=utf-8",
                 success: function (ok) {
-                    console.log(ok);
-                    get_bt();
+                    window.location.reload(true);
 
                 }, error: function (x, y, z) {
                     alert(x + '\n' + y + '\n' + z);

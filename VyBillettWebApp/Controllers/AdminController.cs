@@ -9,6 +9,7 @@ using VyBillettWebApp.Models;
 using Model;
 using BLL;
 using Logger;
+using System.Web.Script.Serialization;
 
 namespace VyBillettWebApp.Controllers
 {
@@ -37,8 +38,8 @@ namespace VyBillettWebApp.Controllers
             List<Bruker> allesammen;
 
             var brukerbll = new BrukerBLL();
-          
 
+            var liste_billettTyper = new BillettTypeBLL().GetBillettTyper();
 
 
             if (brukerbll.IsValidEmail(eAdresse) && brukerbll.eksistererBruker(eAdresse))
@@ -49,7 +50,7 @@ namespace VyBillettWebApp.Controllers
                     Session["LoggetInn"] = true;
                     ViewBag.InnLogget = true;
                     System.Diagnostics.Debug.WriteLine("riktig passord og bruker");
-                    return View("admin_page_billett_typer");
+                    return View("admin_page_billett_typer", liste_billettTyper);
                 }
                 else 
                 {
@@ -78,7 +79,8 @@ namespace VyBillettWebApp.Controllers
        
         public ActionResult admin_page_billett_typer()
         {
-            if(Session["LoggetInn"] != null)
+            
+            if (Session["LoggetInn"] != null)
             {
                 bool loggetInn = (bool)Session["LoggetInn"];
                 if (loggetInn)
@@ -92,6 +94,50 @@ namespace VyBillettWebApp.Controllers
 
             }
             return View("../Home/Index");
+        }
+
+
+        //public ActionResult admin_page_billett_typer()
+        //{
+        //    var liste_billettTyper = new BillettTypeBLL().GetBillettTyper();
+        //    System.Diagnostics.Debug.WriteLine("AHAHHAHAHA");
+        //    return View(liste_billettTyper);
+        //}
+
+
+        public string get_billett_typer()
+        {
+            List<BillettType> liste_billett_typer = new BillettTypeBLL().GetBillettTyper();
+
+            foreach (var i in liste_billett_typer)
+            {
+                System.Diagnostics.Debug.WriteLine("LOG: " + i.billett_type + " " + i.pris);
+            }
+
+            var jsonSerializer = new JavaScriptSerializer();
+            string json = jsonSerializer.Serialize(liste_billett_typer);
+            System.Diagnostics.Debug.WriteLine(json);
+            return json;
+        }
+
+        [HttpGet]
+        public void slett_billett_type(string billett_type)
+        {
+
+            var btBLL = new BillettTypeBLL();
+            if (btBLL.DeleteBillettType(billett_type)) { }
+            else System.Diagnostics.Debug.WriteLine("FANT IKKE BILLETTTYPEN");
+        }
+
+        [HttpPost]
+        public void ny_billet_type(BillettType billettType)
+        {
+            var btBLL = new BillettTypeBLL();
+            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
+            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
+            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
+
+            btBLL.NyBillettType(billettType);
         }
 
 
