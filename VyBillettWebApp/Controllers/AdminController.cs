@@ -20,7 +20,6 @@ namespace VyBillettWebApp.Controllers
         public AdminController()
         {
             _ILogger = Logg.GetInstance;
-            testFeil();
         }
 
         protected override void OnException(ExceptionContext filterContext)
@@ -95,10 +94,6 @@ namespace VyBillettWebApp.Controllers
             return View("../Home/Index");
         }
 
-        public void testFeil()
-        {
-            throw new InvalidOperationException();
-        }
 
     }
 }
