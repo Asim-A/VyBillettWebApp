@@ -4,11 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Enhetstester
 {
     [TestClass]
-    public class UnitTest1
+    public class AdminControllerTest
     {
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
