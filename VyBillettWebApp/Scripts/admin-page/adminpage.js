@@ -6,6 +6,7 @@ $(document).ready(function () {
     setup_modal_delete_bt_ajax();
     setup_modal_add_bt_ajax();
     setup_modal_endre_bt_ajax();
+    setup_slett_bestilling_ajax();
 });
 
 
@@ -50,6 +51,26 @@ function setup_modal_delete_bt_ajax() {
         })
     })
 
+}
+
+function setup_slett_bestilling_ajax() {
+    $("a[data-bestilling").click(function () {
+
+        var me = $(this);
+        let del_id = me.data("id");
+
+        $.ajax({
+            url: "/Admin/slett_bestilling",
+            type: "GET",
+            data: { id: del_id },
+            success: function () {
+                window.location.reload();
+            }, error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+
+    });
 }
 
 function setup_modal_endre_bt_ajax() {
