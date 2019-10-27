@@ -42,7 +42,7 @@ namespace VyBillettWebApp.Controllers
                 ViewBag.InnLogget = false;
             }
             else {
-                ViewBag.InnLogget = (bool)Session["LoggetInn"];
+                ViewBag.InnLogget = Session["LoggetInn"];
             }
             /*
             new Model.BillettType
