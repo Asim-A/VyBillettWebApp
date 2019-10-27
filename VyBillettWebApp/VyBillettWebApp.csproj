@@ -145,6 +145,7 @@
     <Content Include="Views\Admin\admin_page_billett_typer.cshtml" />
     <Content Include="Views\Shared\_modal_delete.cshtml" />
     <Content Include="Views\Shared\_admin_liste_billettType.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Views\Shared\_admin_content.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
