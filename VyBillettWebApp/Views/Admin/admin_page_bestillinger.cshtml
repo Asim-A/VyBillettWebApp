@@ -1,0 +1,43 @@
+﻿@model List<Model.Bestilling>
+
+@{
+    if (Session["LoggetInn"] == null)
+    {
+        Response.Redirect("../Home/Index");
+    }
+    ViewBag.Title = "admin_page_bestilling";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+@Html.Partial("_admin_topnav")
+<div class="d-flex" id="wrapper">
+    @Html.Partial("_admin_sidenav")
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row control-row">
+
+                <div class="col">
+                    <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalAdd">
+                        <i class="fa fa-plus">
+                        </i>
+                    </button>
+                </div>
+
+
+            </div>
+            <h1 class="mt-4">Billett Typer:</h1>
+
+            <div id="component-container">
+
+                @foreach (var bestilling in Model)
+                {
+                    @Html.Partial("_admin_liste_billettType", bestilling);
+                }
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

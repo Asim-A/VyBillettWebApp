@@ -135,7 +135,8 @@ namespace VyBillettWebApp.Controllers
         [HttpGet]
         public ActionResult Liste()
         {
-            return null;
+            List<Bestilling> bestillinger = new BestillingBLL().GetBestillinger();
+            return View(bestillinger);
         }
             /*
                 if (bestillingViewModel.retur_dato.HasValue)
