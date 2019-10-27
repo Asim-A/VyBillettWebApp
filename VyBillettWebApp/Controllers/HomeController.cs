@@ -29,7 +29,9 @@ namespace VyBillettWebApp.Controllers
         }
         public ActionResult Index()
         {
-            
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
             if (Session["LoggetInn"] == null)
             {
                 
