@@ -13,7 +13,14 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Logg inn</h4>
+                                @if (ViewBag.InnLogget == true)
+                                {
+                                    <h4 class="modal-title">Logget inn, bytt bruker</h4>
+                                }
+                                else
+                                {
+                                    <h4 class="modal-title">Logg inn</h4>
+                                }
                             </div>
                             <div class="modal-body">
                                 <!--Innloggingsskjema-->

@@ -120,6 +120,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="libman.json" />
     <Content Include="Models\stasjoner.json" />
+    <None Include="Properties\PublishProfiles\VyBillettWebApp20191027094147 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\VyBillettWebApp20191027112242 - Web Deploy.pubxml" />
     <None Include="Scripts\dependencies\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\admin-page\adminpage.js" />
     <Content Include="Scripts\bestilling_detalje_page.js" />
@@ -193,7 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

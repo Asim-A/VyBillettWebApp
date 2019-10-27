@@ -170,6 +170,11 @@ namespace VyBillettWebApp.Controllers
             {
             }
         }
+        public ActionResult loggUt() {
+            Session["LoggetInn"] = false;
+            return View("../Home/Index");
+
+        }
 
 
     }
