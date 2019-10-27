@@ -151,7 +151,17 @@ namespace VyBillettWebApp.Controllers
 
             var btBLL = new BillettTypeBLL();
             if (btBLL.DeleteBillettType(billett_type)) { }
-            else System.Diagnostics.Debug.WriteLine("FANT IKKE BILLETTTYPEN");
+        }
+
+        [HttpGet]
+        public void slett_bestilling(int id)
+        {
+            var bll = new BestillingBLL();
+
+            if (bll.slettBestilling(id)) {
+                System.Diagnostics.Debug.WriteLine("============GÅR===========");
+            }
+
         }
 
         [HttpPost]
