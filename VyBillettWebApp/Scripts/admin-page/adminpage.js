@@ -54,7 +54,7 @@ function setup_modal_delete_bt_ajax() {
 }
 
 function setup_slett_bestilling_ajax() {
-    $("a[data-bestilling").click(function () {
+    $("a[data-bestilling=true").click(function () {
 
         var me = $(this);
         let del_id = me.data("id");
