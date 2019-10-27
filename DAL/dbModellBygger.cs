@@ -11,6 +11,8 @@ namespace DAL
     {
         public Boolean settInnBestilling(Bestilling bestilling)
         {
+            System.Diagnostics.Debug.WriteLine("dbModellBygger ");
+
             var bestillinger = new Bestillinger
             {
                 fra = bestilling.fra,
@@ -53,7 +55,10 @@ namespace DAL
                 db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
 
                 db.Bestillinger.Add(bestillinger);
-                db.SaveChanges();
+             
+
+                db.SaveChanges();   
+                db.Database.Log = Console.WriteLine;
                 return true;
             }
             catch (Exception feil)
