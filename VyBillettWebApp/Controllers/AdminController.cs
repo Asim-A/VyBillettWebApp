@@ -31,7 +31,7 @@ namespace VyBillettWebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult SjekkLogIn(BestillingViewModel bruker)
+        public ActionResult SjekkLogIn(BrukerViewModel bruker)
         {
 
             if(Session["LoggetInn"] != null)
