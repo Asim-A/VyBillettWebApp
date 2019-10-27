@@ -5,6 +5,7 @@
 $(document).ready(function () {
     setup_modal_delete_bt_ajax();
     setup_modal_add_bt_ajax();
+    setup_modal_endre_bt_ajax();
 });
 
 
@@ -39,7 +40,8 @@ function setup_modal_delete_bt_ajax() {
                 type: "GET",
                 data: { billett_type: modal_data_id },  // en parameter inn i slett(id)-metoden i kunde-kontrolleren (JSON-objekt)
                 success: function () {
-                    get_bt();
+                    //get_bt();
+                    window.location.reload();
                     
                 }, error: function (x, y, z) {
                     alert(x + '\n' + y + '\n' + z);
@@ -50,13 +52,47 @@ function setup_modal_delete_bt_ajax() {
 
 }
 
+function setup_modal_endre_bt_ajax() {
+    $("a[data-modal_endre=true]").click(function () {
+        var me = $(this);
+
+        let modal_id = me.data("id");
+
+        $("#modal_endre_btn").click(function () {
+
+            let ny_pris = document.getElementById("bt_nyPris_input").value;
+            if (ny_pris < 1) ny_pris = 30 //standard
+
+            let endret_bt = {
+                billett_type: modal_id,
+                pris: ny_pris
+            }
+
+            $.ajax({
+                url: "/Admin/endre_billett_pris",
+                type: "POST",
+                data: JSON.stringify(endret_bt),
+                contentType: "application/json;charset=utf-8",
+                success: function (ok) {
+                    window.location.reload();
+                }, error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+
+            })
+
+        });
+
+    });
+}
+
 function get_bt() {
     $.ajax({
         url: "/Admin/get_billett_typer",
         type: 'GET',
         dataType: 'json',
         success: function (liste) {
-            window.location.reload(true);
+            window.location.reload();
             //const container = document.getElementById("component-container");
             //container.innerHTML = "";
 
@@ -116,6 +152,13 @@ function setup_snackbar(message="Vellykket", timeout=3000) {
     );
 
 }
+
+/**
+ * Den funker men skal ikke brukes fordi vi implementerte sessions sent og det betydde at vi hadde problemer med å bruke denne
+ * man må refreshe hver gang en CRUD operasjon skjer.
+ * @param String billett_type
+ * @param Number pris
+ */
 
 function get_billett_type_partial(billett_type, pris) {
 

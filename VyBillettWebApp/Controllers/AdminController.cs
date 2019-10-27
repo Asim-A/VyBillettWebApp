@@ -146,6 +146,16 @@ namespace VyBillettWebApp.Controllers
             btBLL.NyBillettType(billettType);
         }
 
+        [HttpPost]
+        public void endre_billett_pris(BillettType endret_bt)
+        {
+            var btBLL = new BillettTypeBLL();
+            if (btBLL.PatchBillettType(endret_bt))
+            {
+                System.Diagnostics.Debug.WriteLine("ENDRET BILLETTTYPE: " + " " + endret_bt.billett_type + " " + endret_bt.pris);
+            }
+        }
+
 
     }
 }

@@ -15,7 +15,13 @@
     </div>
     <div class="panel-footer clearfix">
         <div class="pull-right">
-            <a href="@Url.Action("endre_billett_type", "BillettType", new { id = @Model.billett_type })" class="btn btn-success ">Endre</a>
+            <a href="#modal_endre_container"
+               id="endre_container"
+               class="btn btn-success "
+               data-id="@Model.billett_type"
+               data-toggle="modal"
+               data-modal_endre="true"
+               >Endre</a>
             <a href="#modal_delete_container" 
                id="delete_container"
                class="btn btn-large btn-danger" 
