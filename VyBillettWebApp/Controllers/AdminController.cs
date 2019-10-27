@@ -102,6 +102,25 @@ namespace VyBillettWebApp.Controllers
             return View("../Home/Index");
         }
 
+        public ActionResult admin_page_bestillinger()
+        {
+            var liste_bestilling = new BestillingBLL().GetBestillinger();
+            if (Session["LoggetInn"] != null)
+            {
+                bool loggetInn = (bool)Session["LoggetInn"];
+                if (loggetInn)
+                {
+                    return View(liste_bestilling);
+                }
+                else
+                {
+                    return View("../Home/Index");
+                }
+
+            }
+            return View("../Home/Index");
+        }
+
 
         //public ActionResult admin_page_billett_typer()
         //{
@@ -139,9 +158,6 @@ namespace VyBillettWebApp.Controllers
         public void ny_billet_type(BillettType billettType)
         {
             var btBLL = new BillettTypeBLL();
-            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
-            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
-            System.Diagnostics.Debug.WriteLine("NY BILLETTTYPE: " + " " + billettType.billett_type + " " + billettType.pris);
 
             btBLL.NyBillettType(billettType);
         }
@@ -152,7 +168,6 @@ namespace VyBillettWebApp.Controllers
             var btBLL = new BillettTypeBLL();
             if (btBLL.PatchBillettType(endret_bt))
             {
-                System.Diagnostics.Debug.WriteLine("ENDRET BILLETTTYPE: " + " " + endret_bt.billett_type + " " + endret_bt.pris);
             }
         }
 

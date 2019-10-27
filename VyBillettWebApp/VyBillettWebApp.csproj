@@ -181,6 +181,7 @@
     <Content Include="Views\Shared\_admin_layout.cshtml" />
     <Content Include="Views\Shared\_modal_add_billettType.cshtml" />
     <Content Include="Views\Shared\_modal_bt_endre.cshtml" />
+    <Content Include="Views\Shared\_admin_liste_bestilling.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

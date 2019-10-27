@@ -16,22 +16,14 @@
         <div class="container-fluid">
             <div class="row control-row">
 
-                <div class="col">
-                    <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalAdd">
-                        <i class="fa fa-plus">
-                        </i>
-                    </button>
-                </div>
-
-
             </div>
-            <h1 class="mt-4">Billett Typer:</h1>
+            <h1 class="mt-4">Bestillinger:</h1>
 
             <div id="component-container">
 
                 @foreach (var bestilling in Model)
                 {
-                    @Html.Partial("_admin_liste_billettType", bestilling);
+                    @Html.Partial("_admin_liste_bestilling", bestilling);
                 }
 
 

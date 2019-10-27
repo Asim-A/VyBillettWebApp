@@ -1,0 +1,34 @@
+﻿@model Model.Bestilling
+
+<div class="panel panel-default margin-spacing">
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Fra</th>
+                <th>Til</th>
+                <th>Reise Dato</th>
+                <th>Retur Dato</th>
+            </tr>
+            <tr>
+                <td>@Model.ID</td>
+                <td>@Model.fra</td>
+                <td>@Model.til</td>
+                <td>@Model.reise_dato</td>
+                <td>@Model.retur_dato</td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">    
+            <a href="#modal_delete_container_bestilling"
+               id="delete_container"
+               class="btn btn-large btn-danger"
+               data-detail="@Model.ID @Model.fra @Model.til @Model.reise_dato @Model.retur_dato"
+               data-id="@Model.ID"
+               data-toggle="modal"
+               data-modal_delete="true">Slett</a>
+        </div>
+    </div>
+</div>

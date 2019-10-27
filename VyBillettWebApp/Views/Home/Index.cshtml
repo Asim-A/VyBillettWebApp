@@ -13,8 +13,9 @@
 
 <div class="container-fluid">
     <!--Innlogging-->
-    
 
+
+    @using (Html.BeginForm("SjekkLogIn", "Admin", FormMethod.Post, new { }))
     {
         <div class="container">
             <div class="row">
@@ -49,7 +50,7 @@
                                                 @Html.EditorFor(model => model.passord, new { htmlAttributes = new { @class = "form-control" } })
                                                 @Html.ValidationMessageFor(model => model.passord, "", new { @class = "text-danger" })
                                                 <td colspan="2">
-                                                    <label class="feilmelding">@Html.DisplayFor(model=>model.loginErrorMessage)</label>
+                                                    <label class="feilmelding">@Html.DisplayFor(model => model.loginErrorMessage)</label>
                                                 </td>
                                             </div>
                                         </div>
@@ -71,7 +72,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2 id="header">
-                Hei, hvor vil du reise? 
+                Hei, hvor vil du reise?
             </h2>
         </div>
     </div>
@@ -254,13 +255,13 @@
         <div class="row rad">
             <div class="form-group">
                 <div class="col-md-10">
-                    @if (ViewBag.InnLogget==true)
+                    @if (ViewBag.InnLogget == true)
                     {
                         <input id="submit_buy_btn" type="submit" value="Kjøp Billett(Logget Inn)" class="btn btn-primary" />
                     }
                     else
                     {
-                    <input id="submit_buy_btn" type="submit" value="Kjøp Billett" class="btn btn-primary" />
+                        <input id="submit_buy_btn" type="submit" value="Kjøp Billett" class="btn btn-primary" />
                     }
                 </div>
             </div>
