@@ -255,3 +255,12 @@ margin-left:48%;
     font-size: medium;
     color:red;
 }
+
+
+
+#submit_buy_btn {
+    width: 345px;
+    text-align: center;
+    margin-right: -2%;
+    font-size: 28px;
+}
