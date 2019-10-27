@@ -26,21 +26,6 @@ namespace DAL
                         bestilling_dato = b.bestilling_dato
                     }).ToList();
 
-
-
-                    //TEST///
-                    System.Diagnostics.Debug.WriteLine("Billetter på bestillling før");
-                    foreach (Bestilling b in BestillingerListe)
-                    {
-                        if (b.billetter != null)
-                            System.Diagnostics.Debug.WriteLine("Liste størrelse " + b.billetter.Count);
-                        else
-                            System.Diagnostics.Debug.WriteLine("liste ikke instansiert");
-
-                    }
-                    ///TEST//
-
-
                     List<Billett> billetter = db.Billetter.Select(b => new Billett()
                     {
                         billett_id = b.billett_id,
@@ -69,14 +54,6 @@ namespace DAL
                         }
                     }
 
-                    ///TEST
-                    System.Diagnostics.Debug.WriteLine("Billetter på bestillling etter");
-                    foreach (Bestilling b in BestillingerListe)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Liste størrelse " + b.billetter.Count);
-                    }
-                    db.SaveChanges();
-                    ///TEST              
                     return BestillingerListe;
                 } catch (Exception e)
                 {
@@ -112,8 +89,10 @@ namespace DAL
         {
             using (var db = new DB())
             {
+                
                 try
                 {
+                    db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
                     Bestillinger bestillinger = db.Bestillinger.Find(id);
                     foreach(Billetter billett in bestillinger.billett_liste)
                     {
@@ -121,6 +100,7 @@ namespace DAL
                     }
                     db.Bestillinger.Remove(bestillinger);
                     db.SaveChanges();
+                    db.Database.Log = Console.Write;
                     return true;
                 }
                 catch (Exception feil)
