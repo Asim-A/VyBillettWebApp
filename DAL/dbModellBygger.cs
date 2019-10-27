@@ -52,7 +52,7 @@ namespace DAL
             try
             {
                 DB db = new DB();
-                db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
+               // db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
 
                 db.Bestillinger.Add(bestillinger);
              
