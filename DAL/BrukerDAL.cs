@@ -29,6 +29,8 @@ namespace DAL
             byte[] saltIByte;
             using (var db = new DB())
             {
+                db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
+
                 Bruker dbBrukerFunnet = db.Bruker.FirstOrDefault(brk => brk.e_postadresse == eAdresse);
 
                 salt = dbBrukerFunnet.salt;
@@ -71,6 +73,8 @@ namespace DAL
             {
                 try
                 {
+                    db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
+
                     db.Bruker.Add(bruker);
                     db.SaveChanges();
                     

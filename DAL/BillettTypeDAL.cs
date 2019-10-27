@@ -35,10 +35,12 @@ namespace DAL
             {
                 try
                 {                    
+
                     foreach (var entity in db.Billett_typer)
                         db.Billett_typer.Remove(entity);
 
                     var list_billett_typer = new List<Billett_type>();
+                    db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
 
                     foreach (var billetttype in billettTyper)
                     {
@@ -50,6 +52,8 @@ namespace DAL
                     }
                     db.Billett_typer.AddRange(list_billett_typer);
                     db.SaveChanges();
+                    db.Database.Log = Console.Write;
+
                     return true;
                 }  catch (Exception e)
                 {
@@ -73,6 +77,8 @@ namespace DAL
             {
                 using (var db = new DB())
                 {
+                    db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
+
                     System.Diagnostics.Debug.WriteLine("SECOND =================="); 
                     Billett_type nyDatabaseBillettType = new Billett_type()
                     {
@@ -86,6 +92,8 @@ namespace DAL
                         db.Billett_typer.Add(nyDatabaseBillettType);
                         db.SaveChanges();
                         succeeded = true;
+                        db.Database.Log = Console.Write;
+
                     }
 
                 }
@@ -137,7 +145,9 @@ namespace DAL
 
             using (var db = new DB())
             {
-                if(!billettTypeExists(db, slettetBillettType.billett_type))
+                db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
+
+                if (!billettTypeExists(db, slettetBillettType.billett_type))
                 {
                     Billett_type slettetDBBilettType = new Billett_type()
                     {
@@ -146,6 +156,8 @@ namespace DAL
                     };
                     db.Billett_typer.Remove(slettetDBBilettType);
                     db.SaveChanges();
+                    db.Database.Log = Console.Write;
+
                     succeeded = true;
                 }
             }
@@ -160,6 +172,8 @@ namespace DAL
 
             using (var db = new DB())
             {
+                db.Database.Log = logInfo => DBChangesLogger.Log(logInfo);
+
                 System.Diagnostics.Debug.WriteLine("ACCESS DB I DELETE =================");
                 if (billettTypeExists(db, slettetBillettTypeString))
                 {
@@ -170,6 +184,8 @@ namespace DAL
                     db.SaveChanges();
                     System.Diagnostics.Debug.WriteLine("finnes 3");
                     succeeded = true;
+                    db.Database.Log = Console.Write;
+
                 }
                 else System.Diagnostics.Debug.WriteLine("FUNKA IKKE I DELETE =================");
             }
