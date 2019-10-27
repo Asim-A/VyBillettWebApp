@@ -27,9 +27,10 @@ namespace Logger
             string loggBane = string.Format(@"{0}\{1}", AppDomain.CurrentDomain.BaseDirectory, filNavn);
             System.Diagnostics.Debug.WriteLine("Logger i"+ AppDomain.CurrentDomain.BaseDirectory+" "+filNavn);
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine("----------------------------------------");
             sb.AppendLine(DateTime.Now.ToString());
             sb.AppendLine(melding);
-            using(StreamWriter writer = new StreamWriter(loggBane, true))
+            using(StreamWriter writer = new StreamWriter(loggBane, false))
             {
                 writer.Write(sb.ToString());
                 writer.Flush();
