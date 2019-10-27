@@ -32,12 +32,12 @@ namespace VyBillettWebApp.Controllers
             
             if (Session["LoggetInn"] == null)
             {
-                System.Diagnostics.Debug.WriteLine("session er null mannen");
+                
                 Session["LoggetInn"] = false;
                 ViewBag.InnLogget = false;
             }
             else {
-                System.Diagnostics.Debug.WriteLine("ikke null mannen");
+              
                 ViewBag.InnLogget = Session["LoggetInn"];
             }
             /*
