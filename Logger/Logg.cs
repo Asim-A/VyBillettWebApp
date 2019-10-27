@@ -30,11 +30,25 @@ namespace Logger
             sb.AppendLine("----------------------------------------");
             sb.AppendLine(DateTime.Now.ToString());
             sb.AppendLine(melding);
-            using(StreamWriter writer = new StreamWriter(loggBane, false))
+
+            if (File.Exists(loggBane))
             {
-                writer.Write(sb.ToString());
-                writer.Flush();
+                using(StreamWriter writer = new StreamWriter(loggBane, true))
+                {
+                    writer.Write(sb.ToString());
+                    writer.Flush();
+                }
             }
+            else
+            {
+                using(StreamWriter writer = new StreamWriter(loggBane, false))
+                {
+                    writer.Write(sb.ToString());
+                    writer.Flush();
+                }
+            }
+            
+
         }
     }
 }
